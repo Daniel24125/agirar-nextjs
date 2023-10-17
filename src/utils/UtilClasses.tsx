@@ -1,0 +1,1 @@
+export const getMaxWidthClasses : string = "w-screen max-w-7xl "

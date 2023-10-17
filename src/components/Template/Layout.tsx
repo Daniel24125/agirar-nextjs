@@ -1,16 +1,17 @@
 import React from 'react'
 import Nav from './Nav'
+import Footer from './Footer'
 
 const Layout = ({
   children
 }:{children: React.ReactNode}) => {
 
   
-  return (
-    <div className=''>
+  return (<>
       <Nav/>
       {children}
-    </div>
+      <Footer/>
+  </>
   )
 }
 

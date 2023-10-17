@@ -73,3 +73,27 @@
   body 
     @apply bg-background text-foreground
   
+
+  .midHomeRect
+    &::before
+      content: ""
+      width: 260px
+      height: 260px
+      border-top: solid 5px #FF985E
+      border-right: solid 5px #FF985E
+      position: absolute
+      right: -20px
+      top: -20px
+      border-top-right-radius: 20px
+      z-index: 1
+    &::after
+      content: ""
+      width: 260px
+      height: 260px
+      border-bottom: solid 5px #73B8F8
+      border-left: solid 5px #73B8F8
+      position: absolute
+      left: -20px
+      bottom: -20px
+      border-bottom-left-radius: 20px
+      z-index: 1

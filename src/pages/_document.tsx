@@ -11,8 +11,10 @@ export default function Document() {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6c5ce7"/>
         <meta name="msapplication-TileColor" content="#6c5ce7"/>
         <meta name="theme-color" content="#ffffff"/>
+        <meta name="description" content="Associação de Familiares e Amigos de Pessoas com Psicose" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <body>
+      <body className=' overflow-x-hidden'>
         <Main />
         <NextScript />
       </body>
