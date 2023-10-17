@@ -111,6 +111,7 @@ const Events = ()=>{
         {events.map(e=>{
  
           return <div 
+            key={e.id}
           onClick={()=>setSelectedEvent(e)}
           style={{
             backgroundImage: `url("${e.img}")`,
