@@ -10,7 +10,7 @@ const Nav = () => {
     
     return (
         <nav className='flex justify-center '>
-            <div className={`${getMaxWidthClasses} flex justify-between items-center  h-16`}>
+            <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center  h-16`}>
                 <Logo/>
                 <div className='flex'>
                     <Button onClick={()=>push("/sobre")} variant="link">Sobre Nós</Button>
