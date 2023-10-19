@@ -111,7 +111,7 @@ const Partners = () => {
             <p className='text-xl lg:text-3xl max-w-md text-center font-bold'>Com os nossos parceiros, tudo é mais fácil</p>
             <div className="flex flex-wrap justify-center w-full p-10 bg-white items-center rounded-2xl mt-20 gap-4">
                 {getPartners.map((p: TPartner)=>{
-                    return <a  href={p.href} target="_blank">
+                    return <a key={p.href} href={p.href} target="_blank">
                         <img className=' h-10 lg:h-16 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
                     </a>
                 })}
