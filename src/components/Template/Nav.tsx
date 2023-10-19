@@ -58,7 +58,7 @@ const MenuBtn = ()=>{
 const NavBtns = ({
     onClick
 }:{
-    onClick: any
+    onClick?: any
 })=>{
     const {push, asPath} = useRouter()
     return <>
