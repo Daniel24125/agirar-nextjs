@@ -12,7 +12,7 @@ const Contactos = () => {
 
 const HeaderContactos = ()=>{
   return <section className={`${getSectionClass} h-[50vh] justify-center`}>
-     <div className="flex flex-col relative text-center text-5xl font-bold items-center ">
+     <div className="flex flex-col relative text-center w-[90vw] sm:w-auto text-xl md:text-3xl lg:text-5xl font-bold items-center ">
       <DotVector
       />
       <h2>Pode sempre contar com a nossa ajuda</h2>
@@ -30,9 +30,9 @@ const HeaderContactos = ()=>{
 
 const ContactSection = ()=>{
   return <section className={`${getSectionClass}`}>
-    <div className={`flex justify-evenly ${getMaxWidthClasses} pb-32`}>
+    <div className={`flex justify-evenly ${getMaxWidthClasses} pb-32 flex-wrap px-5`}>
       
-      <div className="flex flex-col border rounded-lg w-80 h-72 p-6">
+      <div className="flex flex-col border rounded-lg w-80 h-72 p-6 mb-5">
         <div className=' w-12 h-12 flex justify-center items-center border rounded-lg  mb-12'>
           <Mail/>
         </div>
@@ -41,7 +41,7 @@ const ContactSection = ()=>{
         <p className='font-medium w-full text-right text-primary mt-12'>agirar.2013@gmail.com</p>
       </div>
       
-      <div className="flex flex-col border rounded-lg w-80 p-6">
+      <div className="flex flex-col border rounded-lg w-80 p-6 mb-5">
         <div className=' w-12 h-12 flex justify-center items-center border rounded-lg  mb-12'>
           <Phone/>
         </div>
@@ -50,7 +50,7 @@ const ContactSection = ()=>{
         <p className='font-medium w-full text-right text-primary mt-12'>912 353 788</p>
       </div>
 
-      <div className="flex flex-col border rounded-lg w-80 p-6">
+      <div className="flex flex-col border rounded-lg w-80 p-6 mb-5">
         <div className=' w-12 h-12 flex justify-center items-center border rounded-lg mb-12'>
           <MapPin/>
         </div>

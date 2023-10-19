@@ -57,10 +57,10 @@ const HeaderLandingPage = ()=>{
         <Image className=' z-10' src={Person} alt="person" />
       </div>
 
-      <div className='flex flex-col max-w-xs items-end justify-end pb-28 mt-20 lg:h-full lg:mt-0 '>
-          <div className='relative'>
+      <div className='flex flex-col w-4/6 max-w-xs items-end justify-end pb-28 mt-20 lg:h-full lg:mt-0 '>
+          <div className='relative '>
             <DotVector />
-            <p>
+            <p className='text-xs  sm:text-base '>
               Pode contar com o nosso apoio
               através de diferentes técnicas terapeuticas
             </p>
@@ -76,7 +76,7 @@ const HeaderLandingPage = ()=>{
 const Objectives = ()=>{
   const {push} = useRouter()
 
-  return <section className={`${getSectionClass} h-screen gap-5 justify-center`}>
+  return <section className={`${getSectionClass} h-screen gap-5 justify-center px-5`}>
      <DecorationGeometry 
       color="orange"
       size="w-44 h-64"
@@ -89,7 +89,7 @@ const Objectives = ()=>{
       position="absolute bottom-10 left-0"
       borderRadius="rounded-tr-3xl rounded-br-3xl"
     />
-    <p className='w-[clamp(300px,90vw,550px)] text-center text-xl'>
+    <p className='w-[clamp(300px,90vw,550px)] text-center text-base sm:text-xl'>
     Os principais objetivos da AGIRAR são promover a 
     <span className=' text-primary font-bold'> reabilitação e integração social de pessoas com doença 
     mental grave </span>e <span className='font-bold text-orange-400'> dar apoio às suas famílias </span>, assim como 
@@ -114,15 +114,13 @@ const Events = ()=>{
         scrollRef.current.offsetWidth > scrollRef.current.offsetHeight ? "horizontal": "vertical"
       )
   }
-
+  
   React.useEffect(()=>{
     if(scrollRef.current) updateScrollOrientation()
   },[scrollRef.current])
 
-  React.useEffect(()=>{
-    window.addEventListener('resize', ()=>{
-      updateScrollOrientation()
-    });
+React.useEffect(()=>{
+    window.addEventListener('resize', updateScrollOrientation);
     return () => window.removeEventListener('resize', updateScrollOrientation);
   },[])
   
@@ -185,22 +183,21 @@ const Events = ()=>{
 }
 
 const Donation = ()=>{
-  return <section className={`${getSectionClass} justify-center`}>
-    <div className={`${getMaxWidthClasses} bg-[#E8F4FF] h-[450px] my-12 rounded-3xl overflow-hidden flex`}>
+  return <section className={`${getSectionClass} justify-center px-5`}>
+    <div className={`${getMaxWidthClasses} bg-[#E8F4FF] h-[450px] my-12 rounded-3xl overflow-hidden flex `}>
       <img 
         src="/donate.png"
         alt="donation"
-        className=' -ml-40'
+        className='hidden lg:block -ml-40'
       />
-      <div className='w-1/2 flex justify-center items-center'>
-        <div className="flex flex-col items-start justify-center gap-y-3">
-          <h5 className=' font-bold text-lg  text-black'>Deseja contribuir para a nossa causa? </h5>
-          <p className='text-justify max-w-sm text-black'>Precisamos de si para continuar a desenvolver os nossos Atelieres e as atividades junto das famílias! Basta fazer uma tranferência bancária para:</p>
-          <h5 className=' font-bold text-lg text-black'>IBAN: PT50 0036 0051 99100351967 81</h5>
+      <div className='w-full  lg:w-1/2 flex justify-center items-center'>
+        <div className="text-center  items-center flex flex-col lg:items-start justify-center gap-y-3 px-7">
+          <h5 className=' font-bold sm:text-lg  text-black'>Deseja contribuir para a nossa causa? </h5>
+          <p className='text-sm sm:text-base lg:text-justify max-w-sm text-black'>Precisamos de si para continuar a desenvolver os nossos Atelieres e as atividades junto das famílias! Basta fazer uma tranferência bancária para:</p>
+          <h5 className=' font-bold sm:text-lg text-black'>IBAN: PT50 0036 0051 99100351967 81</h5>
           <p className='text-black text-xs'>Ou</p>
-          <Button >Tornar-me Sócio</Button>
-          <h5 className=' font-bold text-lg text-black'>A sua contribuição faz toda a diferença!</h5>
-
+          <Button>Tornar-me Sócio</Button>
+          <h5 className=' font-bold sm:text-lg text-black'>A sua contribuição faz toda a diferença!</h5>
         </div>
       </div>
     </div>

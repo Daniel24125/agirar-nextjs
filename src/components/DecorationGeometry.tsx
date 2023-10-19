@@ -21,7 +21,7 @@ const DecorationGeometry = ({
         (theme === "dark" || (systemTheme === "dark" && theme === "system")) ? "bg-slate-900" : "bg-blue-100"
     :  (theme === "dark" || (systemTheme === "dark" && theme === "system")) ? "bg-orange-400/[.2]" : "bg-orange-100"
   
-    return <div className={`z-0 ${borderRadius} ${displayColor} ${size} ${position} ${className}`}>
+    return <div className={`-z-10 ${borderRadius} ${displayColor} ${size} ${position} ${className}`}>
         {children}
     </div>
 }

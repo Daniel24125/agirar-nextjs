@@ -15,20 +15,20 @@ const Servicos = () => {
 }
 
 const HeaderSection = ()=>{
-  return <section className={`${getSectionClass} h-[calc(100vh-64px)] justify-center`}>
+  return <section className={`${getSectionClass} h-[50vh] lg:h-[calc(100vh-64px)] justify-center`}>
     <DecorationGeometry 
       color="blue"
-      size="w-4/12 h-64"
+      size="w-4/12 h-32 lg:h-64"
       position="absolute top-10 left-0"
       borderRadius="rounded-tr-3xl rounded-br-3xl"
     />
       <DecorationGeometry 
       color="orange"
-      size="w-4/12 h-64"
+      size="w-4/12 h-32 lg:h-64"
       position="absolute bottom-10 right-0"
       borderRadius="rounded-tl-3xl rounded-bl-3xl"
     />
-    <div className="flex flex-col relative text-center text-5xl font-bold items-center ">
+    <div className="flex flex-col relative text-center text-xl md:text-3xl lg:text-5xl font-bold items-center ">
       <DotVector
       />
       <h2>Torne-se Associado e Participe nas </h2>
@@ -47,7 +47,7 @@ const HeaderSection = ()=>{
 
 const ServicesColection = ()=>{
   return <section className={`${getSectionClass} py-20`}>
-    <div className={`${getMaxWidthClasses} flex justify-center gap-6 flex-wrap`}>
+    <div className={`${getMaxWidthClasses} flex justify-center gap-6 flex-wrap px-5`}>
       {getServicos.map((s:TServicos)=>{
         return <div key={s.id} className='flex flex-col p-4 rounded-lg border w-96 h-[400px]'>
           <div style={{
@@ -55,15 +55,15 @@ const ServicesColection = ()=>{
             backgroundSize: "cover",
             backgroundPosition: "center"
           }} className='w-full h-[200px] rounded-lg border'></div>
-          <h6 className=' font-extrabold mt-2 text-lg'>{s.title}</h6>
-          <p className='text-sm mt-5 text-justify h-1/2'>{s.desc}</p>
+          <h6 className=' font-extrabold mt-2 md:text-lg'>{s.title}</h6>
+          <p className='text-xs md:text-sm mt-5 text-justify h-1/2'>{s.desc}</p>
           <div className="flex justify-end w-full h-fit items-end  gap-7">
             <div className="flex items-center gap-3">
-              <CalendarDays className='text-primary' />
+              <CalendarDays className='text-sm md:text-base text-primary' />
               <span> {s.day} </span>
             </div>
             <div className="flex items-center gap-3">
-              <Clock className='text-primary' />
+              <Clock className='text-sm md:text-base text-primary' />
               <span> {s.time} </span>
             </div>
           </div>
