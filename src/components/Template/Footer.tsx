@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col items-center lg:items-start mt-10 lg:mt-0">
                         <h6 className='font-bold text-lg mb-5'>Informações Legais</h6>
-                        <Button onClick={()=>push("/estatutos")} variant="link">Estatutos</Button>
+                        <Button onClick={()=>push("/estatutos.pdf")} variant="link">Estatutos</Button>
                         <Button onClick={()=>push("/orgaos")} variant="link">Orgãos Sociais</Button>
                         <Button onClick={()=>push("/contas")} variant="link">Relatório de Contas</Button>
                     </div>
