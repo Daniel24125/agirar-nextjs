@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { THist, getHist } from '@/utils/History'
 import { TPartner, getPartners } from '@/utils/Partners'
-import { getMaxWidthClasses } from '@/utils/UtilClasses'
+import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import moment from 'moment'
 import React from 'react'
 
@@ -50,8 +50,8 @@ const AboutHeader = ()=>{
 const ObjectivesSection = ()=>{
     const hist : THist[]  = getHist()
 
-    return <section className='flex flex-col items-center w-screen relative top-3 py-11'>
-        <div className={`${getMaxWidthClasses} flex flex-col items-center lg:flex-row lg:justify-between gap-10 px-5`}>
+    return <section className={`${getSectionClass} top-3 py-11`}>
+        <div className={`${getMaxWidthClasses} flex flex-col items-center gap-10 px-5 lg:flex-row lg:justify-between `}>
             <div className="flex flex-col items-center lg:w-1/2 gap-11 text-center text-sm lg:text-base">
                 <h6 className='text-primary font-bold text-xl'>Os Nossos Objetivos</h6>
                 <div className='max-w-lg relative'>
@@ -70,8 +70,8 @@ const ObjectivesSection = ()=>{
                     </p>
                 </div>
             </div>
-            <ScrollArea className=' mt-16 lg:mt-0 h-[calc(100vh-200px)]'>
-                <div className="rounded-3xl flex flex-col p-9 bg-blue-100 lg:w-1/2  ">
+            <ScrollArea className='mt-16 lg:mt-0 h-[calc(100vh-200px)] lg:w-1/2'>
+                <div className="rounded-3xl flex flex-col p-9 bg-blue-100">
                     {hist.sort((hp, hn)=>{
                         const hpDate = moment(hp.date, "DD/MM/YYYY").unix()
                         const hnDate = moment(hn.date, "DD/MM/YYYY").unix()
