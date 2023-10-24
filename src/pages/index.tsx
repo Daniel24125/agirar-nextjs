@@ -125,7 +125,7 @@ React.useEffect(()=>{
   },[])
   
   return <section className={`${getSectionClass} justify-center`}>
-    <div className={`${getMaxWidthClasses} flex-col-reverse lg:flex-row flex justify-between py-28 lg:h-[100vh] px-7 lg:px-5`}>
+    <div className={`${getMaxWidthClasses} flex-col-reverse lg:flex-row flex justify-between my-28 lg:h-[100vh] min-h-[750px] px-7 lg:px-5`}>
       <div className="flex flex-col h-full w-full lg:w-3/4 ">
         <div className="flex justify-between w-full">
           <div className="flex flex-col">
