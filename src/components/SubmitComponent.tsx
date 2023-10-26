@@ -1,7 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import axios from 'axios'
-import { TMembroFrom } from '@/utils/Utils'
+import { TMembroFrom, TVolunteerFrom } from '@/utils/Utils'
 import { Loader2 } from 'lucide-react'
 import { useToast } from './ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
@@ -9,13 +9,15 @@ import { ToastAction } from '@radix-ui/react-toast'
 const SubmitComponent = ({
     submitData,
     setSubmit,
+    successFunc,
     config={
         url: "/api/member",
         method: "POST"
     }
 }: {
-    submitData: TMembroFrom,
+    submitData: TMembroFrom | TVolunteerFrom,
     setSubmit: any,
+    successFunc: any,
     config: {
         method: "GET" | "POST" | "DELETE" | "PATCH",
         url: string
@@ -32,7 +34,6 @@ const SubmitComponent = ({
         if(!isLoading ){
             //@ts-ignore
             let hasError =!data || data.data.error || error
-            console.log(hasError)
             toast({
                 variant: hasError?"destructive": "default",
                 title: hasError? "Erro": "Sucesso",
@@ -40,6 +41,7 @@ const SubmitComponent = ({
                 description: data ? data.data.msg : "O endpoit que tentou aceder não está disponível.",
                 action: <ToastAction altText="Fechar">Fechar</ToastAction>
             })
+            if(!hasError) successFunc()
             setSubmit(false)
         }
     })

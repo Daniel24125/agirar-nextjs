@@ -28,6 +28,7 @@ const MemberComponent = ({
     reason: "unico" | "mensal" 
     pagamento: "transferencia" | "mbway"
 }) => {
+    const [open, setOpen] = React.useState(false);
     const [selectedTab, setSelectedTab] = React.useState("personal")
     const [submit, setSubmit] = React.useState(false)
     const { toast, dismiss } = useToast()
@@ -90,7 +91,7 @@ const MemberComponent = ({
     }
 
     return <>
-        <Dialog> 
+        <Dialog open={open} onOpenChange={setOpen}> 
             <DialogTrigger  asChild>{renderComponent}</DialogTrigger>
             <DialogContent>
                 <DialogHeader>
@@ -101,7 +102,7 @@ const MemberComponent = ({
                                 setSelectedTab(val)
                             }}
                         >
-                            <TabsList className="flex flex-col justify-evenly w-full h-28 hidden sm:block  sm:flex-row">
+                            <TabsList className=" flex-col justify-evenly w-full h-28 hidden sm:flex sm:h-auto  sm:flex-row">
                                 <TabsTrigger  value="personal">Informação Pessoal</TabsTrigger>
                                 <TabsTrigger 
                                     disabled={fiscalDisabled} 
@@ -202,6 +203,9 @@ const MemberComponent = ({
                                         {submit? <SubmitComponent 
                                             submitData={form}
                                             setSubmit={setSubmit}
+                                            successFunc={()=>{
+                                                setOpen(false)
+                                            }}
                                             config={{
                                                 url: "/api/member",
                                                 method: "POST"
@@ -298,7 +302,7 @@ const MemberComponent = ({
 }
 
 
-const CardComponent = ({
+export const CardComponent = ({
     title, 
     desc, 
     footerComponent,

@@ -1,5 +1,7 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
+import VoluntarioComponent from '@/components/VoluntarioComponent'
+import { Button } from '@/components/ui/button'
 import { orgaos } from '@/utils/Team'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import { Facebook, Github, Linkedin, Mail, Phone, Twitter, User } from 'lucide-react'
@@ -35,7 +37,13 @@ const Team = ()=>{
         <div className={`${getMaxWidthClasses} flex flex-col px-5`}>
             {Object.entries(orgaos).map(([key, value])=>{
                 return <div key={key} className="flex flex-col mb-20">
-                    <h2 className='lg:text-2xl font-bold'>{value.title}</h2>
+                    <div className="flex justify-between">
+                        <h2 className='lg:text-2xl font-bold'>{value.title}</h2>
+                        {key==="voluntarios" && <VoluntarioComponent
+                             title='Junte-se à nossa família! 😍'
+                             renderComponent={<Button size="sm" variant="outline">Junte-se a Nós</Button>}
+                        />}
+                    </div>
                     <DecorationGeometry
                         color="blue"
                         size="w-full sm:w-1/2 h-2"

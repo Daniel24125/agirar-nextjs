@@ -14,11 +14,23 @@ export type TMembroFrom = {
     modo: "transferencia" | "mbway", 
 }
 
+
+
+export type TVolunteerFrom = {
+    nome: string,
+    email: string,
+    telefone: string,
+    desc: string,
+    funcao: string
+}
+
+export const validatePersonalInfo = (form:TMembroFrom | TVolunteerFrom) => form.nome === "" || 
+!form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) || 
+form.telefone === "" || 
+form.telefone.length < 9
+
 export const validateMembroFrom = (form:TMembroFrom) =>{
-    const fiscalDisabled = form.nome === "" || 
-        !form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) || 
-        form.telefone === "" || 
-        form.telefone.length < 9
+    const fiscalDisabled = validatePersonalInfo(form)
     const pagamentoDisabled = form.morada === "" || 
         form.codPostal === "" || 
         form.localidade === "" || 

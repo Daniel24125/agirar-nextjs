@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { newMemberTemplate, sendEmail } from '@/utils/ServerUtils'
+import { newMemberTemplate, newVolunteerTemplate, sendEmail } from '@/utils/ServerUtils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 const {MailtrapClient} = require("mailtrap")
 
@@ -18,10 +18,10 @@ export default async function handler (
   switch (method) {
     case "POST":
       const {email} = body
-      const response = await sendEmail(email, "Nova Contribuição", newMemberTemplate(body))
+      const response = await sendEmail(email, "Pedido de Voluntariado", newVolunteerTemplate(body))
       res.json({
         error: false,
-        msg: "Muito obrigado pela sua contribuição! Cada gesto vale a pena!"
+        msg: "Muito obrigado pela sua contribuição! Cada gesto vale a pena! Iremos certamente entrar em contacto consigo brevemente. 😃"
       })
       break;
   

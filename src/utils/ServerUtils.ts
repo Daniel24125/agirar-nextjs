@@ -1,5 +1,5 @@
 import moment from "moment";
-import { TMembroFrom } from "./Utils";
+import { TMembroFrom, TVolunteerFrom } from "./Utils";
 
 const nodemailer = require("nodemailer");
 
@@ -81,6 +81,48 @@ export const newMemberTemplate = (body: TMembroFrom)=>{
             `}
             <p>
                 Modo de Pagamento: ${modo === "mbway"? "MBWay": "Transferência Bancária"}
+            </p>
+        </body>
+    </html>
+    `
+}
+
+
+export const newVolunteerTemplate = (body: TVolunteerFrom)=>{
+    const {
+        nome,
+        email,
+        telefone,
+        desc,
+        funcao
+    } = body
+
+    return `
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+        </head>
+        <body>
+            <p>
+                <h2>
+                    NOVO PEDIDO DE VOLUNTARIADO 
+                </h2>    
+            </p>
+            <p>
+                Nome: ${nome}
+            </p>
+            <p>
+                Email: ${email}
+            </p>
+            <p>
+                Telefone: ${telefone}
+            </p>
+            <p>
+                Função: ${funcao}
+            </p>
+            <p>
+                Mensagem: ${desc}
             </p>
         </body>
     </html>

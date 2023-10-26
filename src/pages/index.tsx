@@ -13,6 +13,8 @@ import { TEvent, getTheLastEvents } from '@/utils/Events'
 import DotVector from '@/components/DotVector'
 import DecorationGeometry from '@/components/DecorationGeometry'
 import MemberComponent from '@/components/MemberComponent'
+import VoluntarioComponent from '@/components/VoluntarioComponent'
+import { orgaos } from '@/utils/Team'
 
 const Home = () => {
   return (
@@ -23,6 +25,7 @@ const Home = () => {
       <HeaderLandingPage />
       <Objectives />
       <Events/>
+      <Volunteering/>
       <Donation />
     </>
   )
@@ -234,6 +237,44 @@ const Donation = ()=>{
           <h5 className=' font-bold sm:text-lg text-center text-black w-full mt-2'>A sua contribuição faz toda a diferença!</h5>
         </div>
       </div>
+    </div>
+  </section>
+}
+
+
+const Volunteering = ()=>{
+  const {push} = useRouter()
+  const {assembleia, direcao, conselho, voluntarios} = orgaos
+  return <section className={`${getSectionClass} h-screen gap-5 justify-center px-5`}>
+     <DecorationGeometry 
+      color="orange"
+      size="w-44 h-64"
+      position="absolute top-10 right-0"
+      borderRadius="rounded-tl-3xl rounded-bl-3xl"
+    />
+    <DecorationGeometry 
+      color="blue"
+      size="w-44 h-64"
+      position="absolute bottom-10 left-0"
+      borderRadius="rounded-tr-3xl rounded-br-3xl"
+    />
+    <p className='w-[clamp(300px,90vw,550px)] text-center text-base sm:text-3xl'>
+      A Agirar com o apoio inestimável da sua equipa. Já podemos contar com a ajuda de {
+        assembleia.membros.length+
+        direcao.membros.length+
+        conselho.membros.length+
+        voluntarios.membros.length
+      } voluntários
+    </p>
+    <p className='w-[clamp(300px,90vw,550px)] text-center text-xs sm:text-base'>
+      Se tiver vontade de se juntar à nossa família, pode-se tornar um voluntário da Agirar. Toda a ajuda é bem-vinda.
+    </p>
+    <div className="flex gap-5">
+      <Button  onClick={()=>push("orgaos")}>A Nossa Equipa</Button>
+      <VoluntarioComponent
+        title='Junte-se à nossa família! 😍'
+        renderComponent={<Button variant="outline">Voluntariado</Button>}
+      />
     </div>
   </section>
 }
