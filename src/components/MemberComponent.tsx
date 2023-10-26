@@ -6,15 +6,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
-import { CalendarIcon, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
-import { cn } from "@/lib/utils"
-import { Calendar } from './ui/calendar'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import moment from 'moment'
-import { pt } from 'date-fns/locale'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { useToast } from "@/components/ui/use-toast"
-import { DateTimePicker } from '@mui/x-date-pickers'
 import { TMembroFrom, validateMembroFrom } from '@/utils/Utils'
 import SubmitComponent from './SubmitComponent'
 import { ToastAction } from './ui/toast'

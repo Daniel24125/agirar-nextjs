@@ -1,7 +1,7 @@
 import React from 'react'
 import useSWR from 'swr'
 import axios from 'axios'
-import { TMembroFrom, fetcher } from '@/utils/Utils'
+import { TMembroFrom } from '@/utils/Utils'
 import { Loader2 } from 'lucide-react'
 import { useToast } from './ui/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
