@@ -1,5 +1,6 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
+import MemberComponent from '@/components/MemberComponent'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
 import { TServicos, getServicos } from '@/utils/Servicos'
@@ -40,7 +41,12 @@ const HeaderSection = ()=>{
           rotate={true}
         />
         </h2>
-      <Button>Torne-se Sócio</Button>
+        <MemberComponent
+            renderComponent={<Button>Tornar-me Sócio</Button>}
+            title='Tornar-me Associado'
+            reason='mensal'
+            pagamento='transferencia'
+        />
     </div>
   </section>
 }

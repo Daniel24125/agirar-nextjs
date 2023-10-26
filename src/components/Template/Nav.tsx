@@ -6,6 +6,8 @@ import { Facebook, Heart, MenuIcon, Smile } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
 import { Sheet,SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import MemberComponent from '../MemberComponent'
+import TooltipAbstraction from '../ui/TooltipAbstraction'
 const Nav = () => {
     return (
         <nav className='flex justify-center '>
@@ -83,8 +85,16 @@ const SocialBtns = ({
     size?: string
 })=>{
     return <>
-        <Smile className={`${size} cursor-pointer hover:text-orange-500`}/>
-        <Heart className={`${size} cursor-pointer hover:text-red-500`}/>
+        <TooltipAbstraction
+            title="Tornar-me Associado">
+            <MemberComponent
+                renderComponent={<Smile className={`${size} cursor-pointer hover:text-orange-500`}/>}
+                title='Tornar-me Associado'
+                reason='mensal'
+                pagamento='transferencia'
+            />
+        </TooltipAbstraction>
+        {/* <Heart className={`${size} cursor-pointer hover:text-red-500`}/> */}
         <a href="https://www.facebook.com/agirarassociacao" target='__blank'>
             <Facebook  className={`${size} cursor-pointer hover:text-blue-800`} />
         </a>

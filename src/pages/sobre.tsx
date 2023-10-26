@@ -1,5 +1,6 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
+import MemberComponent from '@/components/MemberComponent'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { THist, getHist } from '@/utils/History'
@@ -19,7 +20,7 @@ const Sobre = () => {
 }
 
 const AboutHeader = ()=>{
-    return <section className='flex flex-col items-center relative w-screen h-[calc(100vh-64px)] '>
+    return <section className={`${getSectionClass}  h-[calc(100vh-64px)] `}>
         <DecorationGeometry
             color="orange"
             size="w-1/2 h-60"
@@ -31,13 +32,18 @@ const AboutHeader = ()=>{
             size="w-[90vw] sm:w-1/2 h-60"
             position="absolute sm:left-0 top-1/2 "
             borderRadius="rounded-3xl sm:rounded-tr-3xl sm:rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none "
-            className="flex justify-center flex-col mt-24 sm:mt-0 lg:flex-row lg:justify-end items-center gap-8 sm:pr-10"
+            className=" z-30 flex justify-center flex-col mt-24 sm:mt-0 lg:flex-row lg:justify-end items-center gap-8 sm:pr-10"
         >
             <div className="flex flex-col justify-end gap-2">
                 <p className='font-bold text-lg sm:text-2xl text-center'>Todos nós somos AGIRAR</p>
                 <p className='text-center lg:text-right'>Quer fazer parte da nossa família?</p>
             </div>
-            <Button>Torar-me Sócio</Button>
+            <MemberComponent
+                renderComponent={<Button>Tornar-me Sócio</Button>}
+                title='Tornar-me Associado'
+                reason='mensal'
+                pagamento='transferencia'
+            />
         </DecorationGeometry>
        <div className="flex flex-col gap-8 absolute w-screen justify-center items-center top-40">
             <p className='text-8xl text-center font-bold'>Agirar</p>

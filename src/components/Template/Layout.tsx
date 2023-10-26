@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
+import { Toaster } from '../ui/toaster'
 
 const Layout = ({
   children
@@ -10,6 +11,8 @@ const Layout = ({
   return (<>
       <Nav/>
       {children}
+      <Toaster />
+
       <Footer/>
   </>
   )

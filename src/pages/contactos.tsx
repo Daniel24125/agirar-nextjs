@@ -38,7 +38,7 @@ const ContactSection = ()=>{
         </div>
         <p className='font-bold'>Email</p>
         <p className='text-sm'>Pode sempre contactar-nos por email</p>
-        <p className='font-medium w-full text-right text-primary mt-12'>agirar.2013@gmail.com</p>
+        <p className='font-medium w-full text-right text-primary mt-12'><a href="mailto:agirar.2013@gmail.com">agirar.2013@gmail.com</a></p>
       </div>
       
       <div className="flex flex-col border rounded-lg w-80 p-6 mb-5">
@@ -47,7 +47,7 @@ const ContactSection = ()=>{
         </div>
         <p className='font-bold'>Contacto Telefónico</p>
         <p className='text-sm'>Se precisar de ajuda ou quiser obter mais informações, não hesite em contactar-nos</p>
-        <p className='font-medium w-full text-right text-primary mt-12'>912 353 788</p>
+        <p className='font-medium w-full text-right text-primary mt-12'><a href="tel:912353788">912 353 788</a></p>
       </div>
 
       <div className="flex flex-col border rounded-lg w-80 p-6 mb-5">
