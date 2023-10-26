@@ -207,6 +207,10 @@ const MemberComponent = ({
                                         {submit? <SubmitComponent 
                                             submitData={form}
                                             setSubmit={setSubmit}
+                                            config={{
+                                                url: "/api/member",
+                                                method: "POST"
+                                            }}
                                         /> : <Button  variant="outline" onClick={handleSubmit}>Submeter</Button>}
                                     </>}
                                 >
@@ -324,63 +328,5 @@ const CardComponent = ({
 </Card>
 }
 
-const DatePickerComponent = ({
-    form, 
-    setForm
-}:{
-    form: any, 
-    setForm: any
-})=>{
-    const [openCal, setOpenCal] = React.useState(false)
-    moment.locale("pt", {
-        months : 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_'),
-        monthsShort : 'Jan._Fev._Mar_Abr._Mai_Jun_Jul._Ago_Set._Out._Nov._Dez.'.split('_'),
-    })
-
-    const currentDate = moment(form.dataNascimento)
-    
-    return <Popover open={openCal} onOpenChange={setOpenCal}>
-        <PopoverTrigger asChild>
-            <Button
-                variant={"outline"}
-                className={cn(
-                    "w-[240px] justify-start text-left font-normal",
-                    !form.dataNascimento && "text-muted-foreground"
-                )}
-            >
-            <CalendarIcon className="mr-2 h-4 w-4" />
-            {form.dataNascimento ? moment(form.dataNascimento).format("DD/MM/YYYY") : <span>Escolha uma data</span>}
-            </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
-            {/* <div className="flex pt-3 px-5">
-                <h5 className='text-xl font-bold'>
-                    {`${currentDate.format("MMM")}, ${currentDate.format("YYYY")}`} 
-                    
-                </h5>
-            </div> */}
-            <Calendar
-                mode="single"
-                // captionLayout='dropdown'
-                fromYear={1900} 
-                toYear={2999} 
-                locale={pt}
-                captionLayout="dropdown-buttons"
-                selected={form.dataNascimento}
-                onSelect={(val:Date)=>{
-                    //@ts-ignore
-                    setForm(prev=>{
-                        return {
-                            ...prev, 
-                            "dataNascimento": val.toJSON()
-                        }
-                    })
-                    setOpenCal(false)
-                }}
-                initialFocus
-            />
-        </PopoverContent>
-    </Popover>
-}
 
 export default MemberComponent

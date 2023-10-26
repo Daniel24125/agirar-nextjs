@@ -8,15 +8,23 @@ import { ToastAction } from '@radix-ui/react-toast'
 
 const SubmitComponent = ({
     submitData,
-    setSubmit
+    setSubmit,
+    config={
+        url: "/api/member",
+        method: "POST"
+    }
 }: {
     submitData: TMembroFrom,
-    setSubmit: any
+    setSubmit: any,
+    config: {
+        method: "GET" | "POST" | "DELETE" | "PATCH",
+        url: string
+    }
 }) => {
     const { toast, dismiss } = useToast()
     const { data, error, isLoading}  = useSWR({
-        url: "/api/member",
-        method: "POST",
+        url: config.url,
+        method: config.method,
         data: submitData,
     }, axios)
 
