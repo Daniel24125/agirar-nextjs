@@ -101,14 +101,14 @@ const MemberComponent = ({
                                 setSelectedTab(val)
                             }}
                         >
-                            <TabsList className="flex justify-evenly w-full">
-                                <TabsTrigger value="personal">Informação Pessoal</TabsTrigger>
+                            <TabsList className="flex flex-col justify-evenly w-full h-28 hidden sm:block  sm:flex-row">
+                                <TabsTrigger  value="personal">Informação Pessoal</TabsTrigger>
                                 <TabsTrigger 
-                                disabled={fiscalDisabled} 
-                                value="fiscal">Informação Fiscal</TabsTrigger>
+                                    disabled={fiscalDisabled} 
+                                    value="fiscal">Informação Fiscal</TabsTrigger>
                                 <TabsTrigger 
-                                disabled={pagamentoDisabled} 
-                                value="payment">Pagamentos</TabsTrigger>
+                                    disabled={pagamentoDisabled} 
+                                    value="payment">Pagamentos</TabsTrigger>
                             </TabsList>
                             <TabsContent value="personal">
                                 <CardComponent 
@@ -309,7 +309,7 @@ const CardComponent = ({
     footerComponent: React.ReactNode
     children: React.ReactNode,
 })=>{
-    return <Card>
+    return <Card className='w-[clamp(310px,90vw,470px)]'>
     <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{desc}</CardDescription>
