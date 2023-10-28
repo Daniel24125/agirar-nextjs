@@ -5,8 +5,16 @@ export type TPartner = {
 
 export const getPartners = [
     {
+        img: "/cmg.png",
+        href: "https://www.cm-gaia.pt/pt/"
+    },
+    {
         img: "/gaiurb.png",
         href: "https://www.gaiurb.pt/"
+    },
+    {
+        img: "/code.png",
+        href: "https://code.pt/"
     },
     {
         img: "/lifeclub.png",
@@ -16,16 +24,8 @@ export const getPartners = [
         img: "/farmaciacouto.png",
         href: "https://farmaciacouto.com/"
     },
-    {
-        img: "/cmg.png",
-        href: "https://www.cm-gaia.pt/pt/"
-    },
-    {
-        img: "/code.png",
-        href: "https://code.pt/"
-    },
-    {
-        img: "/CHVNG.png",
-        href: "https://www.chvng.pt/"
-    }
+    // {
+    //     img: "/CHVNG.png",
+    //     href: "https://www.chvng.pt/"
+    // }
 ]

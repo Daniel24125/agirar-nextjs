@@ -36,10 +36,10 @@ const AboutHeader = ()=>{
         >
             <div className="flex flex-col justify-end gap-2">
                 <p className='font-bold text-lg sm:text-2xl text-center'>Todos nós somos AGIRAR</p>
-                <p className='text-center lg:text-right'>Quer fazer parte da nossa família?</p>
+                <p className='text-center lg:text-right'>Quer fazer parte da desta Associação?</p>
             </div>
             <MemberComponent
-                renderComponent={<Button>Tornar-me Sócio</Button>}
+                renderComponent={<Button>Ser Associado</Button>}
                 title='Tornar-me Associado'
                 reason='mensal'
                 pagamento='transferencia'

@@ -57,7 +57,7 @@ const HeaderLandingPage = ()=>{
         <MemberComponent
           reason='mensal'
           pagamento='transferencia'
-          renderComponent={<Button>Tornar-me Sócio</Button>}
+          renderComponent={<Button>Tornar-me Associado</Button>}
           title='Tornar-me Associado'
         />
         
@@ -259,7 +259,7 @@ const Volunteering = ()=>{
       borderRadius="rounded-tr-3xl rounded-br-3xl"
     />
     <p className='w-[clamp(300px,90vw,550px)] text-center text-base sm:text-3xl'>
-      A Agirar com o apoio inestimável da sua equipa. Já podemos contar com a ajuda de {
+      A Agirar conta com o apoio inestimável da sua equipa. Já podemos contar com a ajuda de {
         assembleia.membros.length+
         direcao.membros.length+
         conselho.membros.length+

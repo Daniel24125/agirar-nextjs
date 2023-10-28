@@ -40,17 +40,17 @@ export const orgaos: TOrgaos = {
         membros: [
             {
                 id: "m1",
-                name: "Fernanda da Conceição Borges de Castro",
+                name: "Maria José Figueiredo Pereira",
                 function: "Presidente"
             },
             {
                 id: "m2",
-                name: "Olinda Maria Barbosa Carvalho",
+                name: "Maria Gabriela Magalhães Barros Mesquita Ramalho",
                 function: "1º Secretário"
             },
             {
                 id: "m3",
-                name: "Ema Pereira Lopes Ramos",
+                name: "Manuel Fernando da Cunha de Sousa Castro",
                 function: "2º Secretário"
             }
         ]
@@ -65,28 +65,28 @@ export const orgaos: TOrgaos = {
             },
             {
                 id: "m2",
-                name: "Maria José Figueiredo Pereira",
+                name: "Fernanda da Conceição Borges de Castro",
                 function: "Vice-Presidente"
             },
             {
                 id: "m3",
-                name: "Maria Teresa Magalhães Vaz Queirós",
+                name: "Isabel Maria Carvalho Correia de Sousa",
                 function: "Secretário"
             },
             {
                 id: "m4",
-                name: "Diana Maria Rocha da Silva",
+                name: "Manuel António Fernandes Mendes",
                 function: "Vogal"
             },
             {
                 id: "m5",
-                name: "Maria Gabriela Magalhães Barros Mesquita Ramalho",
+                name: "Ema Pereira Lopes Ramos",
                 function: "Tesoureiro"
             }
         ]
     },
     "conselho":{
-        title: "Conselho Geral",
+        title: "Conselho Fiscal",
         membros: [
             {
                 id: "m1",
@@ -95,12 +95,12 @@ export const orgaos: TOrgaos = {
             },
             {
                 id: "m2",
-                name: "Maria Margarida de Araújo Soares Freitas",
+                name: "Maria Elisabete Oliveira Alves Ribeiro",
                 function: "1º Vogal"
             },
             {
                 id: "m3",
-                name: "Maria Teresa da Rocha Ribeiro",
+                name: "Maria Teresa de Magalhães Vaz Queirós",
                 function: "2º Vogal"
             },
         ]
@@ -118,7 +118,8 @@ export const orgaos: TOrgaos = {
                     github: "https://github.com/Daniel24125",
                     linkedin: "https://www.linkedin.com/in/daniel-madalena-b3942b95/"
                 }
-            }
+            },
+            
         ]
     }
 }

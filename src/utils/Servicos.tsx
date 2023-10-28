@@ -12,15 +12,15 @@ export const getServicos: TServicos[] = [
         id: "s1",
         img: "https://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1525371649/grupo_de_Ajuda_m%C3%BAtua_d58o8b.jpg",
         title: "Grupo de Ajuda Mútua",
-        desc: "Este grupo tem como principal objetivo promover a aproximação e partilha de experiências, conhecimentos e preocupações em relação à doença identificando estratégias que permitam ganhos de saúde e melhoria da qualidade de vida de cuidadores e pessoas com psicose",
+        desc: "Este grupo tem como principal objetivo promover a aproximação e partilha de experiências, conhecimentos e preocupações em relação à doença identificando estratégias que permitam ganhos de saúde e melhoria da qualidade de vida de cuidadores e pessoas com psicose. Dirigido essencialmente para cuidadores de pessoas com Psicose.",
         time: "18:00 - 19:00",
         day: "1ª Seg. do Mês"
     },
     {
         id: "s2",
         img: "https://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1525371649/Consultas_de_Psicologia_dkrw2b.jpg",
-        title: "Consultas de Psicologia",
-        desc: "Acompanhamento psicológico em consulta individual, com marcação prévia para associados e utentes a frequentar os ateliers",
+        title: "Consultas de Psiquiatria",
+        desc: "Psicoterapia individual para utentes a frequentar os ateliers",
         time: "Por marcação",
         day: "Por marcação"
     },
@@ -29,24 +29,24 @@ export const getServicos: TServicos[] = [
         img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1519034961/fuf24ch1h9oj5zthqatr.jpg",
         title: "Atelier de Artes Plástica e de Lavores",
         desc: "Promover através da pintura, colagens e cerâmica um espaço onde possam utilizar as atividades como uma forma de expressão não-verbal. Criar oportunidade para conhecer novas formas de lazer, promovendo a partilha de conhecimentos entre si, através da realização de trabalhos manuais, artes decorativas, bijuterias",
-        time: "14:30 - 16:30",
-        day: "Seg."
+        time: "14:30 - 16:00",
+        day: "Qui."
     },
-    {
-        id: "s4",
-        img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1513460991/ateliers/at1.jpg",
-        title: "Atelier de Informática",
-        desc: "Espaço lúdico, mas também de aprendizagem, que permite explorar e desenvolver competências na área da informática",
-        time: "11:00 - 13:00",
-        day: "Qua."
-    },
+    // {
+    //     id: "s4",
+    //     img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1513460991/ateliers/at1.jpg",
+    //     title: "Atelier de Informática",
+    //     desc: "Espaço lúdico, mas também de aprendizagem, que permite explorar e desenvolver competências na área da informática",
+    //     time: "11:00 - 13:00",
+    //     day: "Qua."
+    // },
     {
         id: "s5",
         img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1519035015/dvq9csutvubruocok2s0.jpg",
         title: "Clube Social",
         desc: "Espaço lúdico, de encontro, onde se promove uma melhor forma de gerir os tempos livres e de lazer organizando visitas na comunidade para melhor conhecer as estruturas culturais e recreativas existentes na área metropolitana do Porto, nomeadamente museus, jardins, teatros, etc.",
         time: "A definir",
-        day: "Todos os dias"
+        day: "Mensal"
     },
     {
         id: "s6",
@@ -60,9 +60,9 @@ export const getServicos: TServicos[] = [
         id: "s7",
         img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1519035133/he9kdivbrlwphyzoi942.jpg",
         title: "Atelier de Relaxamento",
-        desc: "Através de algumas técnicas específicas trabalhar a diminuição das tensões corporais e a auto-consciencialização das várias partes do corpo, permitindo lidar com algumas tensões, angústias e receios, assim como, aprender a controlar o corpo e as emoções em determinadas situações concretas",
+        desc: "Através de algumas técnicas específicas trabalhar a diminuição das tensões corporais e a auto-consciencialização das várias partes do corpo, permitindo lidar com algumas tensões, angústias e receios, assim como, aprender a controlar o corpo e as emoções em determinadas situações concretas. A técnica de relaxamento utilizada é o relaxamento progressivo de Jacobson",
         time: "16:00 - 17:00",
-        day: "Qui."
+        day: "Sex."
     },
     {
         id: "s8",
@@ -78,7 +78,7 @@ export const getServicos: TServicos[] = [
         title: "Atelier de Estimulação Cognitiva",
         desc: "As sessões de Estimulação Cognitiva pretendem preservar ou melhorar o desempenho ou as funções cognitivas das pessoas, como sejam a memória, a atenção, o raciocínio, a capacidade de resolução de problemas, entre outras.",
         time: "14:30 - 16:00",
-        day: "Ter."
+        day: "Sex."
     },
     {
         id: "s10",
@@ -88,13 +88,20 @@ export const getServicos: TServicos[] = [
         time: "16:15 - 17:15",
         day: "Ter."
     },
+    // {
+    //     id: "s11",
+    //     img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1519035824/s8qtqz6arbggapvxw83h.jpg",
+    //     title: "Piscina",
+    //     desc: "A piscina ajuda a diminuir problemas de postura e transmite sensação de bem-estar, melhorando a imagem corporal dos indivíduos e aumentando a autoestima.",
+    //     time: "10:00 - 11:30",
+    //     day: "Qua."
+    // },
     {
-        id: "s11",
-        img: "http://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1519035824/s8qtqz6arbggapvxw83h.jpg",
-        title: "Piscina",
-        desc: "A piscina ajuda a diminuir problemas de postura e transmite sensação de bem-estar, melhorando a imagem corporal dos indivíduos e aumentando a autoestima.",
-        time: "10:00 - 11:30",
-        day: "Qua."
+        id: "s12",
+        img: "https://res.cloudinary.com/agirar/image/upload/w_400,c_fit/v1698516027/ateliers/pexels-photo-1751731.webp",
+        title: "Atelier de Musica",
+        desc: "Permite a expressão de emoções de maneira criativa, melhorar a atenção e concentração. É uma atividade que ajuda a diminuir o stress e ansiedade proporcionando também interação social o que pode contribuir para a inclusão e a construção de relacionamentos. Este atelier permite também a aprendizagem de como tocar alguns instrumentos nomeadamente guitarra.",
+        time: "16:00 - 17:00",
+        day: "Sex."
     },
-
 ]

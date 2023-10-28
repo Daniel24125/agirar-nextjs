@@ -34,7 +34,7 @@ const HeaderSection = ()=>{
       />
       <h2>Torne-se Associado e Participe nas </h2>
       <h2 className='relative w-full mb-7 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-orange-600'>
-         Nossas Atividades 
+         Nossas Atividades/Eventos
         <DotVector
           color='bg-blue-400'
           position='-bottom-5 -right-1'
@@ -42,7 +42,7 @@ const HeaderSection = ()=>{
         />
         </h2>
         <MemberComponent
-            renderComponent={<Button>Tornar-me Sócio</Button>}
+            renderComponent={<Button>Tornar-me Associado</Button>}
             title='Tornar-me Associado'
             reason='mensal'
             pagamento='transferencia'
@@ -68,7 +68,7 @@ const ServicesColection = ()=>{
               <CalendarDays className='text-sm md:text-base text-primary' />
               <span> {s.day} </span>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-5">
               <Clock className='text-sm md:text-base text-primary' />
               <span> {s.time} </span>
             </div>

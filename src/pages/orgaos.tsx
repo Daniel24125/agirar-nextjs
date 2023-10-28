@@ -19,9 +19,9 @@ const HeaderOrgaos = ()=>{
         <div className="flex flex-col relative text-center w-[90vw] sm:w-auto text-xl md:text-3xl lg:text-5xl font-bold items-center ">
             <DotVector
             />
-            <h2>Conheça a nossa</h2>
+            <h2>Conheça os nossos</h2>
             <h2 className='relative w-full mb-7 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-orange-600'>
-                Equipa
+                Orgãos Sociais (2021-2024)
             </h2>
                 <DotVector
                     color='bg-blue-400'
