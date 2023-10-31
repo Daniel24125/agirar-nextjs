@@ -119,7 +119,14 @@ export const orgaos: TOrgaos = {
                     linkedin: "https://www.linkedin.com/in/daniel-madalena-b3942b95/"
                 }
             },
-            
+            {
+                id: "m2",
+                name: "Isabel Sobral",
+                function: "Assistente Social",
+                contact: {
+                    linkedin: "https://www.linkedin.com/in/isabel-s-8637b690/"
+                }
+            },
         ]
     }
 }
