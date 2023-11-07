@@ -146,9 +146,9 @@ const Events = ()=>{
               {selecteEvent.date}
             </h6>
           </div>
-          <TooltipAbstraction title="Partilhar este Evento">
+          {/* <TooltipAbstraction title="Partilhar este Evento">
               <Share2/>
-          </TooltipAbstraction>
+          </TooltipAbstraction> */}
   
         </div>
         <AspectRatio ratio={16/9} >
