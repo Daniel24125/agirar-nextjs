@@ -127,6 +127,14 @@ export const orgaos: TOrgaos = {
                     linkedin: "https://www.linkedin.com/in/isabel-s-8637b690/"
                 }
             },
+            {
+                id: "m3",
+                name: "Lucas Lopes",
+                function: "Médico Interno de Psiquiatria",
+                contact: {
+                    linkedin: "https://www.linkedin.com/in/lucas-lopes-254200b7/"
+                }
+            },
         ]
     }
 }
