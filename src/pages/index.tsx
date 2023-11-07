@@ -129,7 +129,7 @@ const Events = ()=>{
     if(scrollRef.current) updateScrollOrientation()
   },[scrollRef.current])
 
-React.useEffect(()=>{
+  React.useEffect(()=>{
     window.addEventListener('resize', updateScrollOrientation);
     return () => window.removeEventListener('resize', updateScrollOrientation);
   },[])

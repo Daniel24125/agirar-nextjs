@@ -14,7 +14,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             id: "evt1",
             title: "Resumo dos nossos 10 anos",
             date: "09/07/2023", 
-            img: "https://images.pexels.com/photos/3357268/pexels-photo-3357268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 
+            img: "/evt1.jpeg", 
             href: "https://www.facebook.com/watch/?v=1328779111051533&extid=NS-UNK-UNK-UNK-IOS_GK0T-GK1C&ref=sharing&mibextid=WC7FNe", 
             desc: "Um pequeno resumo dos nossos 10 anos... Muito muito pequeno, pois temos tantas outras memórias, tantas outras histórias, tantas tantas..."
         },
