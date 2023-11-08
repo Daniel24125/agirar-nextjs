@@ -113,10 +113,11 @@ const Objectives = ()=>{
 }
 
 const Events = ()=>{
-  const events: TEvent[] = getTheLastEvents()
+  const events: TEvent[] = getTheLastEvents(10)
   const [selecteEvent, setSelectedEvent] = React.useState(events[0])
   const [scrollOrientation, setScrollOrientation] = React.useState("vertical")
   const scrollRef = React.useRef(null)
+  const router = useRouter()
 
   const updateScrollOrientation = ()=>{
       setScrollOrientation(
@@ -168,26 +169,30 @@ const Events = ()=>{
           </a>
         </div>
       </div>
-      {/* @ts-ignore */}
-      <ScrollArea ref={scrollRef} aria-orientation={scrollOrientation} className=" w-full lg:w-fit lg:h-full p-5 rounded-xl border mb-4 lg:mb-0">
-        <div className='flex lg:flex-col '>
-          {events.map(e=>{
-            return <div 
-              key={e.id}
-            onClick={()=>setSelectedEvent(e)}
-            style={{
-              backgroundImage: `url("${e.img}")`,
-              backgroundSize: "cover",
-            }} 
-            className={`w-24 h-24 md:w-36  md:h-36 rounded-xl mr-3 lg:mr-0 lg:mb-3 cursor-pointer 
-            ${e.id === selecteEvent.id ? "border-blue-300 border-4":""}
-            hover:border-blue-300  
-            hover:border-4`}>
-            </div>
-          })}
-        </div>
+      <div className='flex flex-col gap-3'>
+        <Button onClick={()=>router.push("/eventos")} variant="outline">Todos os nossos eventos</Button>
+        {/* @ts-ignore */}
+        <ScrollArea ref={scrollRef} aria-orientation={scrollOrientation} className=" w-full lg:w-fit lg:h-full p-5 rounded-xl border mb-4 lg:mb-0">
+          <div className='flex lg:flex-col '>
+            {events.map(e=>{
+              return <div 
+                key={e.id}
+              onClick={()=>setSelectedEvent(e)}
+              style={{
+                backgroundImage: `url("${e.img}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }} 
+              className={`w-24 h-24 md:w-36  md:h-36 rounded-xl mr-3 lg:mr-0 lg:mb-3 cursor-pointer 
+              ${e.id === selecteEvent.id ? "border-blue-300 border-4":""}
+              hover:border-blue-300  
+              hover:border-4`}>
+              </div>
+            })}
+          </div>
 
-    </ScrollArea>
+      </ScrollArea>
+      </div>
     </div>
   </section>
 }

@@ -62,7 +62,7 @@ const Team = ()=>{
                                 </div>
                                 <div className="flex flex-col pl-5">
                                     <p className='max-w-[200px]'>{m.name}</p>
-                                    <p className='max-w-[200px] opacity-50'>{m.function}</p>
+                                    <p className='max-w-[250px] opacity-50'>{m.function}</p>
                                     {m.contact && <div className='flex gap-2 mt-2'>
                                         {m.contact.email && <a  href={`mailto:${m.contact.email}`}>
                                             <Mail size={18} color="#73B8F8" />

@@ -1,7 +1,6 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
 import MemberComponent from '@/components/MemberComponent'
-import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
 import { TServicos, getServicos } from '@/utils/Servicos'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
