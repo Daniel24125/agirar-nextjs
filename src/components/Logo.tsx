@@ -1,14 +1,17 @@
 import { useRouter } from 'next/router'
 import React from 'react'
+import { useTheme } from "next-themes"
 
 const Logo = () => {
     const {push} = useRouter()
+    const { theme } = useTheme()
 
+    console.log(theme)
     return (
-        <div onClick={()=>push("/")} className="flex cursor-pointer items-center justify-center gap-4">
+        <div onClick={()=>push("/")} className="cursor-pointer">
             {/* <div className=" w-10 h-10 rounded-full bg-orange-500"></div> */}
-            <img src="/logo.png" alt="" className=' h-10'/>
-            <h6 className=' text-2xl'>Agirar</h6>
+            <img src={`/logo/logo_${theme === "light" ? "b": "w"}.png`} alt="" className=' h-20'/>
+            {/* <h6 className=' text-2xl'>Agirar</h6> */}
         </div>
   )
 }

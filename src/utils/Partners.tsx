@@ -5,27 +5,27 @@ export type TPartner = {
 
 export const getPartners = [
     {
-        img: "/cmg.png",
+        img: "/parceiros/cmg.png",
         href: "https://www.cm-gaia.pt/pt/"
     },
     {
-        img: "/gaiurb.png",
+        img: "/parceiros/gaiurb.png",
         href: "https://www.gaiurb.pt/"
     },
     {
-        img: "/code.png",
+        img: "/parceiros/code.png",
         href: "https://code.pt/"
     },
     {
-        img: "/lifeclub.png",
+        img: "/parceiros/lifeclub.png",
         href: "https://www.lifeclub.pt/"
     },
     {
-        img: "/farmaciacouto.png",
+        img: "/parceiros/farmaciacouto.png",
         href: "https://farmaciacouto.com/"
     },
     // {
-    //     img: "/CHVNG.png",
+    //     img: "/parceiros/CHVNG.png",
     //     href: "https://www.chvng.pt/"
     // }
 ]
