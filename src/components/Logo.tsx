@@ -6,7 +6,6 @@ const Logo = () => {
     const {push} = useRouter()
     const { theme } = useTheme()
 
-    console.log(theme)
     return (
         <div onClick={()=>push("/")} className="cursor-pointer">
             {/* <div className=" w-10 h-10 rounded-full bg-orange-500"></div> */}
