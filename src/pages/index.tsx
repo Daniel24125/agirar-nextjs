@@ -24,6 +24,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import SquareGraphics from '@/components/SquareGraphics'
 import { Partners } from './sobre'
+import Link from 'next/link'
 
 
 
@@ -63,7 +64,7 @@ const PsicoseComponent = ()=>{
             size={30}
           />
           <h6 className=' my-3 px-6 text-justify'>
-            Se tiver alguma dúvida ou precisar de ajuda, não hesite em <a href="/contactos" className=' text-blue-400'>contactar-nos</a>.
+            Se tiver alguma dúvida ou precisar de ajuda, não hesite em <Link href="/contactos" className=' text-blue-400'>contactar-nos</Link>.
           </h6>
         </div>
         <div className="flex my-6">
@@ -71,7 +72,7 @@ const PsicoseComponent = ()=>{
             size={30}
           />
           <h6 className=' my-3 px-6 text-justify'>
-          Se tem interesse em juntar-se a nós e dar um contributo fundamental a favor da saúde mental, <a href="/contactos" className=' text-orange-400'>clique aqui</a>.
+          Se tem interesse em juntar-se a nós e dar um contributo fundamental a favor da saúde mental, <Link href="/contactos" className=' text-orange-400'>clique aqui</Link>.
           </h6>
         </div>
       </div>
@@ -156,7 +157,7 @@ const ImageCarrousel = ()=>{
     <div className="flex gap-2 py-2">
       {api && api.scrollSnapList().map((_, index)=>{
         const isActive = index === current -1
-        return <div onClick={()=>{
+        return <div key={index} onClick={()=>{
           api.scrollTo(index)
         }} className={` transition-all rounded-md cursor-pointer  w-3 h-3 ${isActive ? "bg-blue-400 w-5" : "bg-slate-400"}`}></div>
       })}
@@ -207,7 +208,7 @@ const PhotoGallery = ({
       <Carousel>
         <CarouselContent>
           {imageCollection.map(imgURL=>{
-            return <div className='w-full aspect-video' style={{
+            return <div key={imgURL} className='w-full aspect-video' style={{
               backgroundImage: `url("${imgURL}")`,
               backgroundSize: "cover",
               backgroundPosition: "center"
@@ -367,7 +368,7 @@ const Events = ()=>{
         </div>
         <AspectRatio ratio={16/9} >
           <Image
-            src={selecteEvent.img}
+            src={selecteEvent.img[0]}
             alt={selecteEvent.title}
             fill
             className="rounded-xl object-cover"
@@ -504,7 +505,7 @@ const Support = ()=>{
     const el = document.getElementById("support")
     const scrollPos = window.scrollY
     //@ts-ignore
-    const elRectTop = el.getBoundingClientRect().top
+    const elRectTop =  el.getBoundingClientRect().top || 600
     setTranslate(elRectTop <= 350)
   }
   React.useEffect(()=>{

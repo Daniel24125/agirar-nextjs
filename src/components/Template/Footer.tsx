@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { HomeIcon, MailIcon, MoveRight, PhoneCallIcon } from 'lucide-react'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import { SocialBtns } from './Nav'
+import Link from 'next/link'
 
 const Footer = () => {
     const {push} = useRouter()
@@ -63,9 +64,9 @@ const Footer = () => {
                 <div className="w-full flex justify-between">
                     <span className='text-xs text-blue-400'>© Agirar {new Date().getFullYear() }  - Todos os direitos reservados</span>
                     <div className="flex gap-x-4 text-xs text-blue-400">
-                        <a href='/estatutos.pdf'>Estatutos</a>
-                        <a href='/orgaos'>Orgãos Sociais</a>
-                        <a href='/contas'>Relatório de Contas</a>
+                        <Link href='/estatutos.pdf'>Estatutos</Link>
+                        <Link href='/orgaos'>Orgãos Sociais</Link>
+                        <Link href='/contas'>Relatório de Contas</Link>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             id: "evt6",
             title: "Ubuntu fest",
             date: "15/10/2022", 
-            img: "/eventos/evt6.jpg", 
+            img: ["/eventos/evt6.jpg"], 
             href: "https://www.facebook.com/story.php?story_fbid=pfbid02EFDRWMLBRSRw8u6kQKMM88WFjuU3wWTFvKTe5LphdEQCpJiWKGjVxiMTL2YNSX2sl&id=100069330174307&mibextid=WC7FNe&paipv=0&eav=Afa1TAhLD93UrnPRP3P0fxqPbhrYRgEylWFstBFT30tD1rBSf38iR635QmzgzMzBr-0&_rdr", 
             desc: 'E na continuidade do espírito colaborativo, hoje participamos no Ubuntu fest, no seminário alusivo ao tema "Relaciono-me, logo cuido(me) - contributos Ubuntu para a promoção de bem estar e saúde mental nas escolas e cidades". A nossa vice presidente Fernanda Castro partilhou a nossa experiência com utentes, familiares e comunidade. Partilhando esperança e motivação com as colegas de mesa Dra. Helena Coutinho - Equipa Multidisciplinar para a Economia Social Dra. Silvia Campos - S¡M somos capazes! Porque juntos somos mais fortes! E só existimos na presença do outro! Ao serviço do outro!'
         },
