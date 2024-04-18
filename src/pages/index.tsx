@@ -23,6 +23,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import SquareGraphics from '@/components/SquareGraphics'
+import { Partners } from './sobre'
 
 
 
@@ -36,9 +37,11 @@ const Home = () => {
       <PsicoseComponent/>
       <Objectives/>
       <Support/>
+      <Partners/>
     </>
   )
 }
+
 
 const PsicoseComponent = ()=>{
   return <section className={`${getSectionClass} py-40`} >

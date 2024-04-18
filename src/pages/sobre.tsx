@@ -101,7 +101,7 @@ const ObjectivesSection = ()=>{
     </section>
 }
 
-const Partners = () => {
+export const Partners = () => {
 
     return <section className='flex flex-col items-center relative w-screen py-36'>
         <div className={`${getMaxWidthClasses} flex flex-col relative items-center px-5`}>
@@ -114,11 +114,11 @@ const Partners = () => {
                     className='mb-20'
                 />
             </div>
-            <p className='text-xl lg:text-3xl max-w-md text-center font-bold'>Com os nossos parceiros, tudo é mais fácil</p>
-            <div className="flex flex-wrap justify-center w-full p-10 bg-white items-center rounded-2xl mt-20 gap-4">
+            {/* <p className='text-xl lg:text-3xl max-w-md text-center font-bold'>Com os nossos parceiros, tudo é mais fácil</p> */}
+            <div className="flex flex-wrap justify-center w-full p-10 bg-white items-center rounded-2xl gap-4">
                 {getPartners.map((p: TPartner)=>{
                     return <a key={p.href} href={p.href} target="_blank">
-                        <img className=' h-10 lg:h-16 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
+                        <img className=' mr-16 mb-16 h-10 lg:h-16 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
                     </a>
                 })}
 

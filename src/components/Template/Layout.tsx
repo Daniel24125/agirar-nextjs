@@ -10,7 +10,7 @@ const Layout = ({
   
   return (<>
       <Nav/>
-      {children}
+        {children}
       <Toaster />
 
       <Footer/>

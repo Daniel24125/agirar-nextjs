@@ -13,12 +13,12 @@ import TooltipAbstraction from '../ui/TooltipAbstraction'
 
 const Nav = () => {
     return (
-        <nav className='flex justify-center items-center py-4'>
+        <nav className='bg-white  flex justify-center items-center py-4 fixed top-0 z-50 w-full '>
             <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
                 <MenuBtn/>
                 <Logo/>
                 <div className="flex flex-col w-full">
-                    <div className="w-full bg-blue-200 h-16 rounded-lg ml-4 flex justify-between items-center px-2">
+                    <div className="w-full bg-blue-100 h-16 rounded-lg ml-4 flex justify-between items-center px-2">
                         <ComunicadosComponent/>
                         <SocialBtns/>
                     </div>
@@ -53,7 +53,7 @@ const CallForActionNav = ({
         <TooltipAbstraction
             title="Tornar-me Associado">
             <MemberComponent
-                renderComponent={<Button className={`cursor-pointer bg-orange-400`}>
+                renderComponent={<Button className={`cursor-pointer border-2 bg-white text-black border-orange-200 hover:bg-orange-200`}>
                     Associado
                 </Button>}
                 title='Tornar-me Associado'
@@ -64,7 +64,7 @@ const CallForActionNav = ({
         <TooltipAbstraction
             title="Tornar-me Associado">
             <MemberComponent
-                renderComponent={<Button className={`cursor-pointer bg-orange-400`}>
+                renderComponent={<Button className={`cursor-pointer border-2 bg-white text-black border-orange-200 hover:bg-orange-200`}>
                     Doar
                 </Button>}
                 title='Tornar-me Associado'
@@ -140,7 +140,7 @@ const NavBtns = ({
     </>
 }
 
-const SocialBtns = ({
+export const SocialBtns = ({
     size= "w-4 h-4 sm:w-6 sm-h-6"
 }:{
     size?: string
