@@ -44,7 +44,7 @@ const Home = () => {
 
 
 const PsicoseComponent = ()=>{
-  return <section id="psicose" className={`${getSectionClass} my-40`} >
+  return <section id="psicose" className={`${getSectionClass} my-40 px-5`} >
     <div className={`flex ${getMaxWidthClasses} `}>
       <div className="flex flex-col w-2/3">
         <h3 className=' text-5xl font-bold '>
@@ -105,11 +105,11 @@ const ImageCarrousel = ()=>{
   }, [api])
   
  
-  return <section className={`${getSectionClass} h-96`} >
+  return <section className={`${getSectionClass} h-96 `} >
     
     <Carousel
       setApi={setApi}
-      className={`${getMaxWidthClasses}`}
+      className={`${getMaxWidthClasses} `}
       plugins={[
         Autoplay({
           delay: 5000,

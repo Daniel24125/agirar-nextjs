@@ -11,6 +11,7 @@ import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
 import { useParams } from 'next/navigation'
+import Link from 'next/link'
 
 
 
@@ -151,12 +152,12 @@ const NavBtns = ({
         {
             title: "Quem Somos",
             href: "/sobre", 
-            displayImage: false,
+            displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
             subMenus: [
                 {
                     title: "A AGIRAR",
                     desc: "Uma breve história sobre a nossa origem",
-                    href: "/?scrollTo=origem"
+                    href: "/sobre?scrollTo=origem"
                 },
             ]
         },
@@ -168,17 +169,17 @@ const NavBtns = ({
                 {
                     title: "Serviços",
                     desc: "Os serviçoes que temos disponíveis na nossa instituição",
-                    href: "/?scrollTo=servicos"
+                    href: "/servicos?scrollTo=servicos"
                 },
                 {
                     title: "Eventos",
                     desc: "Os eventos que organizamos ao longo dos anos",
-                    href: "/?scrollTo=eventos"
+                    href: "/servicos?scrollTo=eventos"
                 },
                 {
                     title: "Projetos",
                     desc: "Os projetos que foram aprovados",
-                    href: "/?scrollTo=projetos"
+                    href: "/servicos?scrollTo=projetos"
                 },
             ]
         },
@@ -227,20 +228,13 @@ const NavBtns = ({
         <NavigationMenuList>
             {routes.map((r: any)=>{
                 return r.subMenus.length > 0 ? <NavigationMenuItem key={r.title}>
-                <NavigationMenuTrigger className={`${asPath === r.href ? "text-orange-400": ""} text-lg bg-transparent`}>
+                <NavigationMenuTrigger className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} text-lg bg-transparent`}>
                     <a href={r.href}>{r.title}</a>
                 </NavigationMenuTrigger>
                 {r.subMenus.length > 0 && <NavigationMenuContent>
                     <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                         {r.displayImage && <li className="row-span-3">
-                            <NavigationMenuLink asChild>
-                            <a
-                                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                href="/"
-                            >
-                               {r.displayImage} 
-                            </a>
-                            </NavigationMenuLink>
+                            {r.displayImage} 
                         </li>}
                         {r.subMenus.map((s:any)=>{
                             return <ListItem key={s.title} onClick={()=>{
@@ -254,7 +248,7 @@ const NavBtns = ({
             </NavigationMenuItem> : 
             <Button onClick={()=>{
                 push(r.href)
-            }} variant="ghost" className={`${asPath === r.href ? "text-orange-400": ""} text-lg bg-transparent`}> {r.title}</Button>
+            }} variant="ghost" className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} text-lg bg-transparent`}> {r.title}</Button>
             })}
             
         </NavigationMenuList>
