@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
-import Head from 'next/head'
 import Person from "@/assets/smile.png"
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -31,9 +30,9 @@ import Link from 'next/link'
 const Home = () => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Agirar</title>
-      </Head>
+      </Head> */}
       <ImageCarrousel/>
       <PsicoseComponent/>
       <Objectives/>
@@ -45,7 +44,7 @@ const Home = () => {
 
 
 const PsicoseComponent = ()=>{
-  return <section className={`${getSectionClass} my-40`} >
+  return <section id="psicose" className={`${getSectionClass} my-40`} >
     <div className={`flex ${getMaxWidthClasses} `}>
       <div className="flex flex-col w-2/3">
         <h3 className=' text-5xl font-bold '>
@@ -295,7 +294,7 @@ const HeaderLandingPage = ()=>{
 const Objectives = ()=>{
   const {push} = useRouter()
 
-  return <section className={`${getSectionClass} h-[calc(100vh-300px)] gap-5 justify-center px-5 `}>
+  return <section id="objetivos"  className={`${getSectionClass} h-[calc(100vh-300px)] gap-5 justify-center px-5 `}>
      {/* <DecorationGeometry 
       color="orange"
       size="w-44 h-64"

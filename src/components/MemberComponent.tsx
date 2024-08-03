@@ -18,12 +18,12 @@ const mensalidade = 2
 const joia = 5
 
 const MemberComponent = ({
-    renderComponent,
+    children,
     title,
     reason,
     pagamento
 }:{
-    renderComponent: React.ReactNode,
+    children: React.ReactNode,
     title: string,
     reason: "unico" | "mensal" 
     pagamento: "transferencia" | "mbway"
@@ -92,7 +92,7 @@ const MemberComponent = ({
 
     return <>
         <Dialog open={open} onOpenChange={setOpen}> 
-            <DialogTrigger  asChild>{renderComponent}</DialogTrigger>
+            <DialogTrigger  asChild>{children}</DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>{title}</DialogTitle>

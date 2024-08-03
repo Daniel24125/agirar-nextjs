@@ -103,7 +103,7 @@ const ObjectivesSection = ()=>{
 
 export const Partners = () => {
 
-    return <section className='flex flex-col items-center relative w-screen py-36'>
+    return <section id="parceiros"  className='flex flex-col items-center relative w-screen py-36'>
         <div className={`${getMaxWidthClasses} flex flex-col relative items-center px-5`}>
             <div className="flex w-full justify-end">
                 <DecorationGeometry

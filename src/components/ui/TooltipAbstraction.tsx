@@ -11,12 +11,8 @@ const TooltipAbstraction = ({
   return (
     <TooltipProvider>
         <Tooltip>
-            <TooltipTrigger>    
-                {children}
-            </TooltipTrigger>
-            <TooltipContent>
-                {title}
-            </TooltipContent>
+            <TooltipTrigger> {children}</TooltipTrigger>
+            <TooltipContent>{title}</TooltipContent>
         </Tooltip>
     </TooltipProvider>
   )
