@@ -41,11 +41,12 @@ const HeaderSection = ()=>{
         />
         </h2>
         <MemberComponent
-            renderComponent={<Button>Tornar-me Associado</Button>}
             title='Tornar-me Associado'
             reason='mensal'
             pagamento='transferencia'
-        />
+        >
+          <Button>Tornar-me Associado</Button>
+        </MemberComponent>
     </div>
   </section>
 }

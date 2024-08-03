@@ -265,9 +265,10 @@ const HeaderLandingPage = ()=>{
         <MemberComponent
           reason='mensal'
           pagamento='transferencia'
-          renderComponent={<Button>Tornar-me Associado</Button>}
           title='Tornar-me Associado'
-        />
+        >
+          <Button>Tornar-me Associado</Button>
+        </MemberComponent>
         
       </div>
 
@@ -439,31 +440,30 @@ const Donation = ()=>{
           <MemberComponent
               reason="unico"
               pagamento="transferencia"
-              renderComponent={
-                <Button variant="link" className='text-center w-full'>
+              title='Pagamento Único'
+          >
+            <Button variant="link" className='text-center w-full'>
                   <h5 className='text-blue-400 underline font-bold sm:text-lg'>IBAN: PT50 0036 0051 99100351967 81</h5> 
                 </Button>
-              }
-              title='Pagamento Único'
-          />
+          </MemberComponent>
 
           <MemberComponent
               reason="unico"
               pagamento="mbway"
-              renderComponent={
-                <Button variant="link" className='text-center w-full'>
+              title='Pagamento Único'
+          >
+             <Button variant="link" className='text-center w-full'>
                   <h5 className='text-blue-400 underline font-bold sm:text-lg '>MBWAY: 912 353 788</h5> 
                 </Button>
-              }
-              title='Pagamento Único'
-          />
+          </MemberComponent>
           <div className="flex w-full justify-center">
             <MemberComponent
                 reason='mensal'
                 pagamento='transferencia'
-                renderComponent={<Button>Tornar-me Sócio</Button>}
                 title='Tornar-me Associado'
-            />
+            >
+              <Button>Tornar-me Sócio</Button>
+            </MemberComponent>
           </div>
           <h5 className=' font-bold sm:text-lg text-center text-black w-full mt-2'>A sua contribuição faz toda a diferença!</h5>
         </div>

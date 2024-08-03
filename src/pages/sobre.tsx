@@ -39,11 +39,12 @@ const AboutHeader = ()=>{
                 <p className='text-center lg:text-right'>Quer fazer parte da desta Associação?</p>
             </div>
             <MemberComponent
-                renderComponent={<Button>Ser Associado</Button>}
                 title='Tornar-me Associado'
                 reason='mensal'
                 pagamento='transferencia'
-            />
+            >
+                <Button>Ser Associado</Button>
+            </MemberComponent>
         </DecorationGeometry>
        <div className="flex flex-col gap-8 absolute w-screen justify-center items-center top-40">
             <p className='text-8xl text-center font-bold'>Agirar</p>
