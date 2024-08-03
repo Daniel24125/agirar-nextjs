@@ -45,7 +45,7 @@ const Home = () => {
 
 
 const PsicoseComponent = ()=>{
-  return <section className={`${getSectionClass} py-40`} >
+  return <section className={`${getSectionClass} my-40`} >
     <div className={`flex ${getMaxWidthClasses} `}>
       <div className="flex flex-col w-2/3">
         <h3 className=' text-5xl font-bold '>
@@ -130,7 +130,20 @@ const ImageCarrousel = ()=>{
         </CarouselItem>
         {events.map((evt, index) => (
           <CarouselItem key={index}>
-            <CarouselCardComponent  img={evt.img[0]}>
+            <div className={`flex h-96 justify-between bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
+              <div className="flex flex-col">
+                <h3 className='text-2xl'>{evt.title}</h3>
+                <h6 className='text-gray-400'>{evt.date}</h6>
+                <p className='w-1/2 min-h-[50%] text-sm mt-5' >
+                  {evt.desc}
+                </p>
+                <div className="flex justify-end p-5">
+                  <a className=' text-blue-300' href={evt.href} target='__blank'>Saber mais</a>
+                </div>
+              </div>
+              <img className="h-full rounded-lg" src={evt.img[0]} alt="imagem do evento" />
+            </div>
+            {/* <CarouselCardComponent  img={evt.img[0]}>
               <div className="flex w-full h-full flex-col text-white justify-between">
                 <div className="flex justify-between">
                   <div className="flex flex-col">
@@ -149,7 +162,7 @@ const ImageCarrousel = ()=>{
                   <a className=' text-blue-300' href={evt.href} target='__blank'>Saber mais</a>
                 </div>
               </div>
-            </CarouselCardComponent>
+            </CarouselCardComponent> */}
           </CarouselItem>
         ))}
       </CarouselContent>

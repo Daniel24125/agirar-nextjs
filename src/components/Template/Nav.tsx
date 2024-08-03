@@ -18,11 +18,11 @@ const Nav = () => {
                 <MenuBtn/>
                 <Logo/>
                 <div className="flex flex-col w-full">
-                    <div className="w-full bg-blue-100 h-16 rounded-lg ml-4 flex justify-between items-center px-2">
-                        <ComunicadosComponent/>
+                    <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
+                        {/* <ComunicadosComponent/> */}
                         <SocialBtns/>
                     </div>
-                    <div className="w-full flex justify-between py-2">
+                    <div className="w-full flex justify-between py-2 px-4 bg-blue-100 rounded-lg ">
                         <div className='hidden md:flex '>
                             <NavBtns/>
                         </div>
@@ -53,7 +53,7 @@ const CallForActionNav = ({
         <TooltipAbstraction
             title="Tornar-me Associado">
             <MemberComponent
-                renderComponent={<Button className={`cursor-pointer border-2 bg-white text-black border-orange-200 hover:bg-orange-200`}>
+                renderComponent={<Button variant="default" className={`cursor-pointer border-2 bg-blue-400`}>
                     Associado
                 </Button>}
                 title='Tornar-me Associado'
@@ -64,7 +64,7 @@ const CallForActionNav = ({
         <TooltipAbstraction
             title="Tornar-me Associado">
             <MemberComponent
-                renderComponent={<Button className={`cursor-pointer border-2 bg-white text-black border-orange-200 hover:bg-orange-200`}>
+                renderComponent={<Button className={`cursor-pointer border-2 bg-blue-400`}>
                     Doar
                 </Button>}
                 title='Tornar-me Associado'
@@ -72,7 +72,7 @@ const CallForActionNav = ({
                 pagamento='transferencia'
             />
         </TooltipAbstraction>
-        <ThemeModeToggle className='hidden sm:flex'/>
+        {/* <ThemeModeToggle className='hidden sm:flex'/> */}
 
     </div>
 }
@@ -121,19 +121,19 @@ const NavBtns = ({
 })=>{
     const {push, asPath} = useRouter()
     return <>
-        <Button className={`${asPath === "/" ? "text-orange-400": ""}`} onClick={()=>{
+        <Button size="lg" className={`${asPath === "/" ? "text-orange-400": ""} text-lg`} onClick={()=>{
             push("/")
             if(onClick) onClick()
         }} variant="link">Início</Button>
-        <Button className={`${asPath === "/sobre/" ? "text-orange-400": ""}`} onClick={()=>{
+        <Button size="lg" className={`${asPath === "/sobre/" ? "text-orange-400": ""} text-lg`} onClick={()=>{
             push("/sobre")
             if(onClick) onClick()
         }} variant="link">Sobre Nós</Button>
-        <Button className={`${asPath === "/servicos/"? "text-orange-400": ""} `} onClick={()=>{
+        <Button size="lg" className={`${asPath === "/servicos/"? "text-orange-400": ""}  text-lg`} onClick={()=>{
             push("/servicos")
             if(onClick) onClick()
         }} variant="link">Os Nossos Serviços</Button>
-        <Button className={`${asPath === "/contactos/"? "text-orange-400": ""}`} onClick={()=>{
+        <Button size="lg" className={`${asPath === "/contactos/"? "text-orange-400": ""} text-lg`} onClick={()=>{
             push("/contactos")
             if(onClick) onClick()
         }} variant="link">Contactos</Button>
