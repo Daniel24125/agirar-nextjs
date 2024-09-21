@@ -119,7 +119,7 @@ const ImageCarrousel = ()=>{
       <CarouselContent >
         <CarouselItem >
           <CarouselCardComponent style={{
-            backgroundPosition: "center bottom"
+            backgroundPosition: "center 500px"
           }} img="/eventos/intro.jpeg">
             <div className="flex flex-col text-white justify-center items-center">
               <h1 className='mb-2 border-b-8 border-orange-400 text-8xl'>AGIRAR</h1>
@@ -133,35 +133,15 @@ const ImageCarrousel = ()=>{
               <div className="flex flex-col">
                 <h3 className='text-2xl'>{evt.title}</h3>
                 <h6 className='text-gray-400'>{evt.date}</h6>
-                <p className='w-1/2 min-h-[50%] text-sm mt-5' >
+                <p className='w-1/2 min-h-[65%] text-sm mt-5' >
                   {evt.desc}
                 </p>
-                <div className="flex justify-end p-5">
+                <div className="flex justify-end pr-5">
                   <a className=' text-blue-300' href={evt.href} target='__blank'>Saber mais</a>
                 </div>
               </div>
               <img className="h-full rounded-lg" src={evt.img[0]} alt="imagem do evento" />
             </div>
-            {/* <CarouselCardComponent  img={evt.img[0]}>
-              <div className="flex w-full h-full flex-col text-white justify-between">
-                <div className="flex justify-between">
-                  <div className="flex flex-col">
-                    <h3 className='text-3xl '>{evt.title}</h3>
-                    <h6 className='text-gray-400'>{evt.date}</h6>
-                  </div>
-                  <PhotoGallery
-                    ButtonContent={<CameraIcon/>}
-                    imageCollection={evt.img}
-                  />
-                </div>
-                <p className='w-1/2 min-h-[50%]' >
-                  {evt.desc}
-                </p>
-                <div className="flex justify-end">
-                  <a className=' text-blue-300' href={evt.href} target='__blank'>Saber mais</a>
-                </div>
-              </div>
-            </CarouselCardComponent> */}
           </CarouselItem>
         ))}
       </CarouselContent>

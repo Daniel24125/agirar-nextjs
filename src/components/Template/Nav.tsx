@@ -2,16 +2,15 @@ import React from 'react'
 import ThemeModeToggle from "./ThemeModeToggle"
 import { Button } from '../ui/button'
 import { useRouter } from 'next/router'
-import { Facebook, Heart, Instagram, Mail, MapPin, MenuIcon, Smile } from 'lucide-react'
+import { Facebook, Instagram, Mail, MapPin, MenuIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
-import { Sheet,SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import { Sheet,SheetContent, SheetDescription, SheetHeader,  SheetTrigger } from '../ui/sheet'
 import MemberComponent from '../MemberComponent'
 import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
-import { useParams } from 'next/navigation'
-import Link from 'next/link'
+
 
 
 
@@ -20,7 +19,7 @@ const Nav = () => {
         <nav className='bg-white  flex justify-center items-center py-4 fixed top-0 z-50 w-full '>
             <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
                 <MenuBtn/>
-                <Logo/>
+                <Logo className='mr-4'/>
                 <div className="flex flex-col w-full">
                     <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
                         {/* <ComunicadosComponent/> */}
@@ -33,16 +32,6 @@ const Nav = () => {
                         <CallForActionNav/>
                     </div>
                 </div>
-                {/* <div className='flex gap-3'>
-                    <MenuBtn/>
-                    <Logo/>
-                </div>
-                <div className='hidden md:flex '>
-                   <NavBtns/>
-                </div>
-                <div className="flex items-center gap-3">
-                    <SocialBtns/>
-                </div> */}
             </div>
         </nav>
   )
@@ -130,7 +119,8 @@ const NavBtns = ({
         {
             title: "Início",
             href: "/", 
-            displayImage: <Logo className="h-full w-full" />,
+            // displayImage: <Logo className="h-full w-full" />,
+            displayImage: false,
             subMenus: [
                 {
                     title: "Psicose",
@@ -150,21 +140,23 @@ const NavBtns = ({
             ]
         },
         {
-            title: "Quem Somos",
+            title: "Quem somos",
             href: "/sobre", 
-            displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
+            displayImage: false,
+            // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
             subMenus: [
-                {
-                    title: "A AGIRAR",
-                    desc: "Uma breve história sobre a nossa origem",
-                    href: "/sobre?scrollTo=origem"
-                },
+                // {
+                //     title: "A AGIRAR",
+                //     desc: "Uma breve história sobre a nossa origem",
+                //     href: "/sobre?scrollTo=origem"
+                // },
             ]
         },
         {
-            title: "O que Fazemos",
+            title: "O que fazemos",
             href: "/servicos", 
-            displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/2539658/pexels-photo-2539658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
+            displayImage: false,
+            // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/2539658/pexels-photo-2539658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
             subMenus: [
                 {
                     title: "Serviços",
@@ -281,7 +273,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "cursor-pointer block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
@@ -305,16 +297,6 @@ export const SocialBtns = ({
     size?: string
 })=>{
     return <>
-        {/* <TooltipAbstraction
-            title="Tornar-me Associado">
-            <MemberComponent
-                renderComponent={<Smile className={`${size} cursor-pointer hover:text-orange-500`}/>}
-                title='Tornar-me Associado'
-                reason='mensal'
-                pagamento='transferencia'
-            />
-        </TooltipAbstraction> */}
-        {/* <Heart className={`${size} cursor-pointer hover:text-red-500`}/> */}
         <TooltipAbstraction
             title="@agirarassociacao"
         >

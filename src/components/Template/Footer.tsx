@@ -8,7 +8,6 @@ import { SocialBtns } from './Nav'
 import Link from 'next/link'
 
 const Footer = () => {
-    const {push} = useRouter()
     return (<>
         
         <LawComponent/>
@@ -93,7 +92,7 @@ const ContactComponent = ({
 const LawComponent = ()=>{
     return <section className={`${getSectionClass}`}>
             <div className={`${getMaxWidthClasses} pb-20`}>
-            <h5 className='text-xl font-bold  mb-7'>Lei da saúde mental</h5>
+            <h5 className='text-xl font-bold  mb-7'>Informação importante</h5>
             <p className='text-xs text-justify'>Lorem ipsum dolor sit amet consectetur. Consequat lacus vitae dictum eu gravida pulvinar amet. Pharetra molestie ultricies amet fermentum. Tincidunt dignissim viverra et justo cras. Vehicula odio ut diam tincidunt aliquam lectus faucibus ut ullamcorper. Mauris eget elit id eget sollicitudin adipiscing. Felis dictum egestas natoque id enim amet feugiat enim. Ac aliquet adipiscing ut imperdiet. Bibendum feugiat malesuada in orci aenean. Arcu mi elit auctor pretium elementum ultricies. Platea massa a non morbi. Aliquam viverra proin eget maecenas auctor pellentesque urna auctor. Risus consectetur ante nunc risus suspendisse natoque tempor arcu mauris. Sollicitudin tellus tincidunt sollicitudin sagittis sed. Eget amet mauris velit sed pulvinar cras. Enim scelerisque ipsum posuere blandit pulvinar adipiscing. Dictum tellus bibendum morbi auctor. Dui arcu massa sed vitae. Sit tristique nisl nisl facilisis enim. Sed diam cras mauris tempus. Aliquet duis ornare id justo vel. Ligula urna sed velit mauris. Imperdiet consequat lectus pulvinar malesuada scelerisque. Malesuada nec parturient imperdiet non semper eget. Amet consectetur mauris lectus blandit diam a sed duis dui. Amet facilisi in eu id nascetur bibendum venenatis. Eget pretium justo arcu congue sem bibendum. Vel scelerisque eget hendrerit habitant convallis velit proin. Tortor pulvinar ut pellentesque vel aliquet. Eu eu accumsan lorem nisi commodo morbi volutpat tristique convallis. Ultricies eget commodo donec sem natoque tortor diam. Consequat faucibus etiam id elit. Purus faucibus ipsum scelerisque pellentesque. Placerat et enim diam sed id. Facilisis risus tristique eget tellus morbi ut enim. In neque sit metus et turpis. Sit ante auctor turpis maecenas cursus. Purus convallis integer in fermentum aliquet. Arcu purus neque consectetur non habitant duis porttitor nunc. Tellus interdum at aliquam in. Quis aliquet bibendum netus scelerisque feugiat eget pharetra purus. Neque velit quam etiam ut enim aenean proin tristique faucibus. Sed ultrices vulputate feugiat non. At orci scelerisque blandit odio. Scelerisque fermentum risus eget morbi faucibus eu nec. Rhoncus eu vestibulum purus eros quis vel et integer sed. Mi in habitasse aliquet ultrices quis accumsan. Enim sit nulla dapibus morbi. Nibh diam enim eget pharetra. Morbi scelerisque purus adipiscing ut sed id cras aenean amet.</p>
             <div className='flex justify-end w-full mt-10'>
                 <a className='text-sm text-orange-400' href="https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938" target='__black'>Decreto de Lei</a>

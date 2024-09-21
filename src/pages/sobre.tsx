@@ -112,7 +112,7 @@ export const Partners = () => {
                     size="w-[calc(50%+50px)] h-2"
                     position=""
                     borderRadius="rounded-full"
-                    className='mb-20'
+                    className='mb-20 bg-orange-200'
                 />
             </div>
             {/* <p className='text-xl lg:text-3xl max-w-md text-center font-bold'>Com os nossos parceiros, tudo é mais fácil</p> */}
@@ -130,7 +130,7 @@ export const Partners = () => {
                     size="w-[calc(50%+50px)] h-2"
                     position=""
                     borderRadius="rounded-full"
-                    className='mt-20'
+                    className='mt-20 bg-blue-200'
                 />
             </div>
         </div>
