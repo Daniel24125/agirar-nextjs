@@ -19,7 +19,7 @@ const Nav = () => {
         <nav className='bg-white  flex justify-center items-center py-4 fixed top-0 z-50 w-full '>
             <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
                 <MenuBtn/>
-                <Logo className='mr-4'/>
+                <Logo className='mr-4' height={112}/>
                 <div className="flex flex-col w-full">
                     <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
                         {/* <ComunicadosComponent/> */}

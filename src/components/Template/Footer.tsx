@@ -1,8 +1,6 @@
 import React from 'react'
 import Logo from '../Logo'
-import { Button } from '../ui/button'
-import { useRouter } from 'next/router'
-import { HomeIcon, MailIcon, MoveRight, PhoneCallIcon } from 'lucide-react'
+import { HomeIcon, MailIcon,  PhoneCallIcon } from 'lucide-react'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import { SocialBtns } from './Nav'
 import Link from 'next/link'
@@ -15,7 +13,7 @@ const Footer = () => {
             <div className="w-screen max-w-7xl flex flex-col items-center lg:items-start px-5">
                 <div className="flex items-center lg:justify-between my-10 w-full flex-col lg:flex-row">
                     <div className="flex flex-col items-center">
-                        <Logo/>
+                        <Logo height={112}/>
                         <p className='text-xs max-w-[110px] text-center'>Associação de Familiares e Amigos de Pessoas com Psicose</p>
                         <p className='text-xs max-w-[190px] text-center font-bold mt-10'>Tem como objetivo principal promover a reabilitação e integração social de pessoas com doença mental grave edar apoio às suas famílias</p> 
                     </div>
