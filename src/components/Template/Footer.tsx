@@ -39,31 +39,20 @@ const Footer = () => {
                             </div>}
                         />                        
                     </div>
-                    {/* <div className="flex flex-col items-center lg:items-start mt-10 lg:mt-0">
-                        <h6 className='font-bold text-lg mb-5'>A Agirar</h6>
-                        <Button onClick={()=>push("/sobre")} variant="link">Quem Somos</Button>
-                        <Button onClick={()=>push("/servicos")} variant="link">Serviços</Button>
-                    </div> */}
-                    {/* <div className="flex flex-col items-center lg:items-start mt-10 lg:mt-0">
-                        <h6 className='font-bold text-lg mb-5'>Informações Legais</h6>
-                        <Button onClick={()=>push("/estatutos.pdf")} variant="link">Estatutos</Button>
-                        <Button onClick={()=>push("/orgaos")} variant="link">Orgãos Sociais</Button>
-                        <Button onClick={()=>push("/contas")} variant="link">Relatório de Contas</Button>
-                    </div> */}
                     <iframe 
                         className="mt-10 lg:mt-0 rounded-3xl border-blue-400 border-2 w-96 h-72" 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.6014027109677!2d-8.59268990000432!3d41.09955491140556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd247b6a680e8a6f%3A0x651b7222910ddad5!2s4430-458%20Vila%20Nova%20de%20Gaia!5e0!3m2!1sen!2spt!4v1593272433391!5m2!1sen!2spt" frameBorder="0" allowFullScreen={false} aria-hidden="false" tabIndex={0} >
                         </iframe>
                 </div>
                 <div className="w-full flex justify-center border-b-2 border-blue-300 pb-3 mb-3">
-                    <SocialBtns/>
+                    <SocialBtns size="w-6 h-6 sm:w-8 sm-h-8" show='facebook;instagram'/>
                 </div>
                 <div className="w-full flex justify-between">
                     <span className='text-xs text-blue-400'>© Agirar {new Date().getFullYear() }  - Todos os direitos reservados</span>
                     <div className="flex gap-x-4 text-xs text-blue-400">
-                        <Link href='/estatutos.pdf'>Estatutos</Link>
+                        <Link href='/estatutos.pdf' target='__blank'>Estatutos</Link>
                         <Link href='/orgaos'>Orgãos Sociais</Link>
-                        <Link href='/contas'>Relatório de Contas</Link>
+                        <Link href='/contas'>Relatórios</Link>
                     </div>
                 </div>
             </div>
@@ -89,12 +78,10 @@ const ContactComponent = ({
 
 const LawComponent = ()=>{
     return <section className={`${getSectionClass}`}>
-            <div className={`${getMaxWidthClasses} pb-20`}>
-            <h5 className='text-xl font-bold  mb-7'>Informação importante</h5>
-            <p className='text-xs text-justify'>Lorem ipsum dolor sit amet consectetur. Consequat lacus vitae dictum eu gravida pulvinar amet. Pharetra molestie ultricies amet fermentum. Tincidunt dignissim viverra et justo cras. Vehicula odio ut diam tincidunt aliquam lectus faucibus ut ullamcorper. Mauris eget elit id eget sollicitudin adipiscing. Felis dictum egestas natoque id enim amet feugiat enim. Ac aliquet adipiscing ut imperdiet. Bibendum feugiat malesuada in orci aenean. Arcu mi elit auctor pretium elementum ultricies. Platea massa a non morbi. Aliquam viverra proin eget maecenas auctor pellentesque urna auctor. Risus consectetur ante nunc risus suspendisse natoque tempor arcu mauris. Sollicitudin tellus tincidunt sollicitudin sagittis sed. Eget amet mauris velit sed pulvinar cras. Enim scelerisque ipsum posuere blandit pulvinar adipiscing. Dictum tellus bibendum morbi auctor. Dui arcu massa sed vitae. Sit tristique nisl nisl facilisis enim. Sed diam cras mauris tempus. Aliquet duis ornare id justo vel. Ligula urna sed velit mauris. Imperdiet consequat lectus pulvinar malesuada scelerisque. Malesuada nec parturient imperdiet non semper eget. Amet consectetur mauris lectus blandit diam a sed duis dui. Amet facilisi in eu id nascetur bibendum venenatis. Eget pretium justo arcu congue sem bibendum. Vel scelerisque eget hendrerit habitant convallis velit proin. Tortor pulvinar ut pellentesque vel aliquet. Eu eu accumsan lorem nisi commodo morbi volutpat tristique convallis. Ultricies eget commodo donec sem natoque tortor diam. Consequat faucibus etiam id elit. Purus faucibus ipsum scelerisque pellentesque. Placerat et enim diam sed id. Facilisis risus tristique eget tellus morbi ut enim. In neque sit metus et turpis. Sit ante auctor turpis maecenas cursus. Purus convallis integer in fermentum aliquet. Arcu purus neque consectetur non habitant duis porttitor nunc. Tellus interdum at aliquam in. Quis aliquet bibendum netus scelerisque feugiat eget pharetra purus. Neque velit quam etiam ut enim aenean proin tristique faucibus. Sed ultrices vulputate feugiat non. At orci scelerisque blandit odio. Scelerisque fermentum risus eget morbi faucibus eu nec. Rhoncus eu vestibulum purus eros quis vel et integer sed. Mi in habitasse aliquet ultrices quis accumsan. Enim sit nulla dapibus morbi. Nibh diam enim eget pharetra. Morbi scelerisque purus adipiscing ut sed id cras aenean amet.</p>
-            <div className='flex justify-end w-full mt-10'>
-                <a className='text-sm text-orange-400' href="https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938" target='__black'>Decreto de Lei</a>
-            </div>
+            <div className={`${getMaxWidthClasses} pb-20 flex flex-col gap-1`}>
+            <h5 className='text-md font-bold  mb-7 '>Informação importante</h5>
+            <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938' target='__blank'>1 - Decreto Lei 113/2021 – Princípios gerias e regras de organização e funcionamento dos serviços de saúde mental</a>
+            <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/lei/35-2023-215980339' target='__blank'>2 – Lei nº 35/2023 de 21 de julho – Lei de Saúde Mental</a>
         </div>
         </section>
 }

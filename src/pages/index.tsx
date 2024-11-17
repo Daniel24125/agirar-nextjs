@@ -1,12 +1,9 @@
 import { Button } from '@/components/ui/button'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
-import Person from "@/assets/smile.png"
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import React, { UIEvent } from 'react'
-import { CameraIcon, Share2 } from 'lucide-react'
-import TooltipAbstraction  from '@/components/ui/TooltipAbstraction'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { TEvent, getTheLastEvents } from '@/utils/Events'
 import DotVector from '@/components/DotVector'
@@ -21,18 +18,19 @@ import {  Carousel,
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import SquareGraphics from '@/components/SquareGraphics'
+import {SquareGraphics} from '@/components/UtilsGraphics'
 import { Partners } from './sobre'
-import Link from 'next/link'
-
+import BulletTextComponent from '@/components/ui/BulletTextComponent'
+import ImageVoluntatios from "@/assets/home/objetivos.jpg"
+import ImagemPsicose from "@/assets/home/psicose-bullet.jpg"
+import DonativoIcon from "@/assets/home/donativo.jpg"
+import AssociadoIcon from "@/assets/home/associado.jpg"
+import VoluntarioIcon from "@/assets/home/voluntário.jpg"
 
 
 const Home = () => {
   return (
     <>
-      {/* <Head>
-        <title>Agirar</title>
-      </Head> */}
       <ImageCarrousel/>
       <PsicoseComponent/>
       <Objectives/>
@@ -47,42 +45,49 @@ const PsicoseComponent = ()=>{
   return <section id="psicose" className={`${getSectionClass} my-40 px-5`} >
     <div className={`flex ${getMaxWidthClasses} `}>
       <div className="flex flex-col w-2/3">
-        <h3 className=' text-5xl font-bold '>
+        <h3 className=' text-5xl font-bold mb-4'>
           Psicose
         </h3>
-        <div className="flex my-6">
-          <SquareGraphics
-            size={30}
-          />
-          <h6 className=' my-3 px-6 text-justify w-5/6'>
-            Lorem ipsum dolor sit amet consectetur. Velit at facilisi fusce maecenas ornare nam eget. Eget tincidunt id sit pulvinar. Lectus sed iaculis nunc quis morbi nunc pretium scelerisque sed. Id lacus neque aliquet ultricies erat sem ac. Quis sapien nullam sagittis ipsum nibh tristique mauris. Interdum cursus neque scelerisque amet. Leo leo urna dictum condimentum odio senectus ipsum varius. Diam arcu placerat velit mauris. Id sit est magna enim. Faucibus sit dignissim congue elementum auctor blandit diam tellus. Massa commodo etiam commodo diam adipiscing semper ac vitae condimentum. Facilisis fringilla cursus consequat etiam euismod in sit egestas. Eu ultrices in aliquam in quam. Quis posuere nam vitae orci aliquam massa quam lobortis. Vulputate sit pellentesque lorem eu nunc. Cursus quisque nec amet mauris. Sit erat tristique arcu volutpat sit nullam sagittis tellus. Commodo sit eleifend adipiscing tristique massa euismod habitant nunc vestibulum. Lobortis leo interdum euismod diam sem ipsum eu nulla ut. Nullam cum nibh sit sagittis vel non. Congue magna mi dignissim praesent eleifend. Eget elementum imperdiet at turpis. Tempus ac nisl quis in blandit ultricies molestie. In sollicitudin praesent elementum sed vel cursus amet feugiat semper.
-          </h6>
-        </div>
-        <div className="flex my-6">
-          <SquareGraphics
-            size={30}
-          />
-          <h6 className=' my-3 px-6 text-justify'>
-            Se tiver alguma dúvida ou precisar de ajuda, não hesite em <Link href="/contactos" className=' text-blue-400'>contactar-nos</Link>.
-          </h6>
-        </div>
-        <div className="flex my-6">
-          <SquareGraphics
-            size={30}
-          />
-          <h6 className=' my-3 px-6 text-justify'>
-          Se tem interesse em juntar-se a nós e dar um contributo fundamental a favor da saúde mental, <Link href="/contactos" className=' text-orange-400'>clique aqui</Link>.
-          </h6>
-        </div>
+        <BulletTextComponent
+          BulletComponent={<SquareGraphics size={30}/>}
+          text={<span>O termo <strong>Psicose</strong> não se refere a uma doença específica. É uma síndrome, um conjunto de sintomas comuns a várias perturbações mentais, das quais a mais comum é a <strong>Esquizofrenia</strong>. </span>}
+        />
+        <BulletTextComponent
+          BulletComponent={<SquareGraphics size={30}/>}
+          text={<span>No episódio psicótico a pessoa tem uma perceção distorcida da realidade ou a sua interpretação é diferente da maioria das pessoas. Os <strong>sintomas</strong> mais comuns incluem os delírios (crenças que não correspondem á realidade) e as alucinações (ver, ouvir, sentir coisas não reais). No entanto, vários outros se manifestam: discurso incoerente, alterações de comportamento, etc. As pessoas com psicose podem ainda apresentar ansiedade, depressão, insónias, isolamento social, falta de motivação e apresentar dificuldades no seu funcionamento do dia a dia.</span>}
+        />
+
+        <BulletTextComponent
+          BulletComponent={<SquareGraphics size={30}/>}
+          text={
+            <span>
+              Os episódios psicóticos variam na sua intensidade e duração. O seu <strong>tratamento</strong> inclui medicação antipsicótica, medicação para outra sintomatologia (ansiedade, insónia, …), e intervenções psicoterapêuticas individuais e em grupo.
+            </span>
+          }
+        />
+        <BulletTextComponent
+          BulletComponent={<SquareGraphics size={30}/>}
+          text="Reconhecer precocemente os sintomas da psicose e procurar ajuda é essencial para a pessoa que experiencia esta alteração e para o seu familiar."
+        />
+        <BulletTextComponent
+          BulletComponent={<SquareGraphics size={30}/>}
+          text="O tratamento precoce é um fator positivo e melhora o prognóstico sendo ainda preditor de uma melhor qualidade de vida."
+        />
       </div>
       <div className='w-1/3 min-w-[300px] h-[600px] rounded-2xl overflow-hidden'>
-        <video autoPlay muted loop>
+          <Image
+            src={ImagemPsicose}
+            width={350}
+            alt="Imagem psicose"
+          />
+        {/* <video autoPlay muted loop>
           <source src="/videos/psicose.mp4" type="video/mp4"/>
-        </video>
+        </video> */}
       </div>
     </div>
   </section>
 }
+
 
 
 const ImageCarrousel = ()=>{
@@ -109,7 +114,6 @@ const ImageCarrousel = ()=>{
     
     <Carousel
       setApi={setApi}
-      className={`${getMaxWidthClasses} `}
       plugins={[
         Autoplay({
           delay: 5000,
@@ -129,18 +133,20 @@ const ImageCarrousel = ()=>{
         </CarouselItem>
         {events.map((evt, index) => (
           <CarouselItem key={index}>
-            <div className={`flex h-96 justify-between bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
-              <div className="flex flex-col">
-                <h3 className='text-2xl'>{evt.title}</h3>
-                <h6 className='text-gray-400'>{evt.date}</h6>
-                <p className='w-1/2 min-h-[65%] text-sm mt-5' >
-                  {evt.desc}
-                </p>
-                <div className="flex justify-end pr-5">
-                  <a className=' text-blue-300' href={evt.href} target='__blank'>Saber mais</a>
+            <div className={`flex justify-center h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
+              <div className={`${getMaxWidthClasses} flex justify-between`}>
+                <div className="flex flex-col w-full">
+                  <h3 className='text-2xl'>{evt.title}</h3>
+                  <h6 className='text-gray-400'>{evt.date}</h6>
+                  <p className='w-1/2 min-h-[65%] text-sm mt-5' >
+                    {evt.desc}
+                  </p>
+                  <div className="flex justify-end pr-5">
+                    <a className=' text-blue-300 font-bold' href={evt.href} target='__blank'>Saber mais</a>
+                  </div>
                 </div>
+                <img className="h-full rounded-lg" src={evt.img[0]} alt="imagem do evento" />
               </div>
-              <img className="h-full rounded-lg" src={evt.img[0]} alt="imagem do evento" />
             </div>
           </CarouselItem>
         ))}
@@ -275,46 +281,26 @@ const HeaderLandingPage = ()=>{
 const Objectives = ()=>{
   const {push} = useRouter()
 
-  return <section id="objetivos"  className={`${getSectionClass} h-[calc(100vh-300px)] gap-5 justify-center px-5 `}>
-     {/* <DecorationGeometry 
-      color="orange"
-      size="w-44 h-64"
-      position="absolute top-10 right-0"
-      borderRadius="rounded-tl-3xl rounded-bl-3xl"
-    />
-    <DecorationGeometry 
-      color="blue"
-      size="w-44 h-64"
-      position="absolute bottom-10 left-0"
-      borderRadius="rounded-tr-3xl rounded-br-3xl"
-    /> */}
-
-    <div className={`flex flex-col items-center h-full ${getMaxWidthClasses} relative justify-center`}>
-
-      {/* @ts-ignore */}
-      <SquareGraphics style={{
-            position: "absolute",
-            top: 0,
-            left: 0
-      }} size={100}/>
-
-    
-      <p className='w-[clamp(300px,90vw,550px)] text-center text-base sm:text-xl mb-3'>
-          Os principais objetivos da AGIRAR são promover a 
-        reabilitação e integração social de pessoas com doença 
-        mental grave e dar apoio às suas famílias, assim como 
-        promover o apoio, formação e investigação no domínio 
-        da saúde mental e reabilitação psicossocial
-      </p>
-      <Button onClick={()=>push("sobre")}>
-        Saber mais
-      </Button>
-      {/* @ts-ignore */}
-      <SquareGraphics color='#FF985E80' style={{
-        position: "absolute",
-        bottom: 0, 
-        right: 0
-        }} size={100}/>
+  return <section id="objetivos"  className={`${getSectionClass} h-[calc(100vh-400px)] justify-center px-5 bg-blue-100`}>
+    <div className={`flex justify-center items-center h-full gap-10 ${getMaxWidthClasses} relative justify-center`}>
+      <Image
+        className=' opacity-70'
+        src={ImageVoluntatios}
+        width={350}
+        alt="Imagem de voluntários"
+      />
+      <div className='flex flex-col items-center'>
+        <p className='w-[clamp(300px,90vw,550px)] text-center text-base sm:text-xl mb-3'>
+            Os principais objetivos da AGIRAR são promover a 
+          reabilitação e integração social de pessoas com doença 
+          mental grave e dar apoio às suas famílias, assim como 
+          promover o apoio, formação e investigação no domínio 
+          da saúde mental e reabilitação psicossocial
+        </p>
+        <Button onClick={()=>push("sobre")}>
+          Saber mais
+        </Button>
+      </div>
     </div>
   </section>
 }
@@ -497,7 +483,7 @@ const Support = ()=>{
     const el = document.getElementById("support")
     const scrollPos = window.scrollY
     //@ts-ignore
-    const elRectTop =  el.getBoundingClientRect().top || 600
+    const elRectTop =  (el && el.getBoundingClientRect().top) || 600
     setTranslate(elRectTop <= 350)
   }
   React.useEffect(()=>{
@@ -508,23 +494,34 @@ const Support = ()=>{
     return ()=> window.removeEventListener("scroll", checkTrasitionNeeded);
   },[])
 
-  return <section id="support" className={`${getSectionClass} gap-5 justify-center`}>
+  return <section id="support" className={`${getSectionClass} gap-5 justify-center mt-20`}>
     <div className={`flex justify-center items-center ${getMaxWidthClasses}`}>
-      <div className={` transition-all  flex flex-col ${translate ? "mr-5": "translate-x-2/4 delay-[3000]"} bg-white rounded-3xl border-orange-400 border-2 h-[450px] w-80 items-center text-center py-5 relative`}>
-        <h5 className="text-lg font-bold mb-20">Apoie a AGIRAR</h5>
-        <h4 className="text-2xl font-bold">Faça um Donativo</h4>
-        <p className=" text-slate-500 text-sm">Ajude-nos a fazer a diferença</p>
+      <div className={` transition-all flex flex-col gap-5 ${translate ? "mr-5": "translate-x-2/4 delay-[3000]"} bg-white rounded-3xl border-orange-400 border-2 h-[450px] w-80 items-center text-center py-5 relative`}>
+        <h3 className="text-lg font-bold">FAÇA UM DONATIVO</h3>
+        <Image
+
+          width={70}
+          src={DonativoIcon}
+          alt="Icone donativo"
+        />
+        <p className=" text-slate-500 text-sm">Ajude-nos a fazer a diferença. O seu donativo ajuda-nos a continuar a nossa atividade.</p>
         <div className="absolute bottom-0 flex flex-col gap-2 py-3 text-center w-full">
           <p className=" text-slate-500 font-bold text-sm">IBAN: PT50 0036 0051 99100351967 81</p>
           <p className=" text-slate-500 font-bold text-sm">MBWAY: 912 353 788</p>
-          <a href='#' className='text-orange-400'>Saber mais</a>
+          <a href='#' className='text-orange-400'>Doar</a>
         </div>
       </div>
 
       <div className={`flex flex-col rounded-3xl bg-white z-10 border-blue-400 border-2 h-[550px] w-[400px] items-center  text-center p-7 relative`}>
-        <h5 className=" text-base font-bold mb-5 text-blue-400">Apoie a AGIRAR</h5>
-        <h4 className="text-lg font-bold w-[90%] mb-9">Preencha a ficha de inscrição e junte-se a nós</h4>
-        <p className=" font-bold text-sm">Vantagens de ser associado</p>
+        <h3 className="text-lg font-bold w-[90%] mb-9">TORNE-SE ASSOCIADO</h3>
+        <Image
+          width={130}
+          src={AssociadoIcon}
+          alt="Icone associado"
+        />
+        <p className=" text-slate-500 text-sm">Junte-se a nós, e seja proativo nesta iniciativa em prol da saúde mental.</p>
+
+        {/* <p className=" font-bold text-sm">Vantagens de ser associado</p>
         <div className="flex text-start w-[90%] mt-4">
           <SquareGraphics size={30}/>
           <p className='text-sm ml-4'>Contribui para uma causa nobre a favor da saúde mental</p>
@@ -536,16 +533,21 @@ const Support = ()=>{
         <div className="flex text-start w-[90%] mt-2">
           <SquareGraphics size={30}/>
           <p className='text-sm ml-4'>Lorem ipsum dolor sit amet consectetur. Consequat condimentum adipiscing velit lectus pellentesque integer ac purus neque.</p>
-        </div>
+        </div> */}
 
         <div className="absolute bottom-5 flex flex-col gap-2 py-3 text-center w-full items-center">
           <Button >Associado</Button>
         </div>
       </div>
       <div className={` transition-all flex flex-col rounded-3xl bg-white ${translate ? "ml-5": "translate-x-[-50%] delay-[3000] "} border-orange-400 border-2 h-[450px] w-80 items-center text-center py-5 relative`}>
-        <h5 className="text-lg font-bold mb-10 w-[80%]">Torne-se voluntário da AGIRAR</h5>
-        <h4 className="font-bold w-1/2">Uma oportunidade de nos ajudar</h4>
-        
+        <h5 className="text-lg font-bold mb-10 w-[80%]">TORNE-SE VOLUNTÁRIO</h5>
+        <Image
+          width={130}
+          src={VoluntarioIcon}
+          alt="Icone voluntário"
+        />
+        <p className=" text-slate-500 text-sm">Contribua com o seu tempo/aptidões e venha colaborar connosco.</p>
+
         <div className="absolute bottom-0 flex flex-col gap-2 py-3 text-center w-full items-center">
           
         <Button className='bg-orange-400'>Voluntário</Button>

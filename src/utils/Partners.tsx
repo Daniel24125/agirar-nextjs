@@ -24,6 +24,10 @@ export const getPartners = [
         img: "/parceiros/farmaciacouto.png",
         href: "https://farmaciacouto.com/"
     },
+    {
+        img: "/parceiros/portugalagenda.png",
+        href: "https://portugalagenda.com"
+    },
     // {
     //     img: "/parceiros/CHVNG.png",
     //     href: "https://www.chvng.pt/"

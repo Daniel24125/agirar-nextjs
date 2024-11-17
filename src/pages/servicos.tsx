@@ -2,15 +2,29 @@ import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
 import MemberComponent from '@/components/MemberComponent'
 import { Button } from '@/components/ui/button'
+import { PageTitle } from '@/components/UtilsGraphics'
 import { TServicos, getServicos } from '@/utils/Servicos'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
-import { CalendarDays, Clock } from 'lucide-react'
+import Image from 'next/image'
 import React from 'react'
+import LaCaixa from "@/assets/servicos/lacaixa.png"
+import ULS from "@/assets/servicos/uls.png"
+import { ExternalLink } from 'lucide-react'
+import Link from 'next/link'
+
+
 
 const Servicos = () => {
   return <>
-    <HeaderSection/>
+    <PageTitle
+      title={
+        <p className='text-6xl text-center font-bold'>O QUE FAZEMOS</p>
+      }
+    />
+    {/* <HeaderSection/> */}
     <ServicesColection/>
+    <Projetos/>
+    <Protocolos/>
   </>
 }
 
@@ -53,29 +67,165 @@ const HeaderSection = ()=>{
 
 const ServicesColection = ()=>{
   return <section className={`${getSectionClass} py-20`}>
-    <div className={`${getMaxWidthClasses} flex justify-center gap-6 flex-wrap px-5`}>
-      {getServicos.map((s:TServicos)=>{
-        return <div key={s.id} className='flex flex-col p-4 rounded-lg border w-96 h-[400px]'>
-          <div style={{
-            backgroundImage: `url("${s.img}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }} className='w-full h-[200px] rounded-lg border'></div>
-          <h6 className=' font-extrabold mt-2 md:text-lg'>{s.title}</h6>
-          <p className='text-xs md:text-sm mt-5 text-justify h-1/2'>{s.desc}</p>
-          <div className="flex justify-end w-full h-fit items-end  gap-7">
-            <div className="flex items-center gap-3">
-              <CalendarDays className='text-sm md:text-base text-primary' />
-              <span> {s.day} </span>
-            </div>
-            <div className="flex items-center gap-3 mt-5">
-              <Clock className='text-sm md:text-base text-primary' />
-              <span> {s.time} </span>
-            </div>
+    <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
+      <Subtitle title="Serviços"/>
+      <div className='w-full flex justify-between gap-6 flex-wrap px-5 md:px-0'>
+        {getServicos.map((s:TServicos)=>{
+          return <div key={s.id} className='flex flex-col p-4 rounded-lg border w-96 '>
+            {/* <div style={{
+              backgroundImage: `url("${s.img}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }} className='w-full h-[200px] rounded-lg border'></div> */}
+            <h6 className=' font-extrabold mt-2 md:text-lg'>{s.title}</h6>
+            {/* <p className='text-xs md:text-sm mt-5 text-justify h-2/3'>{s.desc}</p>
+            <div className="flex justify-end w-full h-fit items-end  gap-7">
+              <div className="flex items-center gap-3">
+                <CalendarDays className='text-sm md:text-base text-primary' />
+                <span> {s.day} </span>
+              </div>
+              <div className="flex items-center gap-3 mt-5">
+                <Clock className='text-sm md:text-base text-primary' />
+                <span> {s.time} </span>
+              </div>
+            </div> */}
           </div>
-        </div>
-      })}
+        })}
+      </div>
     </div>
   </section>
 }
+
+
+const Projetos = ()=>{
+
+  return <section className={`${getSectionClass} py-16 bg-blue-50 mb-10`}>
+    <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
+      <Subtitle title="Projetos"/>
+      <Projeto 
+        title='Projeto ReIntegrar'
+        support='BPI Fundação “La Caixa” Iniciativa Social Descentralizada (ISD)'
+        imageURL='https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      > 
+        <p className='text-sm text-justify'>A AGIRAR obteve em 2024 a aprovação da sua candidatura à ISD. O objetivo do Projeto é promover a reabilitação psicossocial de pessoas com doença mental grave e aumentar a literacia em saúde mental de cuidadores e doentes. </p>
+        <p className='text-sm text-justify mt-2'>A operacionalização do Projeto prevê:</p>
+        <ul className=' list-disc pl-7 mt-2'>
+          <li className='text-sm text-justify'>a implementação de atividades psicoterapêuticas visando a maior autonomia e integração social do individuo</li>
+          <li className='text-sm text-justify'>sessões psicoeducativas dirigidas a utentes e seus cuidadores de forma a aumentar a literacia em saúde mental</li>
+          <li className='text-sm text-justify'>apoio psicoterapêutico individualizado e em grupo por parte de técnicos de várias áreas</li>
+        </ul>
+        <div className='w-full flex justify-end mt-10'>
+          <Image className=' rounded-lg border-blue-100 border-solid border-2' src={LaCaixa} alt="Logo fundação La Caixa" height={50}/>
+        </div>
+      </Projeto>
+      <Projeto 
+        title='Apenas um Clique'
+        support='Unidade Local de Saúde Gaia e Espinho'
+        className='flex-row-reverse mt-20'
+        imageURL='https://images.pexels.com/photos/459653/pexels-photo-459653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      > 
+        <p className='text-sm text-justify'>A AGIRAR obteve em Abril de 2024 a aprovação de um projeto relacionado com a cedência de equipamento informático. O objetivo do Projeto é aumentar as competências digitais de utentes, familiares e Associados, promover a interação social dos envolvidos e fomentar a confiança na utilização de ferramentas digitais.</p>
+        <p className='text-sm text-justify mt-2'>A operacionalização do Projeto prevê:</p>
+        <ul className=' list-disc pl-7 mt-2'>
+          <li className='text-sm text-justify'>Sessões formativas presenciais sobre os computadores, seus componentes e diferentes programas, com entrega de um manual com a informação básica das sessões</li>
+          <li className='text-sm text-justify'>Aprender a elaborar um curriculum vitae e a navegar de forma segura na internet nomeadamente para a procura de emprego</li>
+          <li className='text-sm text-justify'>Utilização do computador como forma de lazer, interagindo nas redes sociais</li>
+        </ul>
+        <div className='w-full flex justify-end mt-10'>
+          <Image className='p-2 rounded-lg border-blue-100 border-solid border-2' src={ULS} alt="Logo ULS" height={50}/>
+        </div>
+      </Projeto>
+    </div>
+  </section>
+}
+
+const Projeto = ({
+  className,
+  title,
+  support,
+  imageURL,
+  children
+}:{
+  className?: string, 
+  title: string,
+  support: string,
+  imageURL:string, 
+  children: React.ReactNode
+})=>{
+  return <div className={`w-full flex justify-between ${className}`}>
+    <div className='flex flex-col w-1/2'>
+      <h3 className='text-blue-400 text-lg font-bold'>{title}</h3>
+      <span className='text-gray-400 text-sm mb-5'>{support}</span>
+      {children}
+    </div>
+    <div style={{
+      backgroundImage: `url("${imageURL}")`,
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }} className='height-full w-3/4 max-w-sm  bg-white rounded-xl border'>
+
+    </div>
+  </div>
+}
+
+const Protocolos = ()=>{
+  return <section className={`${getSectionClass} py-16 mb-10`}>
+    <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
+      <Subtitle title="Protocolos"/>
+      <Protocolo
+        title='Immersivus'
+        href='https://www.immersivus.com'
+        logo='/parceiros/portugalagenda.png'
+      />
+    </div>
+  </section>
+
+}
+
+const Protocolo = ({
+  title, 
+  href,
+  logo
+}:{
+  title:string
+  href:string
+  logo:string
+})=>{
+  return <div className='flex flex-col justify-between w-96 bg-white border rounded-2xl  px-5 py-2'>
+    <div className='flex justify-between items-center mb-5'>
+      <h5 className='font-bold text-lg'>{title}</h5>
+      <Button variant="ghost" size="icon">
+        <Link target="_blank" href={href}>
+          <ExternalLink size={15}/>
+        </Link>
+      </Button>
+    </div>
+    <div className='flex justify-between'>
+      <div className='w-4/5 flex flex-col gap-2'>
+        <p className='text-blue-400 font-bold text-xs'>Condições para associados Agirar:</p>
+        <p className='text-xs'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quis aperiam perferendis </p>
+      </div>
+      <div className='w-1/5 min-w-[100px] flex items-center justify-center'>
+        <Image src={logo} alt="Logo de protocolo" width={80} height={50} />
+      </div>
+    </div>
+  </div>
+}
+
+const Subtitle = ({
+  title
+}:{
+  title: string
+})=>{
+  return <div className='flex flex-col gap-2'>
+    <h3 className='text-2xl font-bold'>{title}</h3>
+    <DecorationGeometry
+      color="blue"
+      size="w-1/2 h-2"
+      position="relative"
+      borderRadius="rounded-3xl"
+    />
+  </div>
+}
+
 export default Servicos

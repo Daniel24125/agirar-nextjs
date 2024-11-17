@@ -2,7 +2,7 @@ import React from 'react'
 import ThemeModeToggle from "./ThemeModeToggle"
 import { Button } from '../ui/button'
 import { useRouter } from 'next/router'
-import { Facebook, Instagram, Mail, MapPin, MenuIcon } from 'lucide-react'
+import { Facebook, Instagram, LucideIcon, Mail, MapPin, MenuIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
 import { Sheet,SheetContent, SheetDescription, SheetHeader,  SheetTrigger } from '../ui/sheet'
@@ -23,7 +23,7 @@ const Nav = () => {
                 <div className="flex flex-col w-full">
                     <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
                         {/* <ComunicadosComponent/> */}
-                        <SocialBtns/>
+                        <SocialBtns show='all'/>
                     </div>
                     <div className="w-full flex justify-between py-2 px-4 bg-blue-100 rounded-lg ">
                         <div className='hidden md:flex '>
@@ -160,18 +160,18 @@ const NavBtns = ({
             subMenus: [
                 {
                     title: "Serviços",
-                    desc: "Os serviçoes que temos disponíveis na nossa instituição",
+                    desc: "Os serviços que temos disponíveis na nossa instituição",
                     href: "/servicos?scrollTo=servicos"
-                },
-                {
-                    title: "Eventos",
-                    desc: "Os eventos que organizamos ao longo dos anos",
-                    href: "/servicos?scrollTo=eventos"
                 },
                 {
                     title: "Projetos",
                     desc: "Os projetos que foram aprovados",
                     href: "/servicos?scrollTo=projetos"
+                },
+                {
+                    title: "Protocolos",
+                    desc: "Vantagens para os nossos associados",
+                    href: "/servicos?scrollTo=protocolos"
                 },
             ]
         },
@@ -292,40 +292,70 @@ ListItem.displayName = "ListItem"
 
 
 export const SocialBtns = ({
-    size= "w-4 h-4 sm:w-6 sm-h-6"
+    size= "w-4 h-4 sm:w-6 sm-h-6",
+    show="all"
 }:{
-    size?: string
+    size?: string,
+    show: string
 })=>{
     return <>
-        <TooltipAbstraction
+        <SocialBtn
+            show={show === "all" || show.includes("facebook")}
             title="@agirarassociacao"
-        >
-            <a href="https://www.facebook.com/agirarassociacao" target='__blank'>
-                <Facebook  className={`${size} cursor-pointer hover:text-blue-800`} />
-            </a>
-        </TooltipAbstraction>
-        <TooltipAbstraction
+            href="https://www.facebook.com/agirarassociacao"
+            size={size}
+            Icon={Facebook}
+            hoverColor='text-blue-800'
+        />
+        <SocialBtn
+            show={show === "all" || show.includes("instagram")}
             title="@agirar_associacao"
-        >
-            <a href="https://www.instagram.com/agirar_associacao/" target='__blank'>
-                <Instagram  className={`${size} cursor-pointer hover:text-red-800`} />
-            </a>
-        </TooltipAbstraction>
-        <TooltipAbstraction
+            href="https://www.instagram.com/agirar_associacao/"
+            size={size}
+            Icon={Instagram}
+            hoverColor="text-red-800"
+        />
+        <SocialBtn
+            show={show === "all" || show.includes("email")}
             title="Enviar email"
-        >
-            <a href="mailto:agirar.2013@gmail.com" target='__blank'>
-                <Mail  className={`${size} cursor-pointer hover:text-blue-800`} />
-            </a>
-        </TooltipAbstraction>
-        <TooltipAbstraction
+            href="mailto:agirar.2013@gmail.com"
+            size={size}
+            Icon={Mail}
+            hoverColor="text-blue-800"
+        />
+        <SocialBtn
+            show={show === "all" || show.includes("location")}
             title="A nossa localização"
-        >
-            <a href="https://www.google.com/maps/place/Agirar/@41.0981635,-8.5925828,17z/data=!3m1!4b1!4m6!3m5!1s0xd247b6a3397ac99:0x4f30b17826bc7308!8m2!3d41.0981635!4d-8.5900025!16s%2Fg%2F11c1ly6bb6?hl=en&entry=ttu" target='__blank'>
-                <MapPin  className={`${size} cursor-pointer hover:text-blue-800`} />
-            </a>
-        </TooltipAbstraction>
+            href="https://www.google.com/maps/place/Agirar/@41.0981635,-8.5925828,17z/data=!3m1!4b1!4m6!3m5!1s0xd247b6a3397ac99:0x4f30b17826bc7308!8m2!3d41.0981635!4d-8.5900025!16s%2Fg%2F11c1ly6bb6?hl=en&entry=ttu"
+            size={size}
+            Icon={MapPin}
+            hoverColor="text-blue-800"
+        />
     </>
+}
+
+const SocialBtn = ({
+    size, 
+    title, 
+    href, 
+    Icon,
+    hoverColor,
+    show
+}:{
+    size: string, 
+    title: string, 
+    href: string, 
+    Icon: LucideIcon,
+    hoverColor: string,
+    show: boolean
+})=>{
+    return show && <TooltipAbstraction
+    title={title}
+>
+    <a href={href} target='__blank'>
+        <Icon  className={`${size} cursor-pointer hover:${hoverColor}`} />
+    </a>
+</TooltipAbstraction>
 }
 
 export default Nav

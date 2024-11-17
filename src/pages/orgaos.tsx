@@ -1,5 +1,6 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
+import { PageTitle } from '@/components/UtilsGraphics'
 import VoluntarioComponent from '@/components/VoluntarioComponent'
 import { Button } from '@/components/ui/button'
 import { orgaos } from '@/utils/Team'
@@ -9,7 +10,13 @@ import React from 'react'
 
 const Orgaos = () => {
   return <>
-    <HeaderOrgaos/>
+    <PageTitle
+        title={<>
+          <p><h1 className='text-5xl font-bold'>Orgãos Sociais</h1></p>
+          <p><h4 className='text-xl'>2021 - 2024</h4></p>
+        </>
+        }
+    />
     <Team/>
   </>
 }
@@ -54,12 +61,12 @@ const Team = ()=>{
                     <div className="flex gap-8 flex-wrap justify-center sm:justify-start">
                         {value.membros.map(m=>{
                             return <div key={`${value.title}_${m.id}`} className="flex">
-                                <div style={{
+                                {/* <div style={{
                                     background: m.photo && `url("${m.photo}")`,
                                     backgroundSize: "cover"
                                 }} className={`outline outline-2 outline-offset-4  outline-orange-200 w-12 h-12 rounded-lg flex justify-center items-center ${!m.photo && "bg-slate-300"}`}>
                                     {!m.photo && <User color="#000"/>}
-                                </div>
+                                </div> */}
                                 <div className="flex flex-col pl-5">
                                     <p className='max-w-[200px]'>{m.name}</p>
                                     <p className='max-w-[250px] opacity-50'>{m.function}</p>
