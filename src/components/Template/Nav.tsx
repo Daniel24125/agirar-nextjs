@@ -296,7 +296,7 @@ export const SocialBtns = ({
     show="all"
 }:{
     size?: string,
-    show: string
+    show?: string
 })=>{
     return <>
         <SocialBtn

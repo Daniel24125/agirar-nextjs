@@ -46,7 +46,7 @@ export const PageTitle = ({
   title: React.ReactNode
 })=>{
   return <section className={`${getSectionClass}  h-[50vh] justify-center items-center h-`}>
-    <div className='relative z-10 text-center'>
+    <div className='relative z-40 text-center'>
       {title}
     </div>
     <DecorationGeometry

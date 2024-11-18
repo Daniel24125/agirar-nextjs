@@ -1,12 +1,17 @@
 import DotVector from '@/components/DotVector'
+import { PageTitle } from '@/components/UtilsGraphics'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import React from 'react'
 
 const Contactos = () => {
   return <>
-    <HeaderContactos/>
+    {/* <HeaderContactos/> */}
+    <PageTitle
+        title={<p className='text-6xl text-center font-bold'>CONTACTOS</p>}
+      />
     <ContactSection/>
+   
   </>
 }
 
@@ -30,7 +35,7 @@ const HeaderContactos = ()=>{
 
 const ContactSection = ()=>{
   return <section className={`${getSectionClass}`}>
-    <div className={`flex justify-evenly ${getMaxWidthClasses} pb-32 flex-wrap px-5`}>
+    <div className={`flex justify-evenly ${getMaxWidthClasses} flex-wrap px-5`}>
       
       <div className="flex flex-col border rounded-lg w-80 h-72 p-6 mb-5">
         <div className=' w-12 h-12 flex justify-center items-center border rounded-lg  mb-12'>
@@ -59,8 +64,9 @@ const ContactSection = ()=>{
         <p className='font-medium w-full text-right text-primary mt-12'>Rua das Mimosas, 81-A</p>
         <p className='font-medium w-full text-right text-primary '>4430-458, Vilar de Andorinho</p>
       </div>
+      
     </div>
-    
+    <h2 className='pb-32 font-bold text-xl text-blue-400'>Pode sempre contar com a nossa ajuda</h2>
   </section>
 }
 export default Contactos
