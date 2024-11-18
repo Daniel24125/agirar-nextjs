@@ -52,7 +52,7 @@ const Footer = () => {
                     <div className="flex gap-x-4 text-xs text-blue-400">
                         <Link href='/estatutos.pdf' target='__blank'>Estatutos</Link>
                         <Link href='/orgaos'>Orgãos Sociais</Link>
-                        <Link href='/contas'>Relatórios</Link>
+                        <Link href='/relatorios'>Relatórios</Link>
                     </div>
                 </div>
             </div>
