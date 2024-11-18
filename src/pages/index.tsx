@@ -258,9 +258,9 @@ const HeaderLandingPage = ()=>{
         
       </div>
 
-      <div  className="hidden midHomeRect lg:flex items-end justify-center w-80 h-[550px] bg-orange-100 rounded-3xl relative">
+      {/* <div  className="hidden midHomeRect lg:flex items-end justify-center w-80 h-[550px] bg-orange-100 rounded-3xl relative">
         <Image className=' z-10' src={Person} alt="person" />
-      </div>
+      </div> */}
 
       <div className='flex flex-col w-4/6 max-w-xs items-end justify-end pb-28 mt-20 lg:h-full lg:mt-0 '>
           <div className='relative '>

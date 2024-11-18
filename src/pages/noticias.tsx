@@ -80,7 +80,7 @@ const NewsCardsComponent = ()=>{
 
   return <div className='w-full flex justify-evenly flex-wrap gap-3'>
     {displayNews!.slice(initIndex, initIndex + numNewsPerPage!).map(n=>{
-      return <div className='w-72 flex flex-col rounded-lg border p-3'>
+      return <div key={n.id} className='w-72 flex flex-col rounded-lg border p-3'>
         <div className="w-full h-32 rounded-md" style={{
           backgroundImage: `url("${n.img[0]}")`,
           backgroundSize: "cover",
@@ -105,7 +105,7 @@ const NewsPagination = ()=>{
   return <div className='w-full flex justify-center mt-7'>
     <div className='border rounded-md p-2'>
       {[...Array(totalNumPage).keys()].map((p=>{
-        return <span onClick={()=>{
+        return <span key={`page-${p}`} onClick={()=>{
           setCurrentPage!(p)
         }} className={`px-3 cursor-pointer hover:text-blue-400 ${currentPage===p && "text-blue-400"}`}>
           {p+1}
