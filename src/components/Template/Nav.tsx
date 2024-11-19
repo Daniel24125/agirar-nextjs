@@ -1,6 +1,6 @@
 import React from 'react'
 import ThemeModeToggle from "./ThemeModeToggle"
-import { Button } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
 import { useRouter } from 'next/router'
 import { Facebook, Instagram, LucideIcon, Mail, MapPin, MenuIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
@@ -10,6 +10,7 @@ import MemberComponent from '../MemberComponent'
 import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
+import Link from 'next/link'
 
 
 
@@ -45,7 +46,8 @@ const CallForActionNav = ({
     return <div className="flex gap-2">
         <TooltipAbstraction
             title="Tornar-me Associado">
-            <MemberComponent
+            <Link className={buttonVariants({variant: "outline"})} href="/apoiar?tab=associado">Associado</Link>
+            {/* <MemberComponent
                 title='Tornar-me Associado'
                 reason='mensal'
                 pagamento='transferencia'
@@ -53,11 +55,13 @@ const CallForActionNav = ({
                 <span  className={`h-10 px-4 py-2 cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 bg-blue-400 bg-primary text-primary-foreground hover:bg-primary/90`}>
                     Associado
                 </span>
-            </MemberComponent>
+            </MemberComponent> */}
         </TooltipAbstraction>
         <TooltipAbstraction
-            title="Tornar-me Associado">
-            <MemberComponent
+            title="Fazer um donativo">
+            <Link className={buttonVariants()} href="/apoiar?tab=doar">Doar</Link>
+
+            {/* <MemberComponent
                 title='Tornar-me Associado'
                 reason="unico"
                 pagamento='transferencia'
@@ -65,7 +69,7 @@ const CallForActionNav = ({
                 <span className={`h-10 px-4 py-2 cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 bg-blue-400 bg-primary text-primary-foreground hover:bg-primary/90`}>
                     Doar
                 </span>
-            </MemberComponent>
+            </MemberComponent> */}
         </TooltipAbstraction>
         {/* <ThemeModeToggle className='hidden sm:flex'/> */}
 
