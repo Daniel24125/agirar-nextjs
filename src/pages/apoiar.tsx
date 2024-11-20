@@ -8,8 +8,10 @@ import React, { Dispatch, SetStateAction } from 'react'
 import Associados from "@/assets/apoios/associados.jpeg"
 import MemberComponent from '@/components/MemberComponent'
 import { Button } from '@/components/ui/button'
+import VoluntarioComponent from '@/components/VoluntarioComponent'
+import Link from 'next/link'
 
-type TTab = "associado" | "doar"| "voluntario"
+type TTab = "associado" | "doar"| "voluntario" | "irs"
 
 const TabContextProvider = React.createContext<Partial<{
     selectedTab: TTab, 
@@ -97,6 +99,63 @@ const TabContent = ()=>{
                 <p className='max-w-3xl w-full'>Envie sempre o <strong>comprovativo de pagamento para o email agirar.2013mail.com.</strong> Mais tarde receberá o seu recibo via email.</p>
                 <p className='w-full text-center max-w-3xl font-bold text-xl'>A sua adesão é fundamental para que a nossa Associação seja mais representativa. Ao associar-se, ajuda a permitir o apoio a pessoas com psicose e seus familiares tornando a sociedade mais inclusiva.</p>
 
+            </div>
+        </TabContentTemplate>
+
+        <TabContentTemplate
+            header="Faça um donativo e ajude-nos a fazer a diferença."
+            value="doar"
+        >
+            <div className='w-full flex flex-col items-center gap-5 mt-5'>
+                <p className='w-full text-center max-w-3xl'>O seu contributo ajuda-nos a continuar a nossa atividade. Cada euro doado permite que a AGIRAR ofereça apoio psicossocial, atividades de psicoeducação, e iniciativas de combate ao estigma para pessoas com psicose e suas famílias.</p>
+                <p className='max-w-3xl font-bold w-full'>Quais são as opções de pagamento?</p>
+                <ul className='list-disc'>
+                    <li><strong>MBWAY</strong> para o contacto telefónico <strong>912 353 788</strong></li>
+                    <li>Transferência bancária para o <strong>IBAN 0036 0051 99100351967 81</strong></li>
+                </ul>
+                <p className='max-w-3xl w-full'>A AGIRAR tem um compromisso com a transparência. Enviamos por mail recibo de todos os valores de donativos recebidos.</p>
+                <p className='w-full text-center max-w-3xl text-xl font-bold'>Doar é fácil e seguro. </p>
+                
+
+            </div>
+        </TabContentTemplate>
+        <TabContentTemplate
+            header="Ao tornar-se voluntário, você ajuda a criar um ambiente inclusivo e acolhedor, onde as pessoas podem receber o apoio necessário para sua recuperação e inclusão."
+            value="voluntario"
+        >
+            <div className='w-full flex flex-col items-center gap-5 mt-5'>
+                <p className='w-full text-center max-w-3xl'>Há diversas formas de se envolver, o importante é através das competências que detém ajudar-nos a organizar atividades/workshops, participação em eventos e campanhas de conscientização; apoio logístico e administrativo, etc.</p>
+                <p className='w-full text-center max-w-3xl'>Para se inscrever como voluntário, basta preencher o formulário infra com seus dados e interesses/competências.</p>
+                <p className='w-full text-center max-w-3xl'>Após o envio, a nossa equipa entrará em contato consigo para informar sobre as oportunidades disponíveis e próximos passos.</p>
+                <VoluntarioComponent
+                    title='Junte-se à nossa família! 😍'
+                    renderComponent={<Button size="sm" variant="outline">Inscreva-se agora</Button>}
+                />
+                <p className='w-full text-center max-w-3xl text-xl font-bold'>Contribua com o seu tempo/aptidões e venha colaborar connosco!</p>
+            </div>
+        </TabContentTemplate>
+        <TabContentTemplate
+            header="Ajude a AGIRAR a custo zero!"
+            value="irs"
+        >
+            <div className='w-full flex flex-col items-center gap-5 mt-5'>
+                <p className='w-full text-center max-w-3xl'>A consignação do IRS é um processo simples e gratuito.</p>
+                <p className='w-full text-center max-w-3xl'>Esta contribuição ajuda a AGIRAR a manter e expandir suas atividades de apoio e inclusão para pessoas com psicose e seus familiares.</p>
+                <p className='w-full text-center max-w-3xl'>Basta uma x (cruz) no campo 11 e colocar no nosso <strong>NIF - 510 678 360</strong></p>
+                <p className='w-full max-w-3xl'>Esta medida está salvaguardada na lei portuguesa através do art.º 32.º, n.º 6 da Lei n.º 16/2001 de 22 Junho, que permite que todos os contribuintes possam doar 0,5% do seu IRS já liquidado a Instituições Particulares de Solidariedade Social ou Pessoas Coletivas de Utilidade Pública.</p>
+                <p className='w-full max-w-3xl'><strong>É importante lembrar que a consignação é gratuita.</strong> Não gera custos adicionais para o contribuinte e não altera o valor final a pagar ou a receber. Caso não escolha nenhuma associação para doar, o Estado reembolsa esse dinheiro. <strong>Este valor nunca será devolvido ao contribuinte.</strong></p>
+                <p className='w-full max-w-3xl'>Entre <strong>1 de janeiro e 31 de março</strong>, o Contribuinte pode comunicar a Instituição ou Associação a quem pretende consignar o seu IRS e/ou IVA no Portal das Finanças, mesmo antes da entrega da sua declaração de IRS.</p>
+                <p className='max-w-3xl font-bold w-full'>Como consignar 0,5% do seu IRS para a AGIRAR?</p>
+                <ul className='list-decimal'>
+                    <li>Entre no <Link className='text-blue-400 font-bold' href="https://www.portaldasfinancas.gov.pt" target="_blank">Portal das Finanças</Link> usando as suas credenciais.</li>
+                    <li>No menu, selecione “Entregar IRS” para aceder ao formulário de declaração de IRS.</li>
+                    <li>Dentro do formulário da declaração de IRS (Modelo 3), vá até o <strong>Quadro 11</strong> – essa é a seção de consignação.</li>
+                    <li>Escolha a Opção “Instituições Particulares de Solidariedade Social ou Pessoas Coletivas de Utilidade Pública”</li>
+                    <li>Insira o <strong>NIF da AGIRAR - 510 678 360</strong></li>
+                    <li>Após preencher todos os campos necessários da declaração, revise as informações e conclua a submissão.</li>
+                </ul>
+
+                <p className='w-full text-center max-w-3xl text-xl font-bold'>Ao doar a sua Consignação do IRS, está a tornar-se uma parte ativa na nossa missão.</p>
             </div>
         </TabContentTemplate>
     </>
