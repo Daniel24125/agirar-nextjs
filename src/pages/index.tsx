@@ -26,6 +26,8 @@ import ImagemPsicose from "@/assets/home/psicose-bullet.jpg"
 import DonativoIcon from "@/assets/home/donativo.jpg"
 import AssociadoIcon from "@/assets/home/associado.jpg"
 import VoluntarioIcon from "@/assets/home/voluntário.jpg"
+import { testimonials } from '@/utils/Testimonials'
+import { Quote } from 'lucide-react'
 
 
 const Home = () => {
@@ -35,6 +37,7 @@ const Home = () => {
       <PsicoseComponent/>
       <Objectives/>
       <Support/>
+      <Testemunhos/>
       <Partners/>
     </>
   )
@@ -554,6 +557,34 @@ const Support = ()=>{
         </div>
       </div>
       
+    </div>
+  </section>
+}
+
+const Testemunhos = ()=>{
+
+  return <section id="support" className={`${getSectionClass} gap-5 justify-center mt-40`}>
+    <div className={`flex justify-center items-center ${getMaxWidthClasses}`}>
+      <Carousel className="w-full" plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]} opts={{
+        align: "center",
+        loop: true,
+      }}>
+        <CarouselContent >
+          {testimonials.map((t, index)=>{
+            return <CarouselItem key={index} className='basis-1/3'>
+              <div className='bg-gray-200 w-80 rounded-xl h-80 p-5 mr-10 flex flex-col gap-4'>
+                <Quote className='text-blue-400 '/>
+                <p className='text-sm'>{t.quote}</p>
+                <p className='w-full text-right'>{t.author}</p>
+              </div>
+            </CarouselItem>
+          })}
+        </CarouselContent>
+      </Carousel>
     </div>
   </section>
 }
