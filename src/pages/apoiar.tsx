@@ -10,6 +10,7 @@ import MemberComponent from '@/components/MemberComponent'
 import { Button } from '@/components/ui/button'
 import VoluntarioComponent from '@/components/VoluntarioComponent'
 import Link from 'next/link'
+import { IBAN } from '@/utils/Utils'
 
 type TTab = "associado" | "doar"| "voluntario" | "irs"
 
@@ -94,7 +95,7 @@ const TabContent = ()=>{
                 <p className='max-w-3xl w-full'>Poderá realizar o seu pagamento usando uma destas opções:</p>
                 <ul className='list-disc'>
                     <li><strong>MBWAY</strong> para o contacto telefónico <strong>912 353 788</strong></li>
-                    <li>Transferência bancária para o <strong>IBAN 0036 0051 99100351967 81</strong></li>
+                    <li>Transferência bancária para o <strong>IBAN: {IBAN}</strong></li>
                 </ul>
                 <p className='max-w-3xl w-full'>Envie sempre o <strong>comprovativo de pagamento para o email agirar.2013mail.com.</strong> Mais tarde receberá o seu recibo via email.</p>
                 <p className='w-full text-center max-w-3xl font-bold text-xl'>A sua adesão é fundamental para que a nossa Associação seja mais representativa. Ao associar-se, ajuda a permitir o apoio a pessoas com psicose e seus familiares tornando a sociedade mais inclusiva.</p>
@@ -111,7 +112,7 @@ const TabContent = ()=>{
                 <p className='max-w-3xl font-bold w-full'>Quais são as opções de pagamento?</p>
                 <ul className='list-disc'>
                     <li><strong>MBWAY</strong> para o contacto telefónico <strong>912 353 788</strong></li>
-                    <li>Transferência bancária para o <strong>IBAN 0036 0051 99100351967 81</strong></li>
+                    <li>Transferência bancária para o <strong>IBAN: {IBAN}</strong></li>
                 </ul>
                 <p className='max-w-3xl w-full'>A AGIRAR tem um compromisso com a transparência. Enviamos por mail recibo de todos os valores de donativos recebidos.</p>
                 <p className='w-full text-center max-w-3xl text-xl font-bold'>Doar é fácil e seguro. </p>

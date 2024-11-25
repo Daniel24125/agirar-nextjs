@@ -10,7 +10,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import moment from 'moment'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { useToast } from "@/components/ui/use-toast"
-import { TMembroFrom, validateMembroFrom } from '@/utils/Utils'
+import { IBAN, TMembroFrom, validateMembroFrom } from '@/utils/Utils'
 import SubmitComponent from './SubmitComponent'
 import { ToastAction } from './ui/toast'
 
@@ -257,7 +257,7 @@ const MemberComponent = ({
                                             </SelectContent>
                                         </Select>
                                         <p className='text-xs text-slate-400'>
-                                            {form.modo === "transferencia" ? "As transferências bancárias podem ser realizadas para o seguinte IBAN: PT50 0036 0051 99100351967 81" : "Pagamentos por MBWay podem ser ralizados para o nº 912 353 788"}
+                                            {form.modo === "transferencia" ? `As transferências bancárias podem ser realizadas para o seguinte IBAN: ${IBAN}` : "Pagamentos por MBWay podem ser ralizados para o nº 912 353 788"}
                                         </p>
                                     </div>
                                     {form.tipo === "mensal" && <div className="space-y-1">

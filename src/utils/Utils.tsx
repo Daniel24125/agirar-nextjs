@@ -38,3 +38,5 @@ export const validateMembroFrom = (form:TMembroFrom) =>{
         form.nif.length < 9
     return {fiscalDisabled, pagamentoDisabled}
 }
+
+export const IBAN = "PT50 0010 0000 6297 9440 0011 0"

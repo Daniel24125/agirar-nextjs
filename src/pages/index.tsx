@@ -28,6 +28,7 @@ import AssociadoIcon from "@/assets/home/associado.jpg"
 import VoluntarioIcon from "@/assets/home/voluntário.jpg"
 import { testimonials } from '@/utils/Testimonials'
 import { Quote } from 'lucide-react'
+import { IBAN } from '@/utils/Utils'
 
 
 const Home = () => {
@@ -509,7 +510,7 @@ const Support = ()=>{
         />
         <p className=" text-slate-500 text-sm">Ajude-nos a fazer a diferença. O seu donativo ajuda-nos a continuar a nossa atividade.</p>
         <div className="absolute bottom-0 flex flex-col gap-2 py-3 text-center w-full">
-          <p className=" text-slate-500 font-bold text-sm">IBAN: PT50 0036 0051 99100351967 81</p>
+          <p className=" text-slate-500 font-bold text-sm">IBAN: {IBAN}</p>
           <p className=" text-slate-500 font-bold text-sm">MBWAY: 912 353 788</p>
           <a href='#' className='text-orange-400'>Doar</a>
         </div>
