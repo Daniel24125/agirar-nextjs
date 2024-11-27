@@ -2,18 +2,115 @@ import React from 'react'
 import ThemeModeToggle from "./ThemeModeToggle"
 import { Button, buttonVariants } from '../ui/button'
 import { useRouter } from 'next/router'
-import { Facebook, Instagram, LucideIcon, Mail, MapPin, MenuIcon } from 'lucide-react'
+import { Facebook, HomeIcon, Instagram, LucideIcon, Mail, MapPin, MenuIcon, NewspaperIcon, PhoneCallIcon, UserIcon, WrenchIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
 import { Sheet,SheetContent, SheetDescription, SheetHeader,  SheetTrigger } from '../ui/sheet'
-import MemberComponent from '../MemberComponent'
 import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '../ui/drawer'
 
-
+const routes = [
+    {
+        title: "Início",
+        href: "/", 
+        // displayImage: <Logo className="h-full w-full" />,
+        displayImage: false,
+        icon: <HomeIcon/>,
+        subMenus: [
+            {
+                title: "Psicose",
+                desc: "Uma breve descrição sobre o que é a psicose",
+                href: "/?scrollTo=psicose"
+            },
+            {
+                title: "Objetivos",
+                desc: "Um resumo dos principais objetivos da AGIRAR",
+                href: "/?scrollTo=objetivos"
+            },
+            {
+                title: "Parceiros",
+                desc: "Uma lista dos nossos parceiros",
+                href: "/?scrollTo=parceiros"
+            },
+            {
+                title: "Testemunhos",
+                desc: "O que os nossos utentes dizem sobre nós",
+                href: "/?scrollTo=testemunhos"
+            }
+        ]
+    },
+    {
+        title: "Quem somos",
+        href: "/sobre", 
+        displayImage: false,
+        icon: <UserIcon/>,
+        // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
+        subMenus: [
+            // {
+            //     title: "A AGIRAR",
+            //     desc: "Uma breve história sobre a nossa origem",
+            //     href: "/sobre?scrollTo=origem"
+            // },
+        ]
+    },
+    {
+        title: "O que fazemos",
+        href: "/servicos", 
+        displayImage: false,
+        icon: <WrenchIcon/>,
+        // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/2539658/pexels-photo-2539658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
+        subMenus: [
+            {
+                title: "Serviços",
+                desc: "Os serviços que temos disponíveis na nossa instituição",
+                href: "/servicos?scrollTo=servicos"
+            },
+            {
+                title: "Projetos",
+                desc: "Os projetos que foram aprovados",
+                href: "/servicos?scrollTo=projetos"
+            },
+            {
+                title: "Protocolos",
+                desc: "Vantagens para os nossos associados",
+                href: "/servicos?scrollTo=protocolos"
+            },
+        ]
+    },
+    {
+        title: "Notícias",
+        href: "/noticias", 
+        icon: <NewspaperIcon/>,
+        displayImage: false,
+        subMenus: []
+    },
+    {
+        title: "Contactos",
+        href: "/contactos", 
+        icon: <PhoneCallIcon/>,
+        displayImage: <img className='rounded-xl' src="/map.png"/>,
+        subMenus: [
+            {
+                title: "Morada",
+                desc: "Rua das Mimosas, 81-A | 4430-458, Vilar de Andorinho",
+                href: "https://www.google.com/maps?ll=41.099453,-8.590646&z=16&t=m&hl=en&gl=PT&mapclient=embed&q=4430-458+Vila+Nova+de+Gaia"
+            },
+            {
+                title: "Telemóvel",
+                desc: "912 353 788",
+                href: "tel:912353788"
+            },
+            {
+                title: "Email",
+                desc: "agirar.2013@gmail.com",
+                href: "mailto:agirar.2013@gmail.com"
+            },
+        ]
+    }
+]
 
 
 const Nav = () => {
@@ -48,14 +145,14 @@ const DesktopNavigation = ()=>{
 
 const MobileNavigation = ()=>{
     return <>
-        {/* <MobileNavigationHeader/> */}
+        <MobileNavigationHeader/>
         <MobileNavigationButtons/>
         
     </>
 }
 
 const MobileNavigationHeader = ()=>{
-    return <div className='w-screen p-4 flex justify-between items-center fixed top-0 z-50 md:hidden'>
+    return <div className='w-screen p-4 flex justify-between items-center fixed top-0 z-50 md:hidden bg-white'>
         <Logo className='mr-4' height={70}/>
         <div className='flex gap-2'>
             <SocialBtns show='all' size='w-5'/>
@@ -64,27 +161,54 @@ const MobileNavigationHeader = ()=>{
 } 
 
 const MobileNavigationButtons = ()=>{
-    return <>
-        <nav className='w-screen p-3 flex flex-col items-center fixed bottom-0 z-50'>
-            <div className='w-1/2 h-2 rounded-xl bg-slate-200'></div>
-            <div className='flex justify-center w-full gap-4'>
-                
+    const {push, asPath, query} = useRouter()
+    const [open, setOpen] = React.useState(false)
+    console.log(asPath)
+    return <section className='md:hidden'>
+        <nav className='w-screen  flex flex-col items-center fixed bottom-0 z-50 bg-white rounded-tr-2xl rounded-tl-2xl pb-3'>
+            <div onClick={()=>setOpen(true)} className='cursor-pointer w-full flex justify-center pt-5'>
+                <div className='w-[100px] h-2 rounded-xl bg-muted'></div>
+            </div>
+            <div className='flex justify-center w-full gap-2 mt-5'>
+                {routes.map(r=>{
+                    const active = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
+                    return <TooltipAbstraction key={r.title} title={r.title}>
+                        <div onClick={(e)=>{
+                            e.stopPropagation()
+                            push(r.href)
+                        }} className={`flex items-center p-2 transition cursor-pointer hover:text-blue-400 ${active ? "rounded-2xl bg-blue-400 text-white hover:text-white": ""}`}>
+                            {r.icon}
+                            <span className={`text-xs text-center ml-3 ${active ? "": "hidden"}`}>{r.title}</span>
+                        </div>
+                    </TooltipAbstraction>
+                })}
             </div>
         </nav>
-        <Drawer >
+        <Drawer open={open} onClose={()=>setOpen(false)}>
             
             <DrawerContent>
-                <DrawerHeader>
-                <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-                <DrawerDescription>This action cannot be undone.</DrawerDescription>
-                </DrawerHeader>
+                <div className='flex flex-col gap-5 items-center py-5'>
+                    {routes.map(r=>{
+                        const active = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
+                        return <div className=' flex flex-col' key={r.href}>
+                            <Link className={`${active? "text-blue-400": ""} transition text-center hover:text-blue-400 font-bold text-2xl`} href={r.href}>{r.title}</Link>
+                            <div className='flex flex-col gap-3 mt-5 items-center'>
+                                {r.subMenus!.map(sm =>{
+                                    return <Link key={sm.title} href={sm.href}>{sm.title}</Link>
+                                })}
+                            </div>
+                        </div>
+                    })}
+                </div>
                 <DrawerFooter>
-                <Button>Submit</Button>
+                    <div className='flex gap-2 w-full justify-center'>
+                        <SocialBtns show='all' size='w-5'/>
+                    </div>
            
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>
-    </>
+    </section>
 }
 
 const CallForActionNav = ({
@@ -168,100 +292,7 @@ const NavBtns = ({
     onClick?: any
 })=>{
     const {push, asPath, query} = useRouter()
-    const routes = [
-        {
-            title: "Início",
-            href: "/", 
-            // displayImage: <Logo className="h-full w-full" />,
-            displayImage: false,
-            subMenus: [
-                {
-                    title: "Psicose",
-                    desc: "Uma breve descrição sobre o que é a psicose",
-                    href: "/?scrollTo=psicose"
-                },
-                {
-                    title: "Objetivos",
-                    desc: "Um resumo dos principais objetivos da AGIRAR",
-                    href: "/?scrollTo=objetivos"
-                },
-                {
-                    title: "Parceiros",
-                    desc: "Uma lista dos nossos parceiros",
-                    href: "/?scrollTo=parceiros"
-                },
-                {
-                    title: "Testemunhos",
-                    desc: "O que os nossos utentes dizem sobre nós",
-                    href: "/?scrollTo=testemunhos"
-                }
-            ]
-        },
-        {
-            title: "Quem somos",
-            href: "/sobre", 
-            displayImage: false,
-            // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
-            subMenus: [
-                // {
-                //     title: "A AGIRAR",
-                //     desc: "Uma breve história sobre a nossa origem",
-                //     href: "/sobre?scrollTo=origem"
-                // },
-            ]
-        },
-        {
-            title: "O que fazemos",
-            href: "/servicos", 
-            displayImage: false,
-            // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/2539658/pexels-photo-2539658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
-            subMenus: [
-                {
-                    title: "Serviços",
-                    desc: "Os serviços que temos disponíveis na nossa instituição",
-                    href: "/servicos?scrollTo=servicos"
-                },
-                {
-                    title: "Projetos",
-                    desc: "Os projetos que foram aprovados",
-                    href: "/servicos?scrollTo=projetos"
-                },
-                {
-                    title: "Protocolos",
-                    desc: "Vantagens para os nossos associados",
-                    href: "/servicos?scrollTo=protocolos"
-                },
-            ]
-        },
-        {
-            title: "Notícias",
-            href: "/noticias", 
-            displayImage: false,
-            subMenus: []
-        },
-        {
-            title: "Contactos",
-            href: "/contactos", 
-            displayImage: <img className='rounded-xl' src="/map.png"/>,
-            subMenus: [
-                {
-                    title: "Morada",
-                    desc: "Rua das Mimosas, 81-A | 4430-458, Vilar de Andorinho",
-                    href: "https://www.google.com/maps?ll=41.099453,-8.590646&z=16&t=m&hl=en&gl=PT&mapclient=embed&q=4430-458+Vila+Nova+de+Gaia"
-                },
-                {
-                    title: "Telemóvel",
-                    desc: "912 353 788",
-                    href: "tel:912353788"
-                },
-                {
-                    title: "Email",
-                    desc: "agirar.2013@gmail.com",
-                    href: "mailto:agirar.2013@gmail.com"
-                },
-            ]
-        }
-    ]
+    
 
     React.useEffect(()=>{
         if(query && query.scrollTo){

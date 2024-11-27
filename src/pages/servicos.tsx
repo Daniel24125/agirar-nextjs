@@ -314,7 +314,7 @@ const Protocolo = ({
     <div className='flex justify-between'>
       <div className='w-4/5 flex flex-col gap-2'>
         <p className='text-blue-400 font-bold text-xs'>Condições para associados Agirar:</p>
-        <p className='text-xs'>Os Associados têm acesso à compra de “Bilhete-Parceiro". O valor varia conforme o cada espetáculo e é sempre inferior ao praticado na venda ao público. Para usufruir deste tipo de bilhete é necessário fazer pré-reserva informando que é associado da AGIRAR. No dia do espetáculo deve apresentar nas bilheteiras o cartão de associado e uma declaração em como tem as quotas desse ano regularizadas (pedir antecipadamente por email). </p>
+        <p className='text-xs'>Os Associados têm acesso à compra de &quot;Bilhete-Parceiro&quot;. O valor varia conforme o cada espetáculo e é sempre inferior ao praticado na venda ao público. Para usufruir deste tipo de bilhete é necessário fazer pré-reserva informando que é associado da AGIRAR. No dia do espetáculo deve apresentar nas bilheteiras o cartão de associado e uma declaração em como tem as quotas desse ano regularizadas (pedir antecipadamente por email). </p>
       </div>
       <div className='w-1/5 min-w-[100px] flex items-center justify-center'>
         <Image src={logo} alt="Logo de protocolo" width={80} height={50} />
