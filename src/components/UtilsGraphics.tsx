@@ -7,13 +7,15 @@ import { getSectionClass } from '@/utils/UtilClasses'
 export const SquareGraphics = ({
     size,
     color="#4267B280",
+    className,
     ...props
 }:{
     size: number,
     color?: string,
+    className: string
     props?: any
 }) => {
-  return (<div {...props}>
+  return (<div className={className} {...props}>
     <div className=' rounded-md' style={{
         width: size, 
         height: size,

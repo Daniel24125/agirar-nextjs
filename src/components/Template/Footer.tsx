@@ -9,7 +9,7 @@ const Footer = () => {
     return (<>
         
         <LawComponent/>
-        <footer className='w-screen py-10 flex flex-col justify-center items-center bg-blue-100'> 
+        <footer className='w-screen py-10 flex flex-col justify-center items-center bg-blue-100 pb-40'> 
             <div className="w-screen max-w-7xl flex flex-col items-center lg:items-start px-5">
                 <div className="flex items-center lg:justify-between my-10 w-full flex-col lg:flex-row">
                     <div className="flex flex-col items-center">
@@ -40,14 +40,14 @@ const Footer = () => {
                         />                        
                     </div>
                     <iframe 
-                        className="mt-10 lg:mt-0 rounded-3xl border-blue-400 border-2 w-96 h-72" 
+                        className="mt-10 lg:mt-0 rounded-3xl border-blue-400 border-2 w-80 md:w-96 h-72" 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.6014027109677!2d-8.59268990000432!3d41.09955491140556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd247b6a680e8a6f%3A0x651b7222910ddad5!2s4430-458%20Vila%20Nova%20de%20Gaia!5e0!3m2!1sen!2spt!4v1593272433391!5m2!1sen!2spt" frameBorder="0" allowFullScreen={false} aria-hidden="false" tabIndex={0} >
                         </iframe>
                 </div>
                 <div className="w-full flex justify-center border-b-2 border-blue-300 pb-3 mb-3">
                     <SocialBtns size="w-6 h-6 sm:w-8 sm-h-8" show='facebook;instagram'/>
                 </div>
-                <div className="w-full flex justify-between">
+                <div className="w-full flex flex-col gap-5 md:gap-0 items-center md:flex-row justify-between">
                     <span className='text-xs text-blue-400'>© Agirar {new Date().getFullYear() }  - Todos os direitos reservados</span>
                     <div className="flex gap-x-4 text-xs text-blue-400">
                         <Link href='/estatutos.pdf' target='__blank'>Estatutos</Link>

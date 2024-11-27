@@ -9,7 +9,7 @@ const BulletTextComponent = ({
 }) => {
   return ( <div className="flex my-6 items-start">
     {BulletComponent}
-    <h6 className='px-6 text-justify w-5/6'> {text} </h6>
+    <h6 className='px-6 text-justify md:w-5/6'> {text} </h6>
   </div>)
 }
 

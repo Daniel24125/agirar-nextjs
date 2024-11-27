@@ -49,21 +49,21 @@ const Home = () => {
 const PsicoseComponent = ()=>{
   return <section id="psicose" className={`${getSectionClass} my-40 px-5`} >
     <div className={`flex ${getMaxWidthClasses} `}>
-      <div className="flex flex-col w-2/3">
+      <div className="flex flex-col w-full md:w-2/3">
         <h3 className=' text-5xl font-bold mb-4'>
           Psicose
         </h3>
         <BulletTextComponent
-          BulletComponent={<SquareGraphics size={30}/>}
+          BulletComponent={<SquareGraphics className="hidden md:block" size={30}/>}
           text={<span>O termo <strong>Psicose</strong> não se refere a uma doença específica. É uma síndrome, um conjunto de sintomas comuns a várias perturbações mentais, das quais a mais comum é a <strong>Esquizofrenia</strong>. </span>}
         />
         <BulletTextComponent
-          BulletComponent={<SquareGraphics size={30}/>}
+          BulletComponent={<SquareGraphics className="hidden md:block" size={30}/>}
           text={<span>No episódio psicótico a pessoa tem uma perceção distorcida da realidade ou a sua interpretação é diferente da maioria das pessoas. Os <strong>sintomas</strong> mais comuns incluem os delírios (crenças que não correspondem á realidade) e as alucinações (ver, ouvir, sentir coisas não reais). No entanto, vários outros se manifestam: discurso incoerente, alterações de comportamento, etc. As pessoas com psicose podem ainda apresentar ansiedade, depressão, insónias, isolamento social, falta de motivação e apresentar dificuldades no seu funcionamento do dia a dia.</span>}
         />
 
         <BulletTextComponent
-          BulletComponent={<SquareGraphics size={30}/>}
+          BulletComponent={<SquareGraphics className="hidden md:block" size={30}/>}
           text={
             <span>
               Os episódios psicóticos variam na sua intensidade e duração. O seu <strong>tratamento</strong> inclui medicação antipsicótica, medicação para outra sintomatologia (ansiedade, insónia, …), e intervenções psicoterapêuticas individuais e em grupo.
@@ -71,12 +71,12 @@ const PsicoseComponent = ()=>{
           }
         />
         <BulletTextComponent
-          BulletComponent={<SquareGraphics size={30}/>}
+          BulletComponent={<SquareGraphics className="hidden md:block" size={30}/>}
           text="Reconhecer precocemente os sintomas da psicose e procurar ajuda é essencial para a pessoa que experiencia esta alteração e para o seu familiar. O tratamento precoce é um fator positivo e melhora o prognóstico sendo ainda preditor de uma melhor qualidade de vida."
         />
      
       </div>
-      <div className='w-1/3 min-w-[300px] h-[700px] rounded-2xl overflow-hidden flex items-center'>
+      <div className='w-1/3 min-w-[300px] h-[700px] rounded-2xl overflow-hidden hidden md:flex items-center'>
           <Image
             src={ImagemPsicose}
             width={500}
@@ -115,6 +115,7 @@ const ImageCarrousel = ()=>{
   return <section className={`${getSectionClass} h-96 `} >
     
     <Carousel
+      className='w-full'
       setApi={setApi}
       plugins={[
         Autoplay({
@@ -135,19 +136,19 @@ const ImageCarrousel = ()=>{
         </CarouselItem>
         {events.map((evt, index) => (
           <CarouselItem key={index}>
-            <div className={`flex justify-center h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
+            <div className={`w-full flex justify-center h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
               <div className={`${getMaxWidthClasses} flex justify-between`}>
                 <div className="flex flex-col w-full">
                   <h3 className='text-2xl'>{evt.title}</h3>
                   <h6 className='text-gray-400'>{evt.date}</h6>
-                  <p className='w-1/2 min-h-[65%] text-sm mt-5' >
+                  <p className='md:w-1/2 min-h-[65%] text-sm mt-5' >
                     {evt.desc}
                   </p>
                   <div className="flex justify-end pr-5">
                     <a className=' text-blue-300 font-bold' href={evt.href} target='__blank'>Saber mais</a>
                   </div>
                 </div>
-                <img className="h-full rounded-lg" src={evt.img[0]} alt="imagem do evento" />
+                <img className="h-full rounded-lg hidden lg:block" src={evt.img[0]} alt="imagem do evento" />
               </div>
             </div>
           </CarouselItem>
@@ -286,7 +287,7 @@ const Objectives = ()=>{
   return <section id="objetivos"  className={`${getSectionClass} h-[calc(100vh-400px)] justify-center px-5 bg-blue-100`}>
     <div className={`flex justify-center items-center h-full gap-10 ${getMaxWidthClasses} relative justify-center`}>
       <Image
-        className=' opacity-70'
+        className='hidden lg:block opacity-70'
         src={ImageVoluntatios}
         width={350}
         alt="Imagem de voluntários"
@@ -497,7 +498,7 @@ const Support = ()=>{
   },[])
 
   return <section id="support" className={`${getSectionClass} gap-5 justify-center mt-20`}>
-    <div className={`flex justify-center items-center ${getMaxWidthClasses}`}>
+    <div className={`flex justify-center items-center flex-wrap ${getMaxWidthClasses}`}>
       <SupportCard
         title='FAÇA UM DONATIVO'
         img={DonativoIcon}
@@ -506,7 +507,7 @@ const Support = ()=>{
         linkLabel="Doar"
         footer={<><p className=" text-slate-500 font-bold text-sm">IBAN: {IBAN}</p>
           <p className=" text-slate-500 font-bold text-sm">MBWAY: 912 353 788</p></>}
-        className={translate ? "mr-5": "translate-x-2/4 delay-[3000]"}
+        className={translate ? "md:mr-5": "lg:translate-x-2/4 delay-[3000]"}
         imgSize={100}
       />
       <SupportCard
@@ -525,7 +526,7 @@ const Support = ()=>{
         information="Contribua com o seu tempo/aptidões e venha colaborar connosco." 
         href="/apoiar?tab=voluntario" 
         linkLabel="Voluntário"
-        className={`${translate ? "ml-5": "translate-x-[-50%] delay-[3000]"} z-0`}
+        className={`${translate ? "md:ml-5": "lg:translate-x-[-50%] delay-[3000]"} z-0`}
       />      
     </div>
   </section>
@@ -552,7 +553,7 @@ const SupportCard = ({
   color?: "orange" | "blue"
   imgSize?: number
 })=>{
-  return  <div className={` transition-all flex flex-col gap-5 bg-white rounded-3xl border-${color}-400 border-2 h-[380px] w-72 p-5 items-center text-center py-5 relative ${className}`}>
+  return  <div className={`mb-5 transition-all flex flex-col gap-5 bg-white rounded-3xl border-${color}-400 border-2 h-[380px] w-72 p-5 items-center text-center py-5 relative ${className}`}>
   <h3 className="text-xl font-bold">{title}</h3>
   <Image
 
@@ -579,7 +580,7 @@ const Testemunhos = ()=>{
 
 
 export const TestemunhosList = ()=>{
-  return <Carousel className="w-full" plugins={[
+  return <Carousel className="w-full " plugins={[
     Autoplay({
       delay: 10000,
     }),
@@ -589,11 +590,11 @@ export const TestemunhosList = ()=>{
   }}>
     <CarouselContent >
       {testimonials.map((t, index)=>{
-        return <CarouselItem key={index} className='basis-1/3'>
-          <div className='bg-gray-200 w-80 rounded-xl h-80 p-5 mr-10 flex flex-col gap-4'>
+        return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
+          <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
             <Quote className='text-blue-400 '/>
-            <p className='text-sm'>{t.quote}</p>
-            <p className='w-full text-right'>{t.author}</p>
+            <p className='text-xs lg:text-sm'>{t.quote}</p>
+            <p className='w-full text-right text-xs lg:text-base'>{t.author}</p>
           </div>
         </CarouselItem>
       })}

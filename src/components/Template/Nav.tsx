@@ -122,10 +122,9 @@ const Nav = () => {
 }
 
 const DesktopNavigation = ()=>{
-    return <nav className='bg-white  justify-center items-center py-4 fixed top-0 z-50 w-full hidden md:flex  '>
+    return <nav className='bg-white  justify-center items-center py-4 fixed top-0 z-50 w-screen hidden md:flex  '>
     <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
-        {/* <MenuBtn/> */}
-        <Logo className='mr-4' height={112}/>
+        <Logo className='mr-4 hidden lg:block' height={112}/>
         <div className="flex-col w-full ">
             <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
                 {/* <ComunicadosComponent/> */}
@@ -163,9 +162,9 @@ const MobileNavigationHeader = ()=>{
 const MobileNavigationButtons = ()=>{
     const {push, asPath, query} = useRouter()
     const [open, setOpen] = React.useState(false)
-    console.log(asPath)
+
     return <section className='md:hidden'>
-        <nav className='w-screen  flex flex-col items-center fixed bottom-0 z-50 bg-white rounded-tr-2xl rounded-tl-2xl pb-3'>
+        <nav className='w-screen  flex flex-col items-center fixed bottom-0 z-50 bg-white rounded-tr-2xl rounded-tl-2xl pb-3 border'>
             <div onClick={()=>setOpen(true)} className='cursor-pointer w-full flex justify-center pt-5'>
                 <div className='w-[100px] h-2 rounded-xl bg-muted'></div>
             </div>
@@ -293,7 +292,6 @@ const NavBtns = ({
 })=>{
     const {push, asPath, query} = useRouter()
     
-
     React.useEffect(()=>{
         if(query && query.scrollTo){
             //@ts-ignore
@@ -309,7 +307,7 @@ const NavBtns = ({
         <NavigationMenuList>
             {routes.map((r: any)=>{
                 return r.subMenus.length > 0 ? <NavigationMenuItem key={r.title}>
-                <NavigationMenuTrigger className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} text-lg bg-transparent`}>
+                <NavigationMenuTrigger className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} lg:text-lg bg-transparent`}>
                     <a href={r.href}>{r.title}</a>
                 </NavigationMenuTrigger>
                 {r.subMenus.length > 0 && <NavigationMenuContent>
@@ -329,7 +327,7 @@ const NavBtns = ({
             </NavigationMenuItem> : 
             <Button onClick={()=>{
                 push(r.href)
-            }} variant="ghost" className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} text-lg bg-transparent`}> {r.title}</Button>
+            }} variant="ghost" className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} lg:text-lg bg-transparent`}> {r.title}</Button>
             })}
             
         </NavigationMenuList>

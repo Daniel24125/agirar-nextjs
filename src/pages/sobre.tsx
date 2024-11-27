@@ -152,7 +152,7 @@ export const Partners = () => {
         <div className={`${getMaxWidthClasses} flex flex-col relative items-center px-5`}>
             
             <p className='text-md text-start w-full font-bold mb-4'>Parceiros</p>
-            <div className="flex flex-wrap justify-between w-full p-10 bg-white items-center rounded-2xl gap-4">
+            <div className="flex flex-wrap justify-center md:justify-between w-full p-10 bg-white items-center rounded-2xl gap-4">
                 {getPartners.map((p: TPartner)=>{
                     return <a key={p.href} href={p.href} target="_blank">
                         <img className=' mr-16 mb-16 h-10 lg:h-8 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
