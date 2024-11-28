@@ -44,14 +44,6 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/6926681/pexels-photo-6926681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
-        title: "Atelier de Movimento e Expressão Corporal",
-        desc: "Espaço criado para valorizar a comunicação não verbal, permitindo observar o modo como cada pessoa se relaciona com o seu corpo, com o seu espaço e com os restantes elementos do grupo. Processo criativo onde se trabalha com o corpo e com a sua linguagem própria",
-        time: "14:30 - 15:45",
-        day: "Qui."
-    },
-    {
-        id: Math.random().toString(16).slice(2),
         img: ["https://images.pexels.com/photos/339619/pexels-photo-339619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
         title: "Terapia Ocupacional em Manualidades",
         desc: "Atividade em grupo dirigida ao desenvolvimento de competências motoras finas como corte, colagem e pintura, utilizando atividades manuais baseadas nos princípios da terapia ocupacional. Esta abordagem visa ainda, melhorar a coordenação motora, estimular a criatividade e aumentar a autonomia dos utentes em atividades de vida diária.",
