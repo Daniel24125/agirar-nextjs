@@ -60,8 +60,8 @@ export const PageTitle = ({
     <DecorationGeometry
       color="blue"
       size="w-[90vw] sm:w-[calc(50%+30px)] h-40"
-      position="absolute sm:left-0 top-[calc(50%-20px)] z-0"
-      borderRadius="rounded-3xl sm:rounded-tr-3xl sm:rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none "
+      position="absolute left-0 top-[calc(50%-20px)] z-0"
+      borderRadius="rounded-tr-3xl rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none "
       className=" z-30 flex justify-center flex-col opacity-50 mt-24 sm:mt-0 lg:flex-row lg:justify-end items-center gap-8 sm:pr-10"
     />
   </section>
@@ -78,15 +78,15 @@ export const PageTitleAlternative = ({
     </div>
     <DecorationGeometry
       color="orange"
-      size="w-[90vw] sm:w-[calc(50%)] h-48"
+      size="w-[calc(50%)] h-48"
       position="absolute right-0  z-0"
       borderRadius="rounded-tl-3xl rounded-bl-3xl bg-orange-300"
     />
     <DecorationGeometry
       color="blue"
-      size="w-[90vw] sm:w-[calc(50%)] h-48"
-      position="absolute sm:left-0  z-0"
-      borderRadius="rounded-3xl sm:rounded-tr-3xl sm:rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none  bg-blue-300"
+      size="w-[calc(50%)] h-48"
+      position="absolute left-0  z-0"
+      borderRadius="rounded-tr-3xl rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none  bg-blue-300"
       className=" z-30 flex justify-center flex-col opacity-50 sm:mt-0 lg:flex-row lg:justify-end items-center gap-8 sm:pr-10"
     />
   </section>

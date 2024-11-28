@@ -18,8 +18,8 @@ const Sobre = () => {
         <PageTitle
             title={
             <div className="flex flex-col gap-8 w-screen justify-center items-center top-40">
-                <p className='text-8xl text-center font-bold'>AGIRAR</p>
-                <p className='text-3xl w-[clamp(300px,90vw,500px)] text-center font-bold'>Associação de Familiares e Amigos de Pessoas com Psicose</p>
+                <p className='text-4xl md:text-8xl text-center font-bold'>AGIRAR</p>
+                <p className='text-xl md:text-3xl w-[clamp(300px,90vw,500px)] text-center font-bold'>Associação de Familiares e Amigos de Pessoas com Psicose</p>
             </div>
            }
         />
@@ -64,7 +64,7 @@ const AboutHeader = ()=>{
 }
 
 const HistorySection = ()=>{
-    return <section className={`${getSectionClass} top-3 py-11`}>
+    return <section className={`${getSectionClass} top-20 sm:top-3 py-11`}>
         <div className={`${getMaxWidthClasses} flex flex-col items-center gap-10 px-5`}>
             <Timeline>
                 <TimelineItem
@@ -105,7 +105,7 @@ const HistorySection = ()=>{
 
 
 const ObjectivesSection = ()=>{
-    return <section className={`${getSectionClass} top-3 py-11`}>
+    return <section className={`${getSectionClass} top-20 sm:top-3 py-11`}>
         <div className={`${getMaxWidthClasses} flex flex-col items-center gap-10 px-5 `}>
             <h6 className='text-primary font-bold text-3xl'>Os Nossos Objetivos</h6>
             <div className='max-w-lg relative mt-12'>
@@ -155,7 +155,7 @@ export const Partners = () => {
             <div className="flex flex-wrap justify-center md:justify-between w-full p-10 bg-white items-center rounded-2xl gap-4">
                 {getPartners.map((p: TPartner)=>{
                     return <a key={p.href} href={p.href} target="_blank">
-                        <img className=' mr-16 mb-16 h-10 lg:h-8 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
+                        <img className='mb-5 sm:mr-16 sm:mb-16 h-10 lg:h-8 grayscale hover:grayscale-0' src={p.img} alt="partner" key={p.href} />
                     </a>
                 })}
 

@@ -136,16 +136,19 @@ const ImageCarrousel = ()=>{
         </CarouselItem>
         {events.map((evt, index) => (
           <CarouselItem key={index}>
-            <div className={`w-full flex justify-center h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
+            <div className={`w-full flex justify-center sm:h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
               <div className={`${getMaxWidthClasses} flex justify-between`}>
                 <div className="flex flex-col w-full">
                   <h3 className='text-2xl'>{evt.title}</h3>
-                  <h6 className='text-gray-400'>{evt.date}</h6>
+                  <div className='w-full flex justify-between items-center'>
+                    <h6 className='text-gray-400'>{evt.date}</h6>
+                    <a className=' text-blue-300 font-bold block sm:hidden' href={evt.href} target='__blank'>Saber mais</a>
+                  </div>
                   <p className='md:w-1/2 min-h-[65%] text-sm mt-5' >
                     {evt.desc}
                   </p>
                   <div className="flex justify-end pr-5">
-                    <a className=' text-blue-300 font-bold' href={evt.href} target='__blank'>Saber mais</a>
+                    <a className=' text-blue-300 font-bold hidden sm:block' href={evt.href} target='__blank'>Saber mais</a>
                   </div>
                 </div>
                 <img className="h-full rounded-lg hidden lg:block" src={evt.img[0]} alt="imagem do evento" />

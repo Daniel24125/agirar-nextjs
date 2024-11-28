@@ -10,11 +10,14 @@ import React, { Dispatch, SetStateAction } from 'react'
 import LaCaixa from "@/assets/servicos/lacaixa.png"
 import ULS from "@/assets/servicos/uls.png"
 import PNC from "@/assets/servicos/clique.jpg"
-import { DownloadIcon, ExternalLink } from 'lucide-react'
+import { DownloadIcon, ExternalLink, MoreVerticalIcon, UserIcon, UsersIcon } from 'lucide-react'
 import Link from 'next/link'
 import TooltipAbstraction from '@/components/ui/TooltipAbstraction'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Badge } from '@/components/ui/badge'
+import { saveAs } from 'file-saver'
 
 
 
@@ -32,7 +35,7 @@ setSelectedService
   }}>
     <PageTitle
       title={
-        <p className='text-6xl text-center font-bold'>O QUE FAZEMOS</p>
+        <p className='text-4xl md:text-6xl text-center font-bold'>O QUE FAZEMOS</p>
       }
     />
     {/* <HeaderSection/> */}
@@ -88,7 +91,10 @@ const ServiceDetails = ()=>{
     <DialogHeader>
       <DialogTitle>{selectedService?.title}</DialogTitle>
       <DialogDescription>
-        <p className='mt-5'>{selectedService?.desc}</p>
+        <p className='my-5'>{selectedService?.desc}</p>
+        <p className='w-full text-center text-blue-400 font-bold'>
+          {selectedService?.day} | {selectedService?.time}
+        </p>
       </DialogDescription>
     </DialogHeader>
     
@@ -105,17 +111,47 @@ const ServiceDetails = ()=>{
 
 const ServicesColection = ()=>{
   const [selectedServiceType, setSelectedServiceType] = React.useState<"utentes" | "familias">("utentes")
-  return <section className={`${getSectionClass} py-20`}>
+  
+  return <section className={`${getSectionClass} py-20 top-20 sm:top-0`}>
     <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
       <Subtitle title="Serviços">
-        <div className='flex gap-5'>
-          <Button onClick={()=>setSelectedServiceType("utentes")}variant={selectedServiceType === "utentes"? "default": "outline"} className={`${selectedServiceType === "utentes"?"bg-orange-400": ""}`}>Utentes</Button>
-          <Button onClick={()=>setSelectedServiceType("familias")}variant={selectedServiceType === "familias"? "default": "outline"} className={`${selectedServiceType === "familias"?"bg-orange-400": ""}`}>Familiares</Button>
-          <TooltipAbstraction title='Download do horário completo'>
-            <Link href={`/servicos/horario_${selectedServiceType}.png`} className={buttonVariants({ variant: "outline", size: "icon" })} >
-              <DownloadIcon/>
-            </Link>
-          </TooltipAbstraction>
+        <div className=' gap-2 flex items-center'>
+          <Button  onClick={()=>setSelectedServiceType("utentes")} variant={selectedServiceType === "utentes"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "utentes"?"bg-orange-400": ""} `}>Utentes</Button>
+          <Button  onClick={()=>setSelectedServiceType("familias")} variant={selectedServiceType === "familias"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "familias"?"bg-orange-400": ""} `}>Familiares</Button>
+          
+          <Badge >{selectedServiceType === "utentes" ? "Utentes": "Famílias"}</Badge>
+          
+          <TimesheetDonwload selectedServiceType={selectedServiceType}/>
+          
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <MoreVerticalIcon/>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Tipos de Serviços</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem onClick={()=>setSelectedServiceType("utentes")}>
+                  <UserIcon/>
+                  <span>Utentes</span>
+                  {selectedServiceType === "utentes" && <DropdownMenuShortcut>
+                    <div className='w-2 h-2 rounded-full bg-blue-400'></div>
+                  </DropdownMenuShortcut>}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={()=>setSelectedServiceType("familias")}>
+                  <UsersIcon/>
+                  <span>Famílias</span>
+                  {selectedServiceType === "familias" && <DropdownMenuShortcut>
+                    <div className='w-2 h-2 rounded-full bg-blue-400'></div>
+                  </DropdownMenuShortcut>}
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+  
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </Subtitle>
       <ServiceDetails/>
@@ -126,6 +162,17 @@ const ServicesColection = ()=>{
   </section>
 }
 
+const TimesheetDonwload = ({selectedServiceType}: {selectedServiceType:"utentes" | "familias"})=>{
+  return <TooltipAbstraction title='Download do horário completo'>
+  <Button variant="outline" size="icon" onClick={()=>{
+    
+    saveAs(`/servicos/horario_${selectedServiceType}.png`, `horario_${selectedServiceType}.png`)
+  }} >
+    <DownloadIcon/>
+  </Button>
+</TooltipAbstraction>
+}
+
 const ServicesList = ({
   collection
 }:{
@@ -134,7 +181,7 @@ const ServicesList = ({
   const {setSelectedService} = React.useContext(ServiceContext)
   const [open, setOpen] = React.useState<null | string>(null)
 
-  return <div className='w-full flex justify-between gap-6 flex-wrap px-5 md:px-0'>
+  return <div className='w-full flex justify-center sm:justify-between gap-6 flex-wrap md:px-0'>
   {collection.map((s:TServicos)=>{
     return <React.Fragment key={s.id}>
       <TooltipAbstraction title='Mais informação'>
@@ -182,8 +229,8 @@ const GalleryComponent = ({imgs, open, setOpen}:
     })
   }, [api])
 
-  return <Dialog open={open} onOpenChange={setOpen}>
-    <DialogContent  className="sm:max-w-lg flex items-center flex-col">
+  return <Dialog open={open} onOpenChange={setOpen} >
+    <DialogContent  className="max-w-lg flex items-center flex-col w-screen">
       <Carousel setApi={setApi} className="w-[80%]">
         <CarouselContent >
           {imgs.map((img, index) => (
@@ -260,22 +307,15 @@ const Projeto = ({
   imageURL:StaticImageData, 
   children: React.ReactNode
 })=>{
-  return <div className={`w-full flex justify-between ${className}`}>
-    <div className='flex flex-col w-1/2'>
+  return <div className={`w-full flex sm:flex-row flex-col justify-between ${className}`}>
+    <div className='flex flex-col w-full sm:w-1/2'>
       <h3 className='text-blue-400 text-lg font-bold'>{title}</h3>
       <span className='text-gray-400 text-sm mb-5'>{support}</span>
       {children}
     </div>
-    <div className='h-full w-3/4 max-w-sm flex items-center'>
+    <div className='h-full w-full sm:w-3/4 max-w-sm flex items-center'>
       <Image className='p-2 rounded-lg border-blue-100 ' src={imageURL} alt="Logo ULS" width={500}/>
     </div>
-    {/* <div style={{
-      backgroundImage: `url("${imageURL}")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center"
-    }} className='height-full w-3/4 max-w-sm  bg-white rounded-xl border'> 
-
-    </div>*/}
   </div>
 }
 
@@ -302,7 +342,7 @@ const Protocolo = ({
   href:string
   logo:string
 })=>{
-  return <div className='flex flex-col justify-between w-[500px] bg-white border rounded-2xl  px-5 py-2'>
+  return <div className='flex flex-col justify-between w-full sm:w-[500px] bg-white border rounded-2xl  px-5 py-2'>
     <div className='flex justify-between items-center mb-5'>
       <h5 className='font-bold text-lg'>{title}</h5>
       <Button variant="ghost" size="icon">
@@ -311,12 +351,12 @@ const Protocolo = ({
         </Link>
       </Button>
     </div>
-    <div className='flex justify-between'>
-      <div className='w-4/5 flex flex-col gap-2'>
+    <div className='flex sm:flex-row flex-col justify-between gap-3'>
+      <div className='w-full sm:w-4/5 flex flex-col gap-2'>
         <p className='text-blue-400 font-bold text-xs'>Condições para associados Agirar:</p>
         <p className='text-xs'>Os Associados têm acesso à compra de &quot;Bilhete-Parceiro&quot;. O valor varia conforme o cada espetáculo e é sempre inferior ao praticado na venda ao público. Para usufruir deste tipo de bilhete é necessário fazer pré-reserva informando que é associado da AGIRAR. No dia do espetáculo deve apresentar nas bilheteiras o cartão de associado e uma declaração em como tem as quotas desse ano regularizadas (pedir antecipadamente por email). </p>
       </div>
-      <div className='w-1/5 min-w-[100px] flex items-center justify-center'>
+      <div className='w-full sm:w-1/5 min-w-[100px] flex items-center justify-center'>
         <Image src={logo} alt="Logo de protocolo" width={80} height={50} />
       </div>
     </div>

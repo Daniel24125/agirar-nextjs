@@ -31,6 +31,7 @@
     "date-fns": "^2.30.0",
     "embla-carousel-autoplay": "^8.0.2",
     "embla-carousel-react": "^8.0.2",
+    "file-saver": "^2.0.5",
     "lucide-react": "^0.287.0",
     "mailtrap": "^3.2.0",
     "moment": "^2.29.4",

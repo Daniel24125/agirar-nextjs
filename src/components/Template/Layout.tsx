@@ -28,7 +28,7 @@ const TopButton = ()=>{
       setShowToTopButton(window.scrollY > 500)
     })
   },[])
-  return <div className={`fixed right-3  transition-all duration-1000 ${showToTopButton ? "opacity-100 visible bottom-32 md:bottom-20": "opacity-0 hidden -bottom-12"}`}>
+  return <div className={`fixed right-3 z-50 transition-all duration-1000 ${showToTopButton ? "opacity-100 visible bottom-32 md:bottom-20": "opacity-0 hidden -bottom-12"}`}>
     <TooltipAbstraction title='Voltar ao topo'>
       <Button onClick={()=>window.scrollTo({
         top: 0,

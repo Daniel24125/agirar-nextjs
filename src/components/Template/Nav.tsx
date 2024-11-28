@@ -190,10 +190,10 @@ const MobileNavigationButtons = ()=>{
                     {routes.map(r=>{
                         const active = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
                         return <div className=' flex flex-col' key={r.href}>
-                            <Link className={`${active? "text-blue-400": ""} transition text-center hover:text-blue-400 font-bold text-2xl`} href={r.href}>{r.title}</Link>
-                            <div className='flex flex-col gap-3 mt-5 items-center'>
+                            <Link className={`${active? "text-blue-400": ""} transition text-center hover:text-blue-400 font-bold text-lg `} href={r.href}>{r.title}</Link>
+                            <div className='flex flex-col gap-1 mt-2 items-center'>
                                 {r.subMenus!.map(sm =>{
-                                    return <Link key={sm.title} href={sm.href}>{sm.title}</Link>
+                                    return <Link className='text-sm' key={sm.title} href={sm.href}>{sm.title}</Link>
                                 })}
                             </div>
                         </div>
