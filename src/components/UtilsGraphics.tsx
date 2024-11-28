@@ -12,7 +12,7 @@ export const SquareGraphics = ({
 }:{
     size: number,
     color?: string,
-    className: string
+    className?: string
     props?: any
 }) => {
   return (<div className={className} {...props}>
