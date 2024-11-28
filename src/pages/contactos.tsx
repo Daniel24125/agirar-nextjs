@@ -8,7 +8,7 @@ const Contactos = () => {
   return <>
     {/* <HeaderContactos/> */}
     <PageTitle
-        title={<p className='text-6xl text-center font-bold'>CONTACTOS</p>}
+        title={<p className='text-3xl md:text-6xl text-center font-bold'>CONTACTOS</p>}
       />
     <ContactSection/>
    
@@ -34,7 +34,7 @@ const HeaderContactos = ()=>{
 }
 
 const ContactSection = ()=>{
-  return <section className={`${getSectionClass}`}>
+  return <section className={`${getSectionClass} top-32 md:top-0`}>
     <div className={`flex justify-evenly ${getMaxWidthClasses} flex-wrap px-5`}>
       
       <div className="flex flex-col border rounded-lg w-80 h-72 p-6 mb-5">
@@ -66,7 +66,7 @@ const ContactSection = ()=>{
       </div>
       
     </div>
-    <h2 className='pb-32 font-bold text-xl text-blue-400'>Pode sempre contar com a nossa ajuda</h2>
+    <h2 className='pb-32 font-bold sm:text-xl text-blue-400'>Pode sempre contar com a nossa ajuda</h2>
   </section>
 }
 export default Contactos

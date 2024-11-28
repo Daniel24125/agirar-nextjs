@@ -153,8 +153,11 @@ const MobileNavigation = ()=>{
 const MobileNavigationHeader = ()=>{
     return <div className='w-screen p-4 flex justify-between items-center fixed top-0 z-50 md:hidden bg-white'>
         <Logo className='mr-4' height={70}/>
-        <div className='flex gap-2'>
-            <SocialBtns show='all' size='w-5'/>
+        <div className='flex flex-col items-end gap-2'>
+            <div className='flex gap-2'>
+                <SocialBtns show='all' size='w-4'/>
+            </div>
+            <CallForActionNav/>
         </div>
     </div>
 } 
@@ -218,7 +221,7 @@ const CallForActionNav = ({
     return <div className="flex gap-2">
         <TooltipAbstraction
             title="Tornar-me Associado">
-            <Link className={buttonVariants({variant: "outline"})} href="/apoiar?tab=associado">Associado</Link>
+            <Link className={`${buttonVariants({variant: "outline"})}`} href="/apoiar?tab=associado">Associado</Link>
             {/* <MemberComponent
                 title='Tornar-me Associado'
                 reason='mensal'

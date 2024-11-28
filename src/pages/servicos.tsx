@@ -119,14 +119,14 @@ const ServicesColection = ()=>{
           <Button  onClick={()=>setSelectedServiceType("utentes")} variant={selectedServiceType === "utentes"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "utentes"?"bg-orange-400": ""} `}>Utentes</Button>
           <Button  onClick={()=>setSelectedServiceType("familias")} variant={selectedServiceType === "familias"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "familias"?"bg-orange-400": ""} `}>Familiares</Button>
           
-          <Badge >{selectedServiceType === "utentes" ? "Utentes": "Famílias"}</Badge>
+          <Badge className='block md:hidden' >{selectedServiceType === "utentes" ? "Utentes": "Famílias"}</Badge>
           
           <TimesheetDonwload selectedServiceType={selectedServiceType}/>
           
           
-          <DropdownMenu>
+          <DropdownMenu >
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button className='block md:hidden' variant="ghost" size="icon">
                 <MoreVerticalIcon/>
               </Button>
             </DropdownMenuTrigger>
@@ -138,7 +138,7 @@ const ServicesColection = ()=>{
                   <UserIcon/>
                   <span>Utentes</span>
                   {selectedServiceType === "utentes" && <DropdownMenuShortcut>
-                    <div className='w-2 h-2 rounded-full bg-blue-400'></div>
+                    <div className='w-2 h-2 rounded-full bg-orange-400'></div>
                   </DropdownMenuShortcut>}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={()=>setSelectedServiceType("familias")}>

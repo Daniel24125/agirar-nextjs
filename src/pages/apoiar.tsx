@@ -33,14 +33,14 @@ const Apoiar = () => {
         selectedTab,
         setSelectedTab
     }}>
-        <PageTitle title={<p className='text-6xl text-center font-bold'>Como apoiar</p>} />
+        <PageTitle title={<p className='text-3xl md:text-6xl text-center font-bold'>Como apoiar</p>} />
         <TabComponent/>
        
     </TabContextProvider.Provider>
 }
 const TabComponent = ()=>{
     const {selectedTab, setSelectedTab} = React.useContext(TabContextProvider)
-    return <section className={`${getSectionClass} justify-center py-10`}>
+    return <section className={`${getSectionClass} justify-center py-10 top-14 md:top-0`}>
         <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
             <Tabs defaultValue={selectedTab} value={selectedTab} onValueChange={(newVal)=>setSelectedTab!(newVal as TTab)}>
                 <TabList/>
@@ -51,11 +51,13 @@ const TabComponent = ()=>{
 }
 
 const TabList = ()=>{
-    return  <TabsList className="w-full">
-    <TabsTrigger value="associado">Associado</TabsTrigger>
-    <TabsTrigger  value="doar">Doar</TabsTrigger>
-    <TabsTrigger value="voluntario">Voluntário</TabsTrigger>
-    <TabsTrigger value="irs">Consignação do IRS</TabsTrigger>
+    return  <TabsList  className="w-full h-auto">
+        <div className='w-full md:flex justify-evenly'>
+            <TabsTrigger className='w-1/2 md:w-auto scale-75 md:scale-100' value="associado">Associado</TabsTrigger>
+            <TabsTrigger className='w-1/2 md:w-auto scale-75 md:scale-100' value="doar">Doar</TabsTrigger>
+            <TabsTrigger className='w-1/2 md:w-auto scale-75 md:scale-100' value="voluntario">Voluntário</TabsTrigger>
+            <TabsTrigger className='w-1/2 md:w-auto scale-75 md:scale-100' value="irs">Consignação do IRS</TabsTrigger>
+        </div>
   </TabsList>
 }
 
@@ -69,7 +71,7 @@ const TabContent = ()=>{
                 <p className='w-full text-center max-w-3xl'>Ao ser associado, você irá possibilitar que continuemos a dar apoio psicossocial e psicoeducação de pessoas com psicose, além de combater o estigma associado á doença mental.</p>
                 <p className='w-full text-center max-w-3xl'>Juntos, podemos ser um agente transformador da vida de muitas famílias e indivíduos, promovendo a inclusão e o bem-estar.</p>
                 <p className='max-w-3xl font-bold w-full'>Benefícios de ser associado:</p>
-                <div className='w-full flex justify-between mt-10 max-w-3xl gap-3'>
+                <div className='w-full flex md:flex-row flex-col justify-between mt-10 max-w-3xl gap-3'>
                     <ul className='list-decimal pl-10'>
                         <li>Participar de eventos exclusivos e atividades organizadas pela Associação;</li>
                         <li>Receber informações atualizadas sobre projetos e iniciativas da AGIRAR;</li>
