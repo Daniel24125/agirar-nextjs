@@ -11,7 +11,15 @@ export type TEvent = {
 export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
         {
-            id: "evt1",
+            id: Math.random().toString(16).slice(2),
+            title: "Dia histórico para a AGIRAR",
+            date: "29/11/2024", 
+            img: ["/eventos/29_11_2024/main.jpg", "/eventos/29_11_2024/1.jpg", "/eventos/29_11_2024/2.jpg"], 
+            href: "https://www.facebook.com/story.php?story_fbid=906164181704579&id=100069330174307&mibextid=WC7FNe&rdid=lolZM3CpssadNut5#", 
+            desc: "Hoje é um dia histórico para a AGIRAR! A partir de hoje, temos oficialmente um imóvel para ser a tão sonhada sede da Associação. Este espaço será o coração da nossa Associação: um lugar acolhedor para receber utentes, famílias e amigos, que há tanto tempo idealizamos. A entrega da chave foi um momento de grande emoção e realização para todos os associados e para a Direção. Gostaríamos de expressar um especial agradecimento ao Município de Vila Nova de Gaia, que tornou possível a celebração deste contrato de comodato.Mas ainda há muito trabalho pela frente. Há um espaço para renovar para que fique pronto para vos receber! Fiquem atentos às nossas redes sociais, pois vamos partilhar todas as novidades desta jornada com vocês."
+        },
+        {
+            id: Math.random().toString(16).slice(2),
             title: "Resumo dos nossos 10 anos",
             date: "09/07/2023", 
             img: ["/eventos/evt1.jpeg"], 
@@ -19,7 +27,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Um pequeno resumo dos nossos 10 anos... Muito muito pequeno, pois temos tantas outras memórias, tantas outras histórias, tantas tantas..."
         },
         {
-            id: "evt2",
+            id: Math.random().toString(16).slice(2),
             title: "Segunda atividade do nosso 10º aniversário",
             date: "11/03/2023", 
             img: ["/eventos/evt2.jpg"], 
@@ -27,7 +35,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "E hoje tivemos a nossa segunda atividade incluída nas comemorações do nosso 10 aniversário! Foi uma tarde de sorrisos, gargalhadas, mas acima de tudo de partilha! Obrigada a todos os presentes pelo apoio e por nos ajudarem a crescer! E muito obrigada à Mais Feliz Associação e ao Fernando Batista pela animação e pela mensagem! Muito importante percebemos que a forma como nos mexemos e comunicamos com o corpo influencia o outro, mas mais do que isso, influencia-nos, motiva-nos, empodera-nos! Sejamos mais sorridentes, mais felizes, mais positivos pela nossa saúde mental!"
         },
         {
-            id: "evt3",
+            id: Math.random().toString(16).slice(2),
             title: "Passeio no Porto",
             date: "06/02/2023", 
             img: ["/eventos/evt3.jpg"], 
@@ -35,7 +43,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Na última sexta feira fomos passear... o ponto de encontro foi na torre dos Clérigos e de seguida realizámos uma caminhada até à Alfândega do Porto. Fomos assistir a um espetáculo imersivo: O “Porto Legends, the Underground Experience”. Tratou-se de uma experiência audiovisual 360º. Fomos admirar e conhecer mais da Invicta, através das suas histórias e lendas. As atividades na comunidade revestem-se de grande importância pois promovem as relações interpessoais e as competências sociais."
         },
         {
-            id: "evt4",
+            id: Math.random().toString(16).slice(2),
             title: "Decoração Natalícia",
             date: "06/12/2022", 
             img: ["/eventos/evt4.jpg"], 
@@ -43,7 +51,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "A decoração natalícia na entrada das nossas instalações para dar as boas vindas a quem nos visita!"
         },
         {
-            id: "evt5",
+            id: Math.random().toString(16).slice(2),
             title: "Caminhada - Prémio da equipa mais numerosa",
             date: "21/10/2022", 
             img: ["/eventos/evt5.jpg"], 
@@ -51,7 +59,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Os nossos utentes e familiares participaram em equipa na Caminhada tendo escolhido o nome “ Os amigos da Agirar”. Foi-lhes atribuído o prémio da equipa mais numerosa! Muitos parabéns!"
         },
         {
-            id: "evt6",
+            id: Math.random().toString(16).slice(2),
             title: "Ubuntu fest",
             date: "15/10/2022", 
             img: ["/eventos/evt6.jpg"], 
@@ -59,7 +67,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'E na continuidade do espírito colaborativo, hoje participamos no Ubuntu fest, no seminário alusivo ao tema "Relaciono-me, logo cuido(me) - contributos Ubuntu para a promoção de bem estar e saúde mental nas escolas e cidades". A nossa vice presidente Fernanda Castro partilhou a nossa experiência com utentes, familiares e comunidade. Partilhando esperança e motivação com as colegas de mesa Dra. Helena Coutinho - Equipa Multidisciplinar para a Economia Social Dra. Silvia Campos - S¡M somos capazes! Porque juntos somos mais fortes! E só existimos na presença do outro! Ao serviço do outro!'
         },
         {
-            id: "evt7",
+            id: Math.random().toString(16).slice(2),
             title: 'VI Caminhada "Um passo pela saúde mental" - Inscrições abertas',
             date: "26/09/2022", 
             img: ["/eventos/evt7.jpg"], 
@@ -67,7 +75,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'Abrimos então as inscrições para a nossa VI Caminhada "Um passo pela saúde mental". Inscreva-se, partilhe, convide um amigo! Não vão querer perder esta edição!!! Temos a novidade da participação em Equipas (com prémios)!! Venha participar e ajude-nos a crescer!! Inscreva-se aqui: https://forms.gle/mq9tGC79p8oM1nZf8  (antes de terminar a inscrição leia o regulamento e aceite o desafio de participar em Equipa).'
         },
         {
-            id: "evt8",
+            id: Math.random().toString(16).slice(2),
             title: "Grupo de Ajuda Mútua",
             date: "02/05/2022", 
             img: ["/eventos/evt8.jpg"], 
@@ -75,7 +83,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'Hoje decorreu nas nossas instalações mais um Grupo de Ajuda Mútua. Relembramos que este grupo é mensal. Se é associado venha estar connosco e partilhar a sua vivência com outros familiares!'
         },
         {
-            id: "evt9",
+            id: Math.random().toString(16).slice(2),
             title: "Decoração Natalícia",
             date: "21/12/2021", 
             img: ["/eventos/evt9.jpg"], 
@@ -83,7 +91,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Este ano os nossos utentes dedicaram várias horas a fazer pequenos enfeites para serem vendidos na feirinha de Natal. Contudo, a pandemia não permitiu a realização da mesma. Se quiser pode adquirir as peças e desta forma ajudar a associação! São valores simbólicos, para produtos que simbolizam muito mais. Simbolizam amor, dedicação e empenho na sua realização. Mas também solidariedade, estima e apoio com a sua aquisição! Ajude-nos a crescer!"
         },
         {
-            id: "evt10",
+            id: Math.random().toString(16).slice(2),
             title: "Jornal O Gaiense",
             date: "24/10/2021", 
             img: ["/eventos/evt10.jpg"], 
@@ -91,7 +99,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'A edição de ontem do Jornal O Gaiense publicou um artigo sobre a Caminhada “Um Passo pela Saúde Mental “ e referiu os objetivos principais da AGIRAR. Obrigada aos participantes e a todos os que de algum modo contribuíram para que este evento fosse um sucesso.'
         },
         {
-            id: "evt12",
+            id: Math.random().toString(16).slice(2),
             title: "V Caminhada",
             date: "17/10/2021", 
             img: ["/eventos/evt12.jpg"], 
@@ -99,7 +107,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "E retomamos a nossa caminhada após a pandemia que atravessamos! E uma coisa constatamos: as saudades que tínhamos de estar juntos! Queremos agradecer a todos a participação e o apoio! Ultrapassamos as 120 inscrições!!! Quer isto dizer que para o ano temos que superar!!! Contamos convosco?"
         },
         {
-            id: "evt11",
+            id: Math.random().toString(16).slice(2),
             title: "Visita da Vereadora Dra Marina Mendes",
             date: "10/05/2021", 
             img: ["/eventos/evt11.jpg"], 
@@ -107,7 +115,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "A Vereadora Dra Marina Mendes veio fazer uma visita à AGIRAR: Acordo de colaboração - Fundo de emergência Covid-19 -Apoio às Associações locais IPSS’S do Concelho. O NOSSO OBRIGADA"
         },
         {
-            id: "evt13",
+            id: Math.random().toString(16).slice(2),
             title: "Dia Mundial da Saúde Mental",
             date: "10/10/2020", 
             img: ["/eventos/evt13.jpg"], 
@@ -115,7 +123,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "10 de Outubro 2020 - Dia Mundial da Saúde Mental Este ano o mote é mais investimento e melhor acesso aos cuidados de saude mental! Os nossos utentes foram visitar o Zoo... e foi mais uma iniciativa de promoção da saúde mental."
         },
         {
-            id: "evt14",
+            id: Math.random().toString(16).slice(2),
             title: "Feirinha de Natal",
             date: "14/12/2019", 
             img: ["/eventos/evt14.jpg"], 
@@ -123,7 +131,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Vamos mais uma vez estar mais perto de si neste Natal! Pode visitar-nos e fazer aquela compra que quer oferecer a algum amigo! Estamos até ao dia 20 de Dezembro na Consulta  Externa do Serviço de Psiquiatria do Centro Hospitalar de Vila Nova de Gaia/Espinho. Venha fazer compras Solidárias!"
         },
         {
-            id: "evt15",
+            id: Math.random().toString(16).slice(2),
             title: "IV Caminhada",
             date: "28/10/2019", 
             img: ["/eventos/evt15.jpg"], 
@@ -131,7 +139,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Este ano demos mais “ Um Passo pela Saúde Mental”! IV Caminhada - se não conseguiu participar inscreva-se para o ano e venha caminhar connosco!"
         },
         {
-            id: "evt16",
+            id: Math.random().toString(16).slice(2),
             title: "III Caminhada - Um Passo pela Saúde Mental",
             date: "19/10/2018", 
             img: ["/eventos/evt16.jpg"], 
@@ -139,7 +147,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Queremos agradecer a todos os utentes, familiares e amigos da Associação AGIRAR pela sua participação  no último sábado, dia 13 de Outubro. Um agradecimento especial ao Marco Ramos, Luis Fernandes e Diogo Magano que mais uma vez animaram a nossa Caminhada com música e muito movimento! A todos o que de algum modo contribuíram para que este evento se realizasse o nosso Obrigada."
         },
         {
-            id: "evt17",
+            id: Math.random().toString(16).slice(2),
             title: 'II Caminhada AGIRAR - "Um Passo pela Saúde Mental"',
             date: "17/11/2017", 
             img: ["/eventos/evt17.jpg"], 
@@ -147,7 +155,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'No dia 14 de Outubro realizou-se a II Caminhada AGIRAR - "Um Passo pela Saúde Mental" onde contamos com a presença de muitos Associados, Utentes, Familiares e Amigos. O seguinte vídeo foi realizado pelos utentes que frequentam o atelier de informática, sendo Francisco Elias o principal responsável, não só pela edição de vídeo como pela gravação das imagens. Agradecemos mais uma vez a vossa presença e desfrutem deste vídeo.'
         },
         {
-            id: "evt22",
+            id: Math.random().toString(16).slice(2),
             title: "Concerto Solidário a favor da AGIRAR",
             date: "01/11/2017", 
             img: ["/eventos/evt22.jpg"], 
@@ -155,7 +163,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Decorreu a 29 de Outubro o Concerto Solidário a favor da AGIRAR! Os artistas participantes - Coro Juvenil de Gaia, Pianista Nuno Caçote, Tuna Feminina de Medicina do Porto, Coro ECCOS - Ensemble Vocal e Alta Mentes proporcionaram-nos uma tarde musical inesquecível! A solidariedade de todos fez a diferença!  O nosso Muito Obrigado."
         },   
         {
-            id: "evt18",
+            id: Math.random().toString(16).slice(2),
             title: "Dia Mundial da Saúde Mental",
             date: "10/10/2017", 
             img: ["/eventos/evt18.jpg"], 
@@ -163,7 +171,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: "Hoje, dia 10 de Outubro comemora-se o Dia Mundial da Saúde Mental. E os utentes do Atelier de Artes Plásticas realizaram este trabalho para participarem na exposição organizada pelo Serviço de Psiquiatria e Saúde Mental do Centro Hospitalar de Vila Nova de Gaia."
         },
         {
-            id: "evt19",
+            id: Math.random().toString(16).slice(2),
             title: 'Caminhada "Um Passo pela Saúde Mental"',
             date: "17/09/2017", 
             img: ["/eventos/evt19.jpg"], 
@@ -171,7 +179,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'Integrado nas Comemorações do Dia Mundial de Saúde Mental vai decorrer este ano novamente a Caminhada " Um Passo pela Saúde Mental". Participe e traga um amigo! Inscreva-se!'
         },
         {
-            id: "evt20",
+            id: Math.random().toString(16).slice(2),
             title: "4ª Edição do Torneio de Futsal Inclusivo pela Saúde Mental",
             date: "27/05/2017", 
             img: ["/eventos/evt20.jpg"], 
@@ -179,7 +187,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             desc: 'Decorreu hoje a 4ª Edição do Torneio de Futsal Inclusivo pela Saúde Mental - "Fintar o Estigma" organizado pela Associação Nova Aurora. A AGIRAR participou levando uma equipa constituída por utentes, associados e equipa técnica. Passamos um dia muito agradável e até o sol nos veio dar as boas vindas!'
         },
         {
-            id: "evt21",
+            id: Math.random().toString(16).slice(2),
             title: 'Caminhada "Um Passo pela Saúde Mental"',
             date: "31/10/2016", 
             img: ["/eventos/evt21.jpg"], 
