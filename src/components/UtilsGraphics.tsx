@@ -73,21 +73,28 @@ export const PageTitleAlternative = ({
   title: React.ReactNode
 })=>{
   return <section className={`${getSectionClass}  h-[50vh] justify-center items-center`}>
-    <div className='relative z-40 text-center'>
+    <div className='relative z-40 text-center uppercase'>
       {title}
     </div>
     <DecorationGeometry
       color="orange"
       size="w-[calc(50%)] h-48"
       position="absolute right-0  z-0"
-      borderRadius="rounded-tl-3xl rounded-bl-3xl bg-orange-300"
+      borderRadius="rounded-tl-3xl rounded-bl-3xl bg-orange-100"
     />
     <DecorationGeometry
       color="blue"
       size="w-[calc(50%)] h-48"
       position="absolute left-0  z-0"
-      borderRadius="rounded-tr-3xl rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none  bg-blue-300"
+      borderRadius="rounded-tr-3xl rounded-br-3xl sm:rounded-tl-none sm:rounded-bl-none  bg-blue-100"
       className=" z-30 flex justify-center flex-col opacity-50 sm:mt-0 lg:flex-row lg:justify-end items-center gap-8 sm:pr-10"
     />
   </section>
+}
+
+
+export const HandHeartIcon = ({width, height}:{width?:number, height?:number})=>{
+  return <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/>
+  </svg>
 }

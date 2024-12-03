@@ -166,7 +166,7 @@ const TimesheetDonwload = ({selectedServiceType}: {selectedServiceType:"utentes"
   return <TooltipAbstraction title='Download do horário completo'>
   <Button variant="outline" size="icon" onClick={()=>{
     
-    saveAs(`/servicos/horario_${selectedServiceType}.png`, `horario_${selectedServiceType}.png`)
+    saveAs(`/servicos/horario_${selectedServiceType}.pdf`, `horario_${selectedServiceType}.pdf`)
   }} >
     <DownloadIcon/>
   </Button>
@@ -184,27 +184,30 @@ const ServicesList = ({
   return <div className='w-full flex justify-center sm:justify-between gap-6 flex-wrap md:px-0'>
   {collection.map((s:TServicos)=>{
     return <React.Fragment key={s.id}>
-      <TooltipAbstraction title='Mais informação'>
-        <div onClick={()=>setSelectedService!(s)} className='flex flex-col p-4 rounded-lg border w-80 items-start'>
+        <div  className='flex flex-col p-4 rounded-lg border w-80 items-start'>
           <h6 className=' font-bold mb-2 md:text-md h-12 text-start'>{s.title}</h6>
-          <div 
-            onClick={(e)=>{
-              e.stopPropagation()
-              setOpen(s.id)
-            }}
-            style={{
-              backgroundImage: `url("${s.img[0]}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }} className='w-full h-[200px] rounded-lg border'
-          ></div>
+            <div 
+              title='Ver galeria'
+              onClick={(e)=>{
+                e.stopPropagation()
+                setOpen(s.id)
+              }}
+              style={{
+                backgroundImage: `url("${s.img[0]}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }} className='w-full h-[200px] rounded-lg border cursor-pointer'
+            ></div>
+          <div className='flex w-full justify-end pt-4'>
+              <Button variant="ghost" onClick={()=>setSelectedService!(s)}>Saber mais</Button>
+          </div>
         </div>
-      </TooltipAbstraction>
       <GalleryComponent
         imgs={s.img}
         open={open === s.id}
         setOpen={()=>setOpen(null)}
       />
+     
     </React.Fragment>
   })}
 </div>
@@ -342,7 +345,7 @@ const Protocolo = ({
   href:string
   logo:string
 })=>{
-  return <div className='flex flex-col justify-between w-full sm:w-[500px] bg-white border rounded-2xl  px-5 py-2'>
+  return <div className='flex flex-col justify-between w-full sm:w-[650px] bg-white border rounded-2xl  px-5 py-2'>
     <div className='flex justify-between items-center mb-5'>
       <h5 className='font-bold text-lg'>{title}</h5>
       <Button variant="ghost" size="icon">

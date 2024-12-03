@@ -4,7 +4,7 @@ import MemberComponent from '@/components/MemberComponent'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import Timeline, { TimelineItem } from '@/components/ui/timeline'
-import { PageTitle } from '@/components/UtilsGraphics'
+import { PageTitle, PageTitleAlternative } from '@/components/UtilsGraphics'
 import { THist, getHist } from '@/utils/History'
 import { TPartner, getPartners } from '@/utils/Partners'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
@@ -15,7 +15,7 @@ const Sobre = () => {
   return (
     <>
         {/* <AboutHeader/>*/}
-        <PageTitle
+        <PageTitleAlternative
             title={
             <div className="flex flex-col gap-8 w-screen justify-center items-center top-40">
                 <p className='text-4xl md:text-8xl text-center font-bold'>AGIRAR</p>

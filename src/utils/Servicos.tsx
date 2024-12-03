@@ -28,7 +28,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/29484064/pexels-photo-29484064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/grupo_terapeutico/main.jpg"],
         title: "Grupo terapêutico",
         desc: "Atividade em grupo onde são dinamizadas sessões de treino de competências sociais, sessões de reminiscências, comemoração de dias festivos (nacionais/mundiais). Este grupo promove ainda a reflexão coletiva e o fortalecimento de vínculos, ajuda os participantes a compreender e expressar as suas experiências desenvolvendo as suas competências de comunicação.",
         time: "15h30 – 16h30",
@@ -44,7 +44,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/339619/pexels-photo-339619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/manualidades/main.jpeg","/servicos/manualidades/1.jpg","/servicos/manualidades/2.jpg","/servicos/manualidades/3.jpg"],
         title: "Terapia Ocupacional em Manualidades",
         desc: "Atividade em grupo dirigida ao desenvolvimento de competências motoras finas como corte, colagem e pintura, utilizando atividades manuais baseadas nos princípios da terapia ocupacional. Esta abordagem visa ainda, melhorar a coordenação motora, estimular a criatividade e aumentar a autonomia dos utentes em atividades de vida diária.",
         time: "15h30 – 16h30",
@@ -53,7 +53,7 @@ export const servicosUtente: TServicos[] = [
  
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/6926681/pexels-photo-6926681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/movimentos_expressao_corporal/main.jpg","/servicos/movimentos_expressao_corporal/1.jpg","/servicos/movimentos_expressao_corporal/2.jpeg"],
         title: "Atelier de Movimento e Expressão Corporal",
         desc: "Atividade em grupo, cujo objetivo passa por valorizar a comunicação não verbal, permitindo observar o modo como cada pessoa se relaciona com o seu corpo, com o seu espaço e com os restantes elementos do grupo. Pretende-se ainda promover a atividade física, o equilíbrio, a mobilidade articular, a amplitude de movimento e a coordenação motora.",
         time: "15h30 – 16h30",
@@ -61,7 +61,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/235990/pexels-photo-235990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/relaxamento/main.jpeg"],
         title: "Sessão de Relaxamento",
         desc: "Atividade em grupo onde através da técnica do Relaxamento Progressivo de Jacobson, potencia-se a diminuição das tensões corporais e a auto-consciencialização das várias partes do corpo. Tendo em conta tratar-se de um relaxamento muscular, os utentes tornam-se capazes de o realizar sozinhos, em situações de maior stress, no seu quotidiano.",
         time: "16h30 – 17h30",
@@ -77,7 +77,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/3852577/pexels-photo-3852577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/estimulacao_cognitiva/main.jpg","/servicos/estimulacao_cognitiva/1.jpg","/servicos/estimulacao_cognitiva/2.jpg"],
         title: "Atelier de Estimulação cognitiva",
         desc: "Atividade em grupo, cujo objetivo é preservar ou melhorar o desempenho ou as funções cognitivas dos utentes, nomeadamente a memória, a atenção, o raciocínio, a capacidade de resolução de problemas, entre outras.",
         time: "15h30 – 16h30",
@@ -85,7 +85,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/1250346/pexels-photo-1250346.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/clube_social/main.jpg", "/servicos/clube_social/1.jpg","/servicos/clube_social/2.jpeg"],
         title: "Clube Social",
         desc: "Espaço lúdico, de encontro, onde se promove uma melhor forma de gerir os tempos livres e de lazer organizando visitas na comunidade para melhor conhecer as estruturas culturais e recreativas existentes na área metropolitana do Porto, nomeadamente museus, jardins, teatros, etc. Estas atividades têm como principal objetivo promover a integração do grupo, combater a exclusão social e o estigma associado à patologia. ",
         time: "15h – 18h",

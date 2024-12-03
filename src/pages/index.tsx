@@ -14,11 +14,13 @@ import { orgaos } from '@/utils/Team'
 import {  Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   type CarouselApi } from '@/components/ui/carousel'
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import {SquareGraphics} from '@/components/UtilsGraphics'
+import {HandHeartIcon, SquareGraphics} from '@/components/UtilsGraphics'
 import { Partners } from './sobre'
 import BulletTextComponent from '@/components/ui/BulletTextComponent'
 import ImageVoluntatios from "@/assets/home/objetivos.jpg"
@@ -27,7 +29,7 @@ import DonativoIcon from "@/assets/home/donativo.png"
 import AssociadoIcon from "@/assets/home/associado.jpg"
 import VoluntarioIcon from "@/assets/home/voluntário.jpg"
 import { testimonials } from '@/utils/Testimonials'
-import { Quote } from 'lucide-react'
+import { ChevronLeftCircle, HeartHandshakeIcon, LucideIcon, Quote, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
 
@@ -96,7 +98,7 @@ const ImageCarrousel = ()=>{
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const [count, setCount] = React.useState(0)
-  const events = getTheLastEvents(5)
+  const events = getTheLastEvents(3)
 
   React.useEffect(() => {
     if (!api) {
@@ -136,9 +138,25 @@ const ImageCarrousel = ()=>{
         </CarouselItem>
         {events.map((evt, index) => (
           <CarouselItem key={index}>
-            <div className={`w-full flex justify-center sm:h-96  bg-${index%2 === 0 ? "orange" : "blue"}-100 p-8 rounded-lg`}>
-              <div className={`${getMaxWidthClasses} flex justify-between`}>
-                <div className="flex flex-col w-full">
+            <div style={{
+              backgroundImage: `url("${evt.img[0]}")`,
+              backgroundSize: "cover", 
+              backgroundPosition: "center"
+            }} className={`w-full flex justify-center h-96 p-8 relative 
+                before:content-[""] before:absolute before:w-full before:h-full before:bg-black/30 before:backdrop-blur-sm before:top-0 
+            `}>
+              
+              <div className={`${getMaxWidthClasses} flex justify-between relative `}>
+                <div className={`p-4 absolute max-w-[500px] rounded-lg ${index%2 === 0 ? "top-4 left-4 bg-orange-400/50":"bottom-4 right-4 bg-blue-400/50"}`}>
+                  <p className='text-2xl font-bold'>{evt.title}</p>
+                  <p className='mt-5' >
+                    {evt.abstract}
+                  </p>
+                  <div className='flex w-full justify-end py-2'>
+                    <Link href={evt.href} target="_blank" className={` cursor-pointer ${buttonVariants({ variant: "outline" })}}`}>Saber mais</Link>
+                  </div>
+                </div>
+                {/* <div className="flex flex-col w-full">
                   <h3 className='text-2xl'>{evt.title}</h3>
                   <div className='w-full flex justify-between items-center'>
                     <h6 className='text-gray-400'>{evt.date}</h6>
@@ -150,8 +168,7 @@ const ImageCarrousel = ()=>{
                   <div className="flex justify-end pr-5">
                     <a className=' text-blue-300 font-bold hidden sm:block' href={evt.href} target='__blank'>Saber mais</a>
                   </div>
-                </div>
-                <img className="h-full rounded-lg hidden lg:block" src={evt.img[0]} alt="imagem do evento" />
+                </div> */}
               </div>
             </div>
           </CarouselItem>
@@ -490,7 +507,7 @@ const Support = ()=>{
     const scrollPos = window.scrollY
     //@ts-ignore
     const elRectTop =  (el && el.getBoundingClientRect().top) || 600
-    setTranslate(elRectTop <= 350)
+    setTranslate(elRectTop <= 400)
   }
   React.useEffect(()=>{
     //@ts-ignore
@@ -504,18 +521,18 @@ const Support = ()=>{
     <div className={`flex justify-center items-center flex-wrap ${getMaxWidthClasses}`}>
       <SupportCard
         title='FAÇA UM DONATIVO'
-        img={DonativoIcon}
+        Image={<HandHeartIcon width={70}/>}
         information="Ajude-nos a fazer a diferença. O seu donativo ajuda-nos a continuar a nossa atividade." 
         href="/apoiar?tab=doar" 
         linkLabel="Doar"
-        footer={<><p className=" text-slate-500 font-bold text-sm">IBAN: {IBAN}</p>
-          <p className=" text-slate-500 font-bold text-sm">MBWAY: 912 353 788</p></>}
+        footer={<><p className=" text-slate-500 font-bold text-xs">IBAN: {IBAN}</p>
+          <p className=" text-slate-500 font-bold text-xs">MBWAY: 912 353 788</p></>}
         className={translate ? "md:mr-5": "lg:translate-x-2/4 delay-[3000]"}
         imgSize={100}
       />
       <SupportCard
         title='TORNE-SE ASSOCIADO'
-        img={AssociadoIcon}
+        Image={<UserIcon size={70}/>}
         information="Junte-se a nós, e seja proativo nesta iniciativa em prol da saúde mental." 
         href="/apoiar?tab=associado" 
         linkLabel="Associado"
@@ -525,7 +542,7 @@ const Support = ()=>{
       />
        <SupportCard
         title='TORNE-SE VOLUNTÁRIO'
-        img={VoluntarioIcon}
+        Image={<HeartHandshakeIcon size={70} />}
         information="Contribua com o seu tempo/aptidões e venha colaborar connosco." 
         href="/apoiar?tab=voluntario" 
         linkLabel="Voluntário"
@@ -537,7 +554,7 @@ const Support = ()=>{
 
 const SupportCard = ({
   title, 
-  img, 
+  Image, 
   information, 
   href, 
   linkLabel,
@@ -547,7 +564,7 @@ const SupportCard = ({
   imgSize=180
 }:{
   title:string, 
-  img:StaticImageData, 
+  Image: React.ReactNode, 
   information:string, 
   href:string,
   linkLabel: string, 
@@ -558,12 +575,12 @@ const SupportCard = ({
 })=>{
   return  <div className={`mb-5 transition-all flex flex-col gap-5 bg-white rounded-3xl border-${color}-400 border-2 h-[380px] w-72 p-5 items-center text-center py-5 relative ${className}`}>
   <h3 className="text-xl font-bold">{title}</h3>
-  <Image
-
+  {Image}
+  {/* <Image
     width={imgSize}
     src={img}
     alt="Icone"
-  />
+  /> */}
   <p className=" text-slate-500 text-sm">{information}</p>
   <div className="absolute bottom-0 flex flex-col gap-2 py-3 text-center w-full items-center">
     {footer}
@@ -575,7 +592,7 @@ const SupportCard = ({
 const Testemunhos = ()=>{
 
   return <section id="testemunhos" className={`${getSectionClass} gap-5 justify-center mt-40`}>
-    <div className={`flex justify-center items-center ${getMaxWidthClasses}`}>
+    <div className={`flex flex-col justify-center items-center ${getMaxWidthClasses}`}>
       <TestemunhosList/>
     </div>
   </section>
@@ -583,25 +600,36 @@ const Testemunhos = ()=>{
 
 
 export const TestemunhosList = ()=>{
-  return <Carousel className="w-full " plugins={[
-    Autoplay({
-      delay: 10000,
-    }),
-  ]} opts={{
-    align: "center",
-    loop: true,
-  }}>
-    <CarouselContent >
-      {testimonials.map((t, index)=>{
-        return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
-          <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
-            <Quote className='text-blue-400 '/>
-            <p className='text-xs lg:text-sm'>{t.quote}</p>
-            <p className='w-full text-right text-xs lg:text-base'>{t.author}</p>
-          </div>
-        </CarouselItem>
-      })}
-    </CarouselContent>
-  </Carousel>
+
+ 
+
+
+  return < >
+    <Carousel className="w-9/12 " plugins={[
+      
+      Autoplay({
+        delay: 10000,
+      }),
+    ]} opts={{
+      align: "center",
+      loop: true,
+    }}
+    >
+      <CarouselContent >
+        {testimonials.map((t, index)=>{
+          return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
+            <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
+              <Quote className='text-blue-400 '/>
+              <p className='text-xs lg:text-sm'>{t.quote}</p>
+              <p className='w-full text-right text-xs lg:text-base'>{t.author}</p>
+            </div>
+          </CarouselItem>
+        })}
+      </CarouselContent>
+      <CarouselPrevious/>
+      <CarouselNext/>
+     
+    </Carousel>
+  </>
 }
 export default Home

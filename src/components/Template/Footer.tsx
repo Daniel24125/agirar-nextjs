@@ -77,7 +77,7 @@ const ContactComponent = ({
 }
 
 const LawComponent = ()=>{
-    return <section className={`${getSectionClass}`}>
+    return <section className={`${getSectionClass} bg-muted`}>
             <div className={`${getMaxWidthClasses} py-20 flex flex-col gap-1 `}>
             <h5 className='text-md font-bold  mb-7 '>Informação importante</h5>
             <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938' target='__blank'>1 - Decreto Lei 113/2021 – Princípios gerias e regras de organização e funcionamento dos serviços de saúde mental</a>

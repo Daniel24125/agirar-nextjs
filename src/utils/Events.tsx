@@ -5,8 +5,10 @@ export type TEvent = {
     date: string, 
     img: string[], 
     href: string, 
+    abstract?: string,
     desc: string
 }
+
 
 export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
@@ -16,7 +18,50 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             date: "29/11/2024", 
             img: ["/eventos/29_11_2024/main.jpg", "/eventos/29_11_2024/1.jpg", "/eventos/29_11_2024/2.jpg"], 
             href: "https://www.facebook.com/story.php?story_fbid=906164181704579&id=100069330174307&mibextid=WC7FNe&rdid=lolZM3CpssadNut5#", 
+            abstract: "Assinatura do contrato de comodato para a cedência de um imóvel para a nova sede da Associação",
             desc: "Hoje é um dia histórico para a AGIRAR! A partir de hoje, temos oficialmente um imóvel para ser a tão sonhada sede da Associação. Este espaço será o coração da nossa Associação: um lugar acolhedor para receber utentes, famílias e amigos, que há tanto tempo idealizamos. A entrega da chave foi um momento de grande emoção e realização para todos os associados e para a Direção. Gostaríamos de expressar um especial agradecimento ao Município de Vila Nova de Gaia, que tornou possível a celebração deste contrato de comodato.Mas ainda há muito trabalho pela frente. Há um espaço para renovar para que fique pronto para vos receber! Fiquem atentos às nossas redes sociais, pois vamos partilhar todas as novidades desta jornada com vocês."
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Caminhada “Passo pela Saúde Mental”",
+            date: "09/10/2024", 
+            img: ["/eventos/29_11_2024/main.jpg", "/eventos/29_11_2024/1.jpg", "/eventos/29_11_2024/2.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02aao24VDepwkywvvTWui18mqGqSdAkS9V46QPhUmVMAJEqpoPwBzrCDmWn9y2N61Bl", 
+            abstract: "A 8ª edição da caminhada decorreu ao longo da Praia das Pedras Amarelas",
+            desc: "A nossa caminhada é já este sábado, dia 12! Quando chegar, dirija-se à nossa mesa de apoio para dar o seu nome e receber o seu kit. De seguida teremos um aquecimento em conjunto, proporcionado pelos nossos parceiros, o ginásio LifeClub. Depois de aquecidos, iremos caminhar sensivelmente 4kms ao longo da linha marítima. Para terminar, faremos uns alongamentos. Vai ser uma manhã em cheio! Não perca a oportunidade de contribuir para a nossa causa, ao mesmo tempo que faz exercício à beira mar. Já fez a sua inscrição?"
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Projeto “Apenas um clique”",
+            date: "05/04/2024", 
+            img: ["/eventos/05_04_2024/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0nb7sj9wwP99TD8Z5gyAUqLt7c1oja7soSy6jvitTMS7B3sfw88q8BUBZLBaGtJNql", 
+            abstract: "Cerimónia de entrega de dois computadores, cedidos pela Unidade Local de Saúde de Gaia e Espinho",
+            desc: "Hoje fomos á Unidade Local de Saúde Gaia e Espinho receber os computadores do projeto “Segunda vida para equipamentos informáticos”   a qual nos tínhamos candidatado com o projeto “Apenas um clique “. Obrigada por esta iniciativa e certamente iremos optimizar os recursos agora obtidos."        
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Clube social no bowling",
+            date: "24/01/2024", 
+            img: ["/eventos/24_01_2024/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02MydfcrudENnJQZcTjPYRxfs7GsTNWzTKU2hS47Zd4qHANDkfDWYPjUznPFwRZrmUl", 
+            desc: "Na passada terça feira tivemos mais uma atividade num local da comunidade. Os nossos utentes partilharam uma atmosfera acolhedora e divertida, risos ecoaram nas pistas … A prática do bowling para além de ser uma atividade recreativa promove também a socialização e fortalece os laços entre os participantes. Foi um dia simples, mas significativo, desafiando estigmas e construindo uma comunidade unida."        
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Jantar de Reis 2024",
+            date: "06/01/2024", 
+            img: ["/eventos/06_01_2024/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02ej4EEMdqErc3a1hZTiKL9sqw5UggPdXdu2RS8k5v6ksBkcqyGbddXfiDK2ZQkdevl", 
+            desc: "E hoje festejamos o nosso Jantar de Reis onde sorteamos mais um cabaz pelos nossos associados e amigos! Mais um momento de partilha e convívio! E que venham mais momentos assim! Um bom ano a todos os nossos amigos, familiares e utentes!"        
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Noticia sobre a 7ª edição da caminhada",
+            date: "14/10/2023", 
+            img: ["/eventos/14_10_2023/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02M1HCf3ppMPKm6ouJZpdTQnz6Sh6Cz8GQUfaSjGMxcRa46vizhbWz7nX2ZdNYw9CLl", 
+            desc: 'E hoje aconteceu a nossa VII Caminhada "Um passo pela saúde mental"! Mais uma vez inserida na Semana da Saúde Mental organizada pela Câmara Municipal de Gaia e o CHVNG/E. Foi uma manhã muito divertida, animada, calorosa e bem exercitada! Contamos com a presença e participação da sr.ª Vereadora Marina Mendes, do sr. Vereador Dário Silva e ainda da Dr.ª Patrícia Lopes, adjunta do Presidente da CMG. Agradecemos também a presença dos nossos parceiros da Gaiurb, na pessoa da Dr.ª Joana Azevedo, e da Code, na pessoa do Dr. Celso Barbosa. Não podemos deixar de referir o nosso professor jorge dias, do nosso parceiro LifeClub, que nos brindou com dois momentos muito animados, no aquecimento e alongamentos finais, que culminaram nos sorrisos gigantes com que os participantes abandonaram o recinto. Muito muito obrigada a tod@s, pois conseguimos uma vez mais o nosso propósito: dar mais um passo pela saúde mental, com um momento de gargalhadas, convívio, natureza, mar e exercício físico. Os melhores ingredientes sem dúvida, e que foram bem misturados com a presença dos nossos padrinhos Pedro Guedes e Kelly Baron, que nos brindaram com a sua alegria e inspiração motivacional durante toda a caminhada! Obrigada uma vez mais pela vossa presença! Para o ano há mais!!!'        
         },
         {
             id: Math.random().toString(16).slice(2),
@@ -25,6 +70,14 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             img: ["/eventos/evt1.jpeg"], 
             href: "https://www.facebook.com/watch/?v=1328779111051533&extid=NS-UNK-UNK-UNK-IOS_GK0T-GK1C&ref=sharing&mibextid=WC7FNe", 
             desc: "Um pequeno resumo dos nossos 10 anos... Muito muito pequeno, pois temos tantas outras memórias, tantas outras histórias, tantas tantas..."
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Clube social - visita ao espetáculo Spiritus",
+            date: "18/04/2023", 
+            img: ["/eventos/18_04_2023/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0a6Hrcp8dx9VqSxMJKeLptU5AxSYGtLXTf3AE3UgCFsXqfsoK3eFSDmbVVgHXkL3nl", 
+            desc: 'Spiritus é um espetáculo imersivo na Igreja dos Clérigos na cidade do Porto. E mais uma vez os nossos utentes foram vivenciar esta experiência única com jogo de luz, música, lasers e efeitos visuais que nos transporta numa viagem sensorial ….'        
         },
         {
             id: Math.random().toString(16).slice(2),
@@ -39,16 +92,32 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             title: "Passeio no Porto",
             date: "06/02/2023", 
             img: ["/eventos/evt3.jpg"], 
-            href: "https://m.facebook.com/agirarassociacao/posts/pcb.502156792105322/?photo_id=502156535438681&mds=%2Fphotos%2Fviewer%2F%3Fphotoset_token%3Dpcb.502156792105322%26photo%3D502156535438681%26profileid%3D1463904108%26eav%3DAfb2jx5PnJ_UN0mJ_JD2UL4uDbO3ntubAZr1jEQmNbumSdxHldQ_dV031XFwFTUIhs0%26paipv%3D0%26source%3D48%26refid%3D52%26__tn__%3DEH-R%26cached_data%3Dfalse%26ftid%3D&mdp=1&mdf=1", 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0MW7Wd1caiJe1yW2fz9jWhpf2n9Vjmr2PDuRKdBSsAzSMPBD1jnpMHBVX2osqrHY3l", 
             desc: "Na última sexta feira fomos passear... o ponto de encontro foi na torre dos Clérigos e de seguida realizámos uma caminhada até à Alfândega do Porto. Fomos assistir a um espetáculo imersivo: O “Porto Legends, the Underground Experience”. Tratou-se de uma experiência audiovisual 360º. Fomos admirar e conhecer mais da Invicta, através das suas histórias e lendas. As atividades na comunidade revestem-se de grande importância pois promovem as relações interpessoais e as competências sociais."
         },
         {
             id: Math.random().toString(16).slice(2),
-            title: "Decoração Natalícia",
-            date: "06/12/2022", 
-            img: ["/eventos/evt4.jpg"], 
-            href: "https://m.facebook.com/agirarassociacao/posts/pcb.458085006512501/?photo_id=458081096512892&mds=%2Fphotos%2Fviewer%2F%3Fphotoset_token%3Dpcb.458085006512501%26photo%3D458081096512892%26profileid%3D1463904108%26eav%3DAfax56Bp7I6W8r4zWqMFKVHp6QNuAjfrFs0lGH3zYSvT8uqS6vwWyN3c_m6u6aRuCTs%26paipv%3D0%26source%3D48%26refid%3D52%26__tn__%3DEH-R%26cached_data%3Dfalse%26ftid%3D&mdp=1&mdf=1", 
-            desc: "A decoração natalícia na entrada das nossas instalações para dar as boas vindas a quem nos visita!"
+            title: "Jantar de Reis 2023 ",
+            date: "06/01/2023", 
+            img: ["/eventos/06_01_2023/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0MfBDxbcmvuCxBzzQH55R5DtTQGCcj1VfFuu2245wga3d7E88PKEG8S9HosL15sMul", 
+            desc: "Um jantar recheado de sorrisos, comida e boa companhia"
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Clube social – Visita ao Mercado do Bolhão",
+            date: "29/11/2022", 
+            img: ["/eventos/29_11_2022/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02QGDNLuA2Gd8ZhdYusx6ApNHbQzYFem9VzLyYDSXBnFrBbAHXWYG8KYKF7aKbeT2jl", 
+            desc: "Fomos visitar o Mercado do Bolhão e ainda tivemos tempo para conhecer mais um pouco da cidade do Porto. Aproveitámos a bela tarde de Outono e não nos esquecemos de comer umas boas castanhas."
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Participação nas Jornadas de Saúde Mental",
+            date: "14/10/2022", 
+            img: ["/eventos/14_10_2022/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0MnpeC266ke3zBF8HGjn8hf8ekzW5XkCQzzuJ3SQngPd4BNxbUuJhEac5bS7dunKCl", 
+            desc: 'E hoje participamos nas I Jornadas de Saúde Mental, que decorreram no Auditório do Parque Biológico de Gaia. A nossa Vice Presidente Fernanda Castro dividiu o painel "Saúde Mental - Que futuro? Respostas na comunidade"! com entidades que partilham connosco o trabalho, a experiência, os sonhos, as angústias e as pequenas vitórias!'
         },
         {
             id: Math.random().toString(16).slice(2),
@@ -73,6 +142,14 @@ export const getTheLastEvents = (num?:number|undefined) =>{
             img: ["/eventos/evt7.jpg"], 
             href: "https://www.facebook.com/story.php?story_fbid=pfbid02EXVDYYnbkH57dPwHT4KqgvLt3CboKHpbLf3WEkhp48rqviiVGHkLpzo9ePpEEW7Vl&id=592526237554451&mibextid=WC7FNe&paipv=0&eav=AfbW3LX9ZUoxZ4J_llb4K19AcjkRqqh4T0XnGz0Vo0LVGDkFoZGWtTbr3O8qvoSABbQ&_rdr", 
             desc: 'Abrimos então as inscrições para a nossa VI Caminhada "Um passo pela saúde mental". Inscreva-se, partilhe, convide um amigo! Não vão querer perder esta edição!!! Temos a novidade da participação em Equipas (com prémios)!! Venha participar e ajude-nos a crescer!! Inscreva-se aqui: https://forms.gle/mq9tGC79p8oM1nZf8  (antes de terminar a inscrição leia o regulamento e aceite o desafio de participar em Equipa).'
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Clube Social – Passeio na praia",
+            date: "09/05/2022", 
+            img: ["/eventos/09_05_2022/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid02DzoPHxLkoVH5CtPgg6UV91j4b5VTPgKerjkj23Yy8sfVWRVYhRZ4qawCBHnSDePal", 
+            desc: 'Hoje a tarde foi diferente … um passeio muito agradável '
         },
         {
             id: Math.random().toString(16).slice(2),
