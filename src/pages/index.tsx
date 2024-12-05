@@ -33,13 +33,14 @@ import { ChevronLeftCircle, HeartHandshakeIcon, LucideIcon, Quote, UserIcon } fr
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
 import { SocialBtns } from '@/components/Template/Nav'
+import useSetInterval from '@/utils/useCases'
 
 
 const Home = () => {
   return (
     <>
       <HeaderComponent/>
-      {/* <ImageCarrousel/> */}
+      <MainNews/>
       <PsicoseComponent/>
       <Objectives/>
       <Support/>
@@ -62,6 +63,46 @@ const HeaderComponent = ()=>{
   </header>
 }
 
+
+const MainNews = ()=>{
+  const events = getTheLastEvents(3)
+  const [active, setActive] = React.useState(0)
+  const { clear, reset } = useSetInterval(()=>setActive(prev=>(prev+1)%events.length),2000)
+
+
+  return <section className={`${getSectionClass}  justify-center mt-28`}>
+    <div className={`${getMaxWidthClasses} flex justify-between items-center z-10`}>
+      {events.map((e, index)=>{
+        const isActive = active === index
+        
+        return <NewsCard onClick={()=>{
+          setActive(index)
+          reset()
+        }} 
+          key={e.id} 
+          style={{background: `url('${e.img[0]}')`, backgroundPosition: "center", backgroundSize: "cover", }}
+          className={`transition-all duration-500 ${isActive ? "w-1/2": "w-44 grayscale"} bg-cover bg-center`}
+        >
+          <div className={`text-white z-10 ${isActive ? "": "hidden"}`}>
+            <h4 className='font-bold text-2xl mb-2'>{e.title}</h4>
+            <p className='w-3/4'>{e.abstract}</p>
+          </div>
+          <div className={`z-10 w-full flex justify-center font-bold text-lg ${isActive ? "" : "hidden"}`}>
+            <Link href={e.href} target="_blank" className='text-center text-white'>Saber mais</Link>
+          </div>
+        </NewsCard>
+      })}
+    </div>
+  </section>
+}
+
+
+const NewsCard = ({className, onClick, style, children}:{className: string, onClick:()=>void, style?:React.CSSProperties, children:React.ReactNode})=>{
+  return <div onClick={onClick} style={style} className={`${className} h-[500px] relative overflow-hidden  flex flex-col rounded-2xl cursor-pointer justify-between p-4`}>
+    <div className='bg-black opacity-50 absolute top-0 w-full h-full left-0 z-0'></div>
+    {children}
+  </div>
+}
 
 const PsicoseComponent = ()=>{
   return <section id="psicose" className={`${getSectionClass} my-40 px-5`} >
