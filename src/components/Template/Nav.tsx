@@ -10,7 +10,7 @@ import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
-import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '../ui/drawer'
+import { Drawer, DrawerContent,  DrawerFooter } from '../ui/drawer'
 
 const routes = [
     {
@@ -122,24 +122,47 @@ const Nav = () => {
 }
 
 const DesktopNavigation = ()=>{
-    return <nav className='bg-white  justify-center items-center py-4 fixed top-0 z-50 w-screen hidden md:flex  '>
-    <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
-        <Logo className='mr-4 hidden lg:block' height={112}/>
-        <div className="flex-col w-full ">
-            <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
-                {/* <ComunicadosComponent/> */}
-                <SocialBtns show='all'/>
-            </div>
-            <div className="w-full flex justify-between py-2 px-4 bg-blue-100 rounded-lg ">
-                <div className='hidden md:flex '>
-                    <NavBtns/>
-                </div>
-                <CallForActionNav/>
-            </div>
+    const [showBG, setShowBG] = React.useState(false)
+    const {asPath} = useRouter()
+    
+    React.useEffect(()=>{
+        const setBackground = ()=> setShowBG(window.scrollY > 100)
+        if(asPath === "/"){
+            setBackground()
+            document.addEventListener("scroll", setBackground)
+        }else{
+            document.removeEventListener("scroll",setBackground)
+            setShowBG(true)
+        }
+      },[asPath])
+
+    return <nav className={`z-50 w-screen hidden fixed top-0 md:flex justify-center items-center py-4 transition-all ${showBG ? "bg-white": ""}`}>
+        <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center ${showBG ? "text-black": ""}`}>
+            <NavBtns color={showBG ? "text-black": "text-white"}/>
+            <CallForActionNav/>
         </div>
-    </div>
-</nav>
+    </nav>
 }
+
+// const DesktopNavigation = ()=>{
+//     return <nav className='bg-white  justify-center items-center py-4 fixed top-0 z-50 w-screen hidden md:flex  '>
+//     <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
+//         <Logo className='mr-4 hidden lg:block' height={112}/>
+//         <div className="flex-col w-full ">
+//             <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
+//                 {/* <ComunicadosComponent/> */}
+//                 <SocialBtns show='all'/>
+//             </div>
+//             <div className="w-full flex justify-between py-2 px-4 bg-blue-100 rounded-lg ">
+//                 <div className='hidden md:flex '>
+//                     <NavBtns/>
+//                 </div>
+//                 <CallForActionNav/>
+//             </div>
+//         </div>
+//     </div>
+// </nav>
+// }
 
 
 const MobileNavigation = ()=>{
@@ -213,41 +236,17 @@ const MobileNavigationButtons = ()=>{
     </section>
 }
 
-const CallForActionNav = ({
-    size= "w-4 h-4 sm:w-6 sm-h-6"
-}:{
-    size?: string
-})=>{
+const CallForActionNav = ()=>{
     return <div className="flex gap-2">
         <TooltipAbstraction
             title="Tornar-me Associado">
-            <Link className={`${buttonVariants({variant: "outline"})}`} href="/apoiar?tab=associado">Associado</Link>
-            {/* <MemberComponent
-                title='Tornar-me Associado'
-                reason='mensal'
-                pagamento='transferencia'
-            >
-                <span  className={`h-10 px-4 py-2 cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 bg-blue-400 bg-primary text-primary-foreground hover:bg-primary/90`}>
-                    Associado
-                </span>
-            </MemberComponent> */}
+            <Link className={`${buttonVariants({variant: "outline"})} bg-orange-400`} href="/apoiar?tab=associado">Associado</Link>
         </TooltipAbstraction>
         <TooltipAbstraction
             title="Fazer um donativo">
-            <Link className={buttonVariants()} href="/apoiar?tab=doar">Doar</Link>
+            <Link className={`${buttonVariants()} `} href="/apoiar?tab=doar">Doar</Link>
 
-            {/* <MemberComponent
-                title='Tornar-me Associado'
-                reason="unico"
-                pagamento='transferencia'
-            >
-                <span className={`h-10 px-4 py-2 cursor-pointer inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 bg-blue-400 bg-primary text-primary-foreground hover:bg-primary/90`}>
-                    Doar
-                </span>
-            </MemberComponent> */}
         </TooltipAbstraction>
-        {/* <ThemeModeToggle className='hidden sm:flex'/> */}
-
     </div>
 }
 
@@ -289,12 +288,12 @@ const MenuBtn = ()=>{
 }
 
 const NavBtns = ({
-    onClick
+    color
 }:{
-    onClick?: any
+    color?: string
 })=>{
     const {push, asPath, query} = useRouter()
-    
+     
     React.useEffect(()=>{
         if(query && query.scrollTo){
             //@ts-ignore
@@ -306,15 +305,17 @@ const NavBtns = ({
         }
     },[query])
 
+
     return <NavigationMenu>
         <NavigationMenuList>
             {routes.map((r: any)=>{
+                const isActive = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
                 return r.subMenus.length > 0 ? <NavigationMenuItem key={r.title}>
-                <NavigationMenuTrigger className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} lg:text-lg bg-transparent`}>
-                    <a href={r.href}>{r.title}</a>
+                <NavigationMenuTrigger className={`${color} bg-transparent`}>
+                    <Link className={`${isActive ? "border-b-2 border-b-orange-400": ""} lg:text-lg bg-transparent`}href={r.href}>{r.title}</Link>
                 </NavigationMenuTrigger>
                 {r.subMenus.length > 0 && <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
                         {r.displayImage && <li className="row-span-3">
                             {r.displayImage} 
                         </li>}
@@ -327,10 +328,10 @@ const NavBtns = ({
                         })}  
                     </ul>
                 </NavigationMenuContent>}
-            </NavigationMenuItem> : 
-            <Button onClick={()=>{
-                push(r.href)
-            }} variant="ghost" className={`${asPath.replaceAll("/", "") === r.href.replaceAll("/", "") ? "text-blue-400": ""} lg:text-lg bg-transparent`}> {r.title}</Button>
+            </NavigationMenuItem> : <Link className={`${isActive ? "border-b-2 border-b-orange-400": ""} lg:text-lg bg-transparent ${color} ${buttonVariants({variant:"ghost"})}`} href={r.href}>
+               {r.title}
+            </Link>
+            
             })}
             
         </NavigationMenuList>

@@ -14,7 +14,7 @@ export default function Document() {
         <meta name="description" content="Associação de Familiares e Amigos de Pessoas com Psicose" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <body className='overflow-x-hidden mt-28 md:mt-40'>
+      <body className='overflow-x-hidden '>
         <Main />
         <NextScript />
       </body>

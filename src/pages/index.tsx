@@ -32,12 +32,14 @@ import { testimonials } from '@/utils/Testimonials'
 import { ChevronLeftCircle, HeartHandshakeIcon, LucideIcon, Quote, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
+import { SocialBtns } from '@/components/Template/Nav'
 
 
 const Home = () => {
   return (
     <>
-      <ImageCarrousel/>
+      <HeaderComponent/>
+      {/* <ImageCarrousel/> */}
       <PsicoseComponent/>
       <Objectives/>
       <Support/>
@@ -45,6 +47,19 @@ const Home = () => {
       <Partners/>
     </>
   )
+}
+
+const HeaderComponent = ()=>{
+  return <header className={`${getSectionClass} h-[640px] `}>
+    <div className='w-full h-full bg-[url("/eventos/intro.jpeg")] bg-cover brightness-50 bg-center z-0 absolute'></div>
+    <div className={`${getMaxWidthClasses} flex justify-center items-center z-10 h-full flex-col text-white`}>
+      <h1 className='mb-2 border-b-8 border-orange-400 text-8xl'>AGIRAR</h1>
+      <h3 className='text-center max-w-xs text-2xl'>Associação de Familiares e Amigos de Pessoas com Psicose</h3>
+    </div>
+    <div className='absolute flex flex-col z-10 right-10 bottom-1/2 gap-2'>
+      <SocialBtns size="w-4 h-4 sm:w-6 sm:h-6 text-white " show='all'/>
+    </div>
+  </header>
 }
 
 
