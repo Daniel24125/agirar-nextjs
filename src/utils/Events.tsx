@@ -23,9 +23,9 @@ export const getTheLastEvents = (num?:number|undefined) =>{
         },
         {
             id: Math.random().toString(16).slice(2),
-            title: "Caminhada “Passo pela Saúde Mental”",
+            title: "8ª Caminhada “Passo pela Saúde Mental”",
             date: "09/10/2024", 
-            img: ["/eventos/29_11_2024/main.jpg", "/eventos/29_11_2024/1.jpg", "/eventos/29_11_2024/2.jpg"], 
+            img: ["/eventos/09_10_2024/main.jpg"], 
             href: "https://www.facebook.com/agirarassociacao/posts/pfbid02aao24VDepwkywvvTWui18mqGqSdAkS9V46QPhUmVMAJEqpoPwBzrCDmWn9y2N61Bl", 
             abstract: "A 8ª edição da caminhada decorreu ao longo da Praia das Pedras Amarelas",
             desc: "A nossa caminhada é já este sábado, dia 12! Quando chegar, dirija-se à nossa mesa de apoio para dar o seu nome e receber o seu kit. De seguida teremos um aquecimento em conjunto, proporcionado pelos nossos parceiros, o ginásio LifeClub. Depois de aquecidos, iremos caminhar sensivelmente 4kms ao longo da linha marítima. Para terminar, faremos uns alongamentos. Vai ser uma manhã em cheio! Não perca a oportunidade de contribuir para a nossa causa, ao mesmo tempo que faz exercício à beira mar. Já fez a sua inscrição?"

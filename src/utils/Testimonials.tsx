@@ -15,5 +15,5 @@ export const testimonials: TTestimonials[]  = [
 ]
 
 export const volunteerTestimonials: TTestimonials[] = [
-    {author: "Ricardo Brito. Enfermeiro especialista em psiquiatria e saúde mental.", quote:"Na minha experiência profissional observo que todos enfrentam, em algum momento, desafios com a sua saúde mental. Juntei-me a esta associação porque acredito que os cuidados especializados, a solidariedade e o apoio mútuo são essenciais para todos. Juntos construímos um espaço de cuidado e compreensão para quem precisa."},
+    {author: "Ricardo Brito", quote:"Na minha experiência profissional observo que todos enfrentam, em algum momento, desafios com a sua saúde mental. Juntei-me a esta associação porque acredito que os cuidados especializados, a solidariedade e o apoio mútuo são essenciais para todos. Juntos construímos um espaço de cuidado e compreensão para quem precisa."},
 ]

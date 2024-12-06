@@ -680,15 +680,17 @@ export const TestemunhosList = ({list}:{list:TTestimonials[]})=>{
         {list.map((t, index)=>{
           return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
             <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
-              <Quote className='text-blue-400 '/>
+              <Quote className='text-blue-400 h-8'/>
               <p className='text-xs lg:text-sm'>{t.quote}</p>
               <p className='w-full text-right text-xs lg:text-base'>{t.author}</p>
             </div>
           </CarouselItem>
         })}
       </CarouselContent>
-      <CarouselPrevious/>
-      <CarouselNext/>
+      {list.length > 1 && <>
+        <CarouselPrevious/>
+        <CarouselNext/>
+      </>}
      
     </Carousel>
   </>

@@ -106,6 +106,7 @@ const TabContent = ()=>{
                     <li>Transferência bancária para o <strong>IBAN {IBAN}</strong></li>
                 </ul>
                 <p className='max-w-3xl w-full'>Envie sempre o <strong>comprovativo de pagamento para o email agirar.2013@gmail.com.</strong> Mais tarde receberá o seu recibo via email.</p>
+                <h6 className='font-bold max-w-3xl w-full'>Testemunhos de Associados</h6>
                 <TestemunhosList list={volunteerTestimonials}/>
                 <p className='w-full text-center max-w-3xl font-bold text-2xl'>A sua adesão é fundamental para que a nossa Associação seja mais representativa. Ao associar-se, ajuda a permitir o apoio a pessoas com psicose e seus familiares tornando a sociedade mais inclusiva.</p>
 
