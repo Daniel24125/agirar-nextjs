@@ -25,11 +25,8 @@ import { Partners } from './sobre'
 import BulletTextComponent from '@/components/ui/BulletTextComponent'
 import ImageVoluntatios from "@/assets/home/objetivos.jpg"
 import ImagemPsicose from "@/assets/home/psicose-bullet.jpg"
-import DonativoIcon from "@/assets/home/donativo.png"
-import AssociadoIcon from "@/assets/home/associado.jpg"
-import VoluntarioIcon from "@/assets/home/voluntário.jpg"
 import { testimonials } from '@/utils/Testimonials'
-import { ChevronLeftCircle, HeartHandshakeIcon, LucideIcon, Quote, UserIcon } from 'lucide-react'
+import { ChevronLeftCircle, ChevronLeftIcon, ChevronRightIcon, HeartHandshakeIcon,  Quote, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
 import { SocialBtns } from '@/components/Template/Nav'
@@ -67,41 +64,65 @@ const HeaderComponent = ()=>{
 const MainNews = ()=>{
   const events = getTheLastEvents(3)
   const [active, setActive] = React.useState(0)
-  const { clear, reset } = useSetInterval(()=>setActive(prev=>(prev+1)%events.length),2000)
-
+  const incrementCard = ()=>setActive(prev=>(prev+1)%events.length)
+  const { reset } = useSetInterval(incrementCard,5000)
 
   return <section className={`${getSectionClass}  justify-center mt-28`}>
-    <div className={`${getMaxWidthClasses} flex justify-between items-center z-10`}>
-      {events.map((e, index)=>{
-        const isActive = active === index
-        
-        return <NewsCard onClick={()=>{
-          setActive(index)
-          reset()
-        }} 
-          key={e.id} 
-          style={{background: `url('${e.img[0]}')`, backgroundPosition: "center", backgroundSize: "cover", }}
-          className={`transition-all duration-500 ${isActive ? "w-1/2": "w-44 grayscale"} bg-cover bg-center`}
-        >
-          <div className={`text-white z-10 ${isActive ? "": "hidden"}`}>
-            <h4 className='font-bold text-2xl mb-2'>{e.title}</h4>
-            <p className='w-3/4'>{e.abstract}</p>
-          </div>
-          <div className={`z-10 w-full flex justify-center font-bold text-lg ${isActive ? "" : "hidden"}`}>
-            <Link href={e.href} target="_blank" className='text-center text-white'>Saber mais</Link>
-          </div>
-        </NewsCard>
-      })}
+    <div className={`${getMaxWidthClasses} flex flex-col overflow-hidden`}>
+      <h3 className='text-5xl font-bold mb-14'>Principais notícias</h3>
+      <div style={{
+        // width: events.length * 320,
+        // transform: `translateX(${-200*(active%events.length)}px)`
+      }} className={`flex items-center z-10 justify-start transition-all duration-500 w-[${events.length*320}px] md:w-full md:justify-between -translate-x-[${200*(active%events.length)}px] md:translate-x-0`}>
+        {events.map((e, index)=>{
+          const isActive = active === index
+          
+          return <NewsCard onClick={()=>{
+            setActive(index)
+            reset()
+          }} 
+            key={index} 
+            style={{
+              background: `url('${e.img[0]}')`, 
+              backgroundPosition: "center", 
+              backgroundSize: "cover", 
+            }}
+            isActive={isActive}
+          >
+            <div className={`transition-all duration-500  text-white z-10 ${isActive ? "": "opacity-0"}`}>
+              <h4 className='font-bold text-2xl mb-2'>{e.title}</h4>
+              <p className='w-3/4'>{e.abstract}</p>
+            </div>
+            <div className={`transition-all duration-500 z-10 w-full flex justify-center font-bold text-lg ${isActive ? "" : "opacity-0"}`}>
+              <Link href={e.href} target="_blank" className='text-center text-white'>Saber mais</Link>
+            </div>
+          </NewsCard>
+        })}
+      </div>
+      <div className='w-full flex justify-center'>
+        <div className='rounded-full bg-slate-950 text-white flex items-center mt-10'>
+          <Button className='hover:bg-transparent' onClick={()=>{
+            setActive(prev=>prev === 0 ? events.length-1 : prev-1)
+            reset()
+          }} variant="ghost" size="icon"><ChevronLeftIcon/></Button>
+          {`${active+1}/${events.length}`}
+          <Button className='hover:bg-transparent' onClick={()=>{
+            incrementCard()
+            reset()
+          }} variant="ghost" size="icon"><ChevronRightIcon/></Button>
+        </div>
+      </div>
     </div>
   </section>
 }
 
 
-const NewsCard = ({className, onClick, style, children}:{className: string, onClick:()=>void, style?:React.CSSProperties, children:React.ReactNode})=>{
-  return <div onClick={onClick} style={style} className={`${className} h-[500px] relative overflow-hidden  flex flex-col rounded-2xl cursor-pointer justify-between p-4`}>
-    <div className='bg-black opacity-50 absolute top-0 w-full h-full left-0 z-0'></div>
-    {children}
-  </div>
+const NewsCard = ({isActive, onClick, style, children}:{isActive: boolean, onClick:()=>void, style?:React.CSSProperties, children?:React.ReactNode})=>{
+  
+  return <div key="card" onClick={onClick} style={style} className={`transition-all duration-500 mr-6 ${isActive ? "w-80 md:w-1/2" : "w-44 grayscale"} h-[500px] relative overflow-hidden  flex flex-col rounded-2xl cursor-pointer justify-between p-4`}>
+      <div className='bg-black opacity-50 absolute top-0 w-full h-full left-0 z-0'></div>
+      {children}
+    </div>
 }
 
 const PsicoseComponent = ()=>{
