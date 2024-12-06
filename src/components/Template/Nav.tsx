@@ -1,11 +1,9 @@
 import React from 'react'
-import ThemeModeToggle from "./ThemeModeToggle"
 import { Button, buttonVariants } from '../ui/button'
 import { useRouter } from 'next/router'
-import { Facebook, HomeIcon, Instagram, LucideIcon, Mail, MapPin, MenuIcon, NewspaperIcon, PhoneCallIcon, UserIcon, WrenchIcon } from 'lucide-react'
+import { Facebook, HomeIcon, Instagram, LucideIcon, Mail, MapPin,  NewspaperIcon, PhoneCallIcon, UserIcon, WrenchIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
-import { Sheet,SheetContent, SheetDescription, SheetHeader,  SheetTrigger } from '../ui/sheet'
 import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
@@ -16,7 +14,6 @@ const routes = [
     {
         title: "Início",
         href: "/", 
-        // displayImage: <Logo className="h-full w-full" />,
         displayImage: false,
         icon: <HomeIcon/>,
         subMenus: [
@@ -47,21 +44,13 @@ const routes = [
         href: "/sobre", 
         displayImage: false,
         icon: <UserIcon/>,
-        // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
-        subMenus: [
-            // {
-            //     title: "A AGIRAR",
-            //     desc: "Uma breve história sobre a nossa origem",
-            //     href: "/sobre?scrollTo=origem"
-            // },
-        ]
+        subMenus: []
     },
     {
         title: "O que fazemos",
         href: "/servicos", 
         displayImage: false,
         icon: <WrenchIcon/>,
-        // displayImage: <img className='rounded-xl' src="https://images.pexels.com/photos/2539658/pexels-photo-2539658.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>,
         subMenus: [
             {
                 title: "Serviços",
@@ -127,6 +116,7 @@ const DesktopNavigation = ()=>{
     
     React.useEffect(()=>{
         const setBackground = ()=> setShowBG(window.scrollY > 100)
+        console.log(asPath)
         if(asPath === "/"){
             setBackground()
             document.addEventListener("scroll", setBackground)
@@ -143,27 +133,6 @@ const DesktopNavigation = ()=>{
         </div>
     </nav>
 }
-
-// const DesktopNavigation = ()=>{
-//     return <nav className='bg-white  justify-center items-center py-4 fixed top-0 z-50 w-screen hidden md:flex  '>
-//     <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center`}>
-//         <Logo className='mr-4 hidden lg:block' height={112}/>
-//         <div className="flex-col w-full ">
-//             <div className="w-full  h-16 ml-4 flex justify-end items-center px-2">
-//                 {/* <ComunicadosComponent/> */}
-//                 <SocialBtns show='all'/>
-//             </div>
-//             <div className="w-full flex justify-between py-2 px-4 bg-blue-100 rounded-lg ">
-//                 <div className='hidden md:flex '>
-//                     <NavBtns/>
-//                 </div>
-//                 <CallForActionNav/>
-//             </div>
-//         </div>
-//     </div>
-// </nav>
-// }
-
 
 const MobileNavigation = ()=>{
     return <>
@@ -236,6 +205,7 @@ const MobileNavigationButtons = ()=>{
     </section>
 }
 
+
 const CallForActionNav = ()=>{
     return <div className="flex gap-2">
         <TooltipAbstraction
@@ -247,13 +217,6 @@ const CallForActionNav = ()=>{
             <Link className={`${buttonVariants()} `} href="/apoiar?tab=doar">Doar</Link>
 
         </TooltipAbstraction>
-    </div>
-}
-
-const ComunicadosComponent = ()=>{
-    return <div className='w-full'>
-        <p className=' text-blue-400 text-sm font-bold'>COMUNICADOS</p>
-        <p className="text-sm">Convocatória para a Assembleia Geral ordinária pelas 17:00 do dia 31/03/2024 </p>
     </div>
 }
 
@@ -305,22 +268,7 @@ const NavBtns = ({
             })}
             
         </NavigationMenuList>
-        {/* <Button size="lg" className={`${asPath === "/" ? "text-orange-400": ""} text-lg`} onClick={()=>{
-            push("/")
-            if(onClick) onClick()
-        }} variant="link">Início</Button>
-        <Button size="lg" className={`${asPath === "/sobre/" ? "text-orange-400": ""} text-lg`} onClick={()=>{
-            push("/sobre")
-            if(onClick) onClick()
-        }} variant="link">Sobre Nós</Button>
-        <Button size="lg" className={`${asPath === "/servicos/"? "text-orange-400": ""}  text-lg`} onClick={()=>{
-            push("/servicos")
-            if(onClick) onClick()
-        }} variant="link">Os Nossos Serviços</Button>
-        <Button size="lg" className={`${asPath === "/contactos/"? "text-orange-400": ""} text-lg`} onClick={()=>{
-            push("/contactos")
-            if(onClick) onClick()
-        }} variant="link">Contactos</Button> */}
+        
     </NavigationMenu>
 }
 

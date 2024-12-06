@@ -25,7 +25,7 @@ import { Partners } from './sobre'
 import BulletTextComponent from '@/components/ui/BulletTextComponent'
 import ImageVoluntatios from "@/assets/home/objetivos.jpg"
 import ImagemPsicose from "@/assets/home/psicose-bullet.jpg"
-import { testimonials } from '@/utils/Testimonials'
+import { testimonials, TTestimonials } from '@/utils/Testimonials'
 import { ChevronLeftCircle, ChevronLeftIcon, ChevronRightIcon, HeartHandshakeIcon,  Quote, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
@@ -670,17 +670,13 @@ const Testemunhos = ()=>{
 
   return <section id="testemunhos" className={`${getSectionClass} gap-5 justify-center mt-40`}>
     <div className={`flex flex-col justify-center items-center ${getMaxWidthClasses}`}>
-      <TestemunhosList/>
+      <TestemunhosList list={testimonials}/>
     </div>
   </section>
 }
 
 
-export const TestemunhosList = ()=>{
-
- 
-
-
+export const TestemunhosList = ({list}:{list:TTestimonials[]})=>{
   return < >
     <Carousel className="w-9/12 " plugins={[
       
@@ -693,7 +689,7 @@ export const TestemunhosList = ()=>{
     }}
     >
       <CarouselContent >
-        {testimonials.map((t, index)=>{
+        {list.map((t, index)=>{
           return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
             <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
               <Quote className='text-blue-400 '/>

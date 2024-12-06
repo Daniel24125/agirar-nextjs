@@ -13,3 +13,7 @@ export const testimonials: TTestimonials[]  = [
     {author: "Maria Eugênia", quote:"A AGIRAR me fez visitar lugares que nunca tinha ido. Tive o privilégio de conhecer novas coisas e novas pessoas. Gostei muito de fazer novos amigos aqui. Obrigada."},
     {author: "Carla Soares", quote:"A AGIRAR trouxe-me socialização e saúde. Conheci muitas pessoas aqui e recebi grande apoio da terapeuta e da voluntária que nos acompanha. Melhorei meu estado emocional e aprendi coisas novas. Gosto muito de estar na Associação."},
 ]
+
+export const volunteerTestimonials: TTestimonials[] = [
+    {author: "Ricardo Brito. Enfermeiro especialista em psiquiatria e saúde mental.", quote:"Na minha experiência profissional observo que todos enfrentam, em algum momento, desafios com a sua saúde mental. Juntei-me a esta associação porque acredito que os cuidados especializados, a solidariedade e o apoio mútuo são essenciais para todos. Juntos construímos um espaço de cuidado e compreensão para quem precisa."},
+]
