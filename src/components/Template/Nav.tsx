@@ -257,36 +257,6 @@ const ComunicadosComponent = ()=>{
     </div>
 }
 
-const MenuBtn = ()=>{
-    const [open, setOpen] = React.useState(false)
-    return <>
-        <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild >
-                <Button className='md:hidden' variant="ghost" size="icon">
-                    <MenuIcon/>
-                </Button>
-            </SheetTrigger>
-            <SheetContent side="top" className="w-screen">
-                <SheetHeader>  
-                    <SheetDescription>
-                        <div className="flex flex-col gap-7">
-                            <Logo/>
-                            <NavBtns onClick={()=>{
-                                setOpen(false)
-                            }} />
-                            <div className="flex w-full justify-center gap-5 mt-32 items-center">
-                                <SocialBtns size='w-6 sm-h-6'/>
-                                <ThemeModeToggle/>
-                            </div>
-                        </div>
-                    </SheetDescription>
-                </SheetHeader>
-            </SheetContent>
-        </Sheet>
-        
-    </>
-}
-
 const NavBtns = ({
     color
 }:{
