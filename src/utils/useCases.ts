@@ -61,10 +61,7 @@ export function useMediaQuery(mediaQuery:string) {
     setMediaQueryList(list)
     setIsMatch(list.matches)
   }, [mediaQuery])
-  useEventListener("change", e => {
-    setIsMatch(e.matches)
-    console.log("HELLO")
-  }, mediaQueryList )
+  useEventListener("change", e => setIsMatch(e.matches), mediaQueryList )
 
   return isMatch
 }

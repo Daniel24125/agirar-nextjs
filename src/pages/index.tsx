@@ -67,9 +67,7 @@ const MainNews = ()=>{
   const incrementCard = ()=>setActive(prev=>(prev+1)%events.length)
   const { reset } = useSetInterval(incrementCard,5000)
   const isLarge = useMediaQuery("(min-width: 768px)")
-  // React.useEffect(()=>{
-  //   console.log(isLarge)
-  // },[isLarge])
+
 
   return <section className={`${getSectionClass}  justify-center mt-28`}>
     <div className={`${getMaxWidthClasses} flex flex-col overflow-hidden`}>
