@@ -9,6 +9,7 @@ import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuT
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
 import { Drawer, DrawerContent,  DrawerFooter } from '../ui/drawer'
+import { useEventListener } from '@/utils/useCases'
 
 const routes = [
     {
@@ -111,18 +112,17 @@ const Nav = () => {
 }
 
 const DesktopNavigation = ()=>{
-    const [showBG, setShowBG] = React.useState(false)
+    const [showBG, setShowBG] = React.useState(true)
     const {asPath} = useRouter()
+    const handleSetBackground = React.useCallback(()=>setShowBG(window.scrollY > 100), [])
     
     React.useEffect(()=>{
-        const setBackground = ()=> setShowBG(window.scrollY > 100)
-        console.log(asPath)
         if(asPath === "/"){
-            setBackground()
-            document.addEventListener("scroll", setBackground)
+            handleSetBackground()
+            window.addEventListener("scroll", handleSetBackground)
         }else{
-            document.removeEventListener("scroll",setBackground)
             setShowBG(true)
+            window.removeEventListener("scroll",handleSetBackground)
         }
       },[asPath])
 

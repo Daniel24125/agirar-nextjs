@@ -15,7 +15,7 @@ const Sobre = () => {
   return (
     <>
         {/* <AboutHeader/>*/}
-        <PageTitleAlternative
+        <PageTitle
             title={
             <div className="flex flex-col gap-8 w-screen justify-center items-center top-40">
                 <p className='text-4xl md:text-8xl text-center font-bold'>AGIRAR</p>
