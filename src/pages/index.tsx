@@ -26,11 +26,11 @@ import BulletTextComponent from '@/components/ui/BulletTextComponent'
 import ImageVoluntatios from "@/assets/home/objetivos.jpg"
 import ImagemPsicose from "@/assets/home/psicose-bullet.jpg"
 import { testimonials, TTestimonials } from '@/utils/Testimonials'
-import { ChevronLeftCircle, ChevronLeftIcon, ChevronRightIcon, HeartHandshakeIcon,  Quote, UserIcon } from 'lucide-react'
+import { ChevronLeftIcon, ChevronRightIcon, HeartHandshakeIcon,  Quote, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { IBAN } from '@/utils/Utils'
 import { SocialBtns } from '@/components/Template/Nav'
-import useSetInterval from '@/utils/useCases'
+import { useMediaQuery, useSetInterval } from '@/utils/useCases'
 
 
 const Home = () => {
@@ -54,7 +54,7 @@ const HeaderComponent = ()=>{
       <h1 className='mb-2 border-b-8 border-orange-400 text-8xl'>AGIRAR</h1>
       <h3 className='text-center max-w-xs text-2xl'>Associação de Familiares e Amigos de Pessoas com Psicose</h3>
     </div>
-    <div className='absolute flex flex-col z-10 right-10 bottom-1/2 gap-2'>
+    <div className='absolute hidden md:flex flex-col z-10 right-10 bottom-1/2 gap-2'>
       <SocialBtns size="w-4 h-4 sm:w-6 sm:h-6 text-white " show='all'/>
     </div>
   </header>
@@ -66,14 +66,18 @@ const MainNews = ()=>{
   const [active, setActive] = React.useState(0)
   const incrementCard = ()=>setActive(prev=>(prev+1)%events.length)
   const { reset } = useSetInterval(incrementCard,5000)
+  const isLarge = useMediaQuery("(min-width: 768px)")
+  // React.useEffect(()=>{
+  //   console.log(isLarge)
+  // },[isLarge])
 
   return <section className={`${getSectionClass}  justify-center mt-28`}>
     <div className={`${getMaxWidthClasses} flex flex-col overflow-hidden`}>
       <h3 className='text-5xl font-bold mb-14'>Principais notícias</h3>
       <div style={{
-        // width: events.length * 320,
-        // transform: `translateX(${-200*(active%events.length)}px)`
-      }} className={`flex items-center z-10 justify-start transition-all duration-500 w-[${events.length*320}px] md:w-full md:justify-between -translate-x-[${200*(active%events.length)}px] md:translate-x-0`}>
+        width: !isLarge ? events.length * 320: "100%",
+        transform: isLarge? "translateX(0px)":`translateX(-${320*(active%events.length)}px)`
+      }} className={`flex items-center z-10 justify-start transition-all duration-500 md:justify-between md:translate-x-0`}>
         {events.map((e, index)=>{
           const isActive = active === index
           
@@ -86,6 +90,7 @@ const MainNews = ()=>{
               background: `url('${e.img[0]}')`, 
               backgroundPosition: "center", 
               backgroundSize: "cover", 
+             
             }}
             isActive={isActive}
           >
@@ -119,7 +124,7 @@ const MainNews = ()=>{
 
 const NewsCard = ({isActive, onClick, style, children}:{isActive: boolean, onClick:()=>void, style?:React.CSSProperties, children?:React.ReactNode})=>{
   
-  return <div key="card" onClick={onClick} style={style} className={`transition-all duration-500 mr-6 ${isActive ? "w-80 md:w-1/2" : "w-44 grayscale"} h-[500px] relative overflow-hidden  flex flex-col rounded-2xl cursor-pointer justify-between p-4`}>
+  return <div key="card" onClick={onClick} style={style} className={`transition-all duration-500 mr-6 w-80 ${isActive ? " md:w-1/2" : "w-44 grayscale"} h-[400px] md:h-[500px] relative overflow-hidden  flex flex-col rounded-2xl cursor-pointer justify-between p-4`}>
       <div className='bg-black opacity-50 absolute top-0 w-full h-full left-0 z-0'></div>
       {children}
     </div>
@@ -161,9 +166,6 @@ const PsicoseComponent = ()=>{
             width={500}
             alt="Imagem psicose"
           />
-        {/* <video autoPlay muted loop>
-          <source src="/videos/psicose.mp4" type="video/mp4"/>
-        </video> */}
       </div>
     </div>
   </section>
@@ -233,19 +235,7 @@ const ImageCarrousel = ()=>{
                     <Link href={evt.href} target="_blank" className={` cursor-pointer ${buttonVariants({ variant: "outline" })}}`}>Saber mais</Link>
                   </div>
                 </div>
-                {/* <div className="flex flex-col w-full">
-                  <h3 className='text-2xl'>{evt.title}</h3>
-                  <div className='w-full flex justify-between items-center'>
-                    <h6 className='text-gray-400'>{evt.date}</h6>
-                    <a className=' text-blue-300 font-bold block sm:hidden' href={evt.href} target='__blank'>Saber mais</a>
-                  </div>
-                  <p className='md:w-1/2 min-h-[65%] text-sm mt-5' >
-                    {evt.desc}
-                  </p>
-                  <div className="flex justify-end pr-5">
-                    <a className=' text-blue-300 font-bold hidden sm:block' href={evt.href} target='__blank'>Saber mais</a>
-                  </div>
-                </div> */}
+                
               </div>
             </div>
           </CarouselItem>
