@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import Link from 'next/link'
 import { Drawer, DrawerContent,  DrawerFooter } from '../ui/drawer'
 import { useEventListener } from '@/utils/useCases'
+import { getEventListeners } from 'events'
 
 const routes = [
     {
@@ -115,7 +116,6 @@ const DesktopNavigation = ()=>{
     const [showBG, setShowBG] = React.useState(true)
     const {asPath} = useRouter()
     const handleSetBackground = React.useCallback(()=>setShowBG(window.scrollY > 100), [])
-    
     React.useEffect(()=>{
         if(asPath === "/"){
             handleSetBackground()
