@@ -1,6 +1,6 @@
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectValue,SelectTrigger } from '@/components/ui/select'
-import { PageTitle } from '@/components/UtilsGraphics'
+import { PageTitle, PageTitleAlternative } from '@/components/UtilsGraphics'
 import { getTheLastEvents, TEvent } from '@/utils/Events'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import Link from 'next/link'
@@ -9,7 +9,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 const Noticias = () => {
   return (
     <>
-      <PageTitle
+      <PageTitleAlternative
         title={<p className='text-3xl md:text-6xl text-center font-bold'>NOTÍCIAS</p>}
       />
       <NewsList/>
@@ -36,7 +36,7 @@ const NewsList = ()=>{
   const noResults = React.useMemo(()=>{
     return displayNews.length === 0
   },[displayNews])
-  return <section className={`${getSectionClass} top-24 md:top-0 justify-center py-10`}>
+  return <section className={`${getSectionClass} md:top-0 justify-center py-10`}>
     <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
       <NewsContext.Provider value={{
         displayNews, 

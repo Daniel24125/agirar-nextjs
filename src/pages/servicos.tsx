@@ -2,7 +2,7 @@ import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
 import MemberComponent from '@/components/MemberComponent'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { PageTitle } from '@/components/UtilsGraphics'
+import { PageTitle, PageTitleAlternative } from '@/components/UtilsGraphics'
 import { TServicos, servicosFamiliar, servicosUtente } from '@/utils/Servicos'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import Image, { StaticImageData } from 'next/image'
@@ -33,7 +33,7 @@ const Servicos = () => {
     selectedService,
 setSelectedService
   }}>
-    <PageTitle
+    <PageTitleAlternative
       title={
         <p className='text-4xl md:text-6xl text-center font-bold'>O QUE FAZEMOS</p>
       }

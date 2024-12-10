@@ -639,7 +639,7 @@ const SupportCard = ({
   imgSize?: number
 })=>{
   return  <div className={`mb-5 transition-all flex flex-col gap-5 bg-white rounded-3xl border-${color}-400 border-2 h-[380px] w-72 p-5 items-center text-center py-5 relative ${className}`}>
-  <h3 className="text-xl font-bold">{title}</h3>
+  <h3 className="text-xl font-bold mb-5">{title}</h3>
   {Image}
   {/* <Image
     width={imgSize}
@@ -664,7 +664,7 @@ const Testemunhos = ()=>{
 }
 
 
-export const TestemunhosList = ({list}:{list:TTestimonials[]})=>{
+export const TestemunhosList = ({list, spacing="md:basis-1/2 lg:basis-1/3"}:{list:TTestimonials[], spacing?:string})=>{
   return < >
     <Carousel className="w-9/12 " plugins={[
       
@@ -678,7 +678,7 @@ export const TestemunhosList = ({list}:{list:TTestimonials[]})=>{
     >
       <CarouselContent >
         {list.map((t, index)=>{
-          return <CarouselItem key={index} className='md:basis-1/2 lg:basis-1/3 justify-center flex'>
+          return <CarouselItem key={index} className={`${spacing} justify-center flex`}>
             <div className='bg-gray-200 w-72 lg:w-80 rounded-xl h-80 p-5 flex flex-col gap-4'>
               <Quote className='text-blue-400 h-8'/>
               <p className='text-xs lg:text-sm'>{t.quote}</p>

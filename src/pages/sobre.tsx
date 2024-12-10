@@ -15,10 +15,10 @@ const Sobre = () => {
   return (
     <>
         {/* <AboutHeader/>*/}
-        <PageTitle
+        <PageTitleAlternative
             title={
             <div className="flex flex-col gap-8 w-screen justify-center items-center top-40">
-                <p className='text-4xl md:text-8xl text-center font-bold'>AGIRAR</p>
+                <p className='text-4xl md:text-8xl text-center font-bold mt-10'>AGIRAR</p>
                 <p className='text-xl md:text-3xl w-[clamp(300px,90vw,500px)] text-center font-bold'>Associação de Familiares e Amigos de Pessoas com Psicose</p>
             </div>
            }

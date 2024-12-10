@@ -20,7 +20,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/2897128/pexels-photo-2897128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/crochet/main.jpg"],
         title: "Atelier de crochet",
         desc: "Psicoterapia individual para utentes a frequentar os ateliers",
         time: "14h – 15h",
@@ -36,7 +36,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
+        img: ["/servicos/informatica/main.jpg","/servicos/informatica/1.jpg","/servicos/informatica/2.jpeg","/servicos/informatica/3.jpeg", "/servicos/informatica/4.jpeg", "/servicos/informatica/5.jpeg"],
         title: "Atelier de Informática ",
         desc: "Atividade em grupo, cujo objetivo é aumentar as competências digitais de utentes, promovendo a interação social dos envolvidos e fomentar a confiança na utilização de ferramentas digitais",
         time: "Terça-feira",

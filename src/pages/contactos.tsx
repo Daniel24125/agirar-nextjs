@@ -1,5 +1,5 @@
 import DotVector from '@/components/DotVector'
-import { PageTitle } from '@/components/UtilsGraphics'
+import { PageTitle, PageTitleAlternative } from '@/components/UtilsGraphics'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import React from 'react'
@@ -7,7 +7,7 @@ import React from 'react'
 const Contactos = () => {
   return <>
     {/* <HeaderContactos/> */}
-    <PageTitle
+    <PageTitleAlternative
         title={<p className='text-3xl md:text-6xl text-center font-bold'>CONTACTOS</p>}
       />
     <ContactSection/>

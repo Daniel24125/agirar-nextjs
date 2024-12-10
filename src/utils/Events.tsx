@@ -41,7 +41,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
         },
         {
             id: Math.random().toString(16).slice(2),
-            title: "Clube social no bowling",
+            title: "Clube social - Bowling",
             date: "24/01/2024", 
             img: ["/eventos/24_01_2024/main.jpg"], 
             href: "https://www.facebook.com/agirarassociacao/posts/pfbid02MydfcrudENnJQZcTjPYRxfs7GsTNWzTKU2hS47Zd4qHANDkfDWYPjUznPFwRZrmUl", 
@@ -73,7 +73,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
         },
         {
             id: Math.random().toString(16).slice(2),
-            title: "Clube social - visita ao espetáculo Spiritus",
+            title: "Clube social - Visita ao espetáculo Spiritus",
             date: "18/04/2023", 
             img: ["/eventos/18_04_2023/main.jpg"], 
             href: "https://www.facebook.com/agirarassociacao/posts/pfbid0a6Hrcp8dx9VqSxMJKeLptU5AxSYGtLXTf3AE3UgCFsXqfsoK3eFSDmbVVgHXkL3nl", 

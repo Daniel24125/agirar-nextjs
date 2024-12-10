@@ -210,12 +210,11 @@ const CallForActionNav = ()=>{
     return <div className="flex gap-2">
         <TooltipAbstraction
             title="Tornar-me Associado">
-            <Link className={`${buttonVariants({variant: "outline"})} bg-orange-400`} href="/apoiar?tab=associado">Associado</Link>
+            <Link className={`${buttonVariants({variant: "ghost"})} bg-orange-400`} href="/apoiar?tab=associado">Associado</Link>
         </TooltipAbstraction>
         <TooltipAbstraction
             title="Fazer um donativo">
-            <Link className={`${buttonVariants()} `} href="/apoiar?tab=doar">Doar</Link>
-
+            <Link className={`${buttonVariants({variant: "ghost", className: "text-black bg-blue-400"})}`} href="/apoiar?tab=doar">Doar</Link>
         </TooltipAbstraction>
     </div>
 }
