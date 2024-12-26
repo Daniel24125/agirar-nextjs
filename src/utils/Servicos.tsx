@@ -20,7 +20,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["/ateliers/crochet/main.jpg"],
+        img: ["https://images.pexels.com/photos/2070676/pexels-photo-2070676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"],
         title: "Atelier de crochet",
         desc: "Psicoterapia individual para utentes a frequentar os ateliers",
         time: "14h – 15h",
