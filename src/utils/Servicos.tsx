@@ -36,7 +36,7 @@ export const servicosUtente: TServicos[] = [
     },
     {
         id: Math.random().toString(16).slice(2),
-        img: ["/ateliers/informatica/main.jpg","/ateliers/informatica/1.jpg","/ateliers/informatica/2.jpeg","/ateliers/informatica/3.jpeg", "/ateliers/informatica/4.jpeg", "/ateliers/informatica/5.jpeg"],
+        img: ["/ateliers/informatica/main.jpeg","/ateliers/informatica/3.jpeg", "/ateliers/informatica/4.jpeg", "/ateliers/informatica/5.jpeg"],
         title: "Atelier de Informática ",
         desc: "Atividade em grupo, cujo objetivo é aumentar as competências digitais de utentes, promovendo a interação social dos envolvidos e fomentar a confiança na utilização de ferramentas digitais",
         time: "Terça-feira",
