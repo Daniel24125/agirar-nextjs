@@ -34,7 +34,7 @@ const HeaderContactos = ()=>{
 }
 
 const ContactSection = ()=>{
-  return <section className={`${getSectionClass} top-32 md:top-0`}>
+  return <section className={`${getSectionClass} `}>
     <div className={`flex justify-evenly ${getMaxWidthClasses} flex-wrap px-5`}>
       
       <div className="flex flex-col border rounded-lg w-80 h-72 p-6 mb-5">
