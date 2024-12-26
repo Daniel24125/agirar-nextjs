@@ -270,7 +270,7 @@ const GalleryComponent = ({imgs, open, setOpen}:
 
 const Projetos = ()=>{
 
-  return <section className={`${getSectionClass} py-16 bg-blue-50 mb-10`}>
+  return <section className={`${getSectionClass} top-16 py-16 bg-blue-50 mb-10`}>
     <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
       <Subtitle title="Projetos" color='orange'/>
       <Projeto 
