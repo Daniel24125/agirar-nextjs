@@ -1,8 +1,8 @@
 import DecorationGeometry from '@/components/DecorationGeometry'
 import DotVector from '@/components/DotVector'
 import MemberComponent from '@/components/MemberComponent'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { PageTitle, PageTitleAlternative } from '@/components/UtilsGraphics'
+import { Button} from '@/components/ui/button'
+import { PageTitleAlternative } from '@/components/UtilsGraphics'
 import { TServicos, servicosFamiliar, servicosUtente } from '@/utils/Servicos'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import Image, { StaticImageData } from 'next/image'
@@ -10,14 +10,14 @@ import React, { Dispatch, SetStateAction } from 'react'
 import LaCaixa from "@/assets/servicos/lacaixa.png"
 import ULS from "@/assets/servicos/uls.png"
 import PNC from "@/assets/servicos/clique.jpg"
-import { DownloadIcon, ExternalLink, MoreVerticalIcon, UserIcon, UsersIcon } from 'lucide-react'
+import { DownloadIcon, ExternalLink} from 'lucide-react'
 import Link from 'next/link'
 import TooltipAbstraction from '@/components/ui/TooltipAbstraction'
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Badge } from '@/components/ui/badge'
 import { saveAs } from 'file-saver'
+import { Select, SelectContent,  SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 
 
@@ -112,18 +112,28 @@ const ServiceDetails = ()=>{
 const ServicesColection = ()=>{
   const [selectedServiceType, setSelectedServiceType] = React.useState<"utentes" | "familias">("utentes")
   
-  return <section className={`${getSectionClass} py-20 top-20 sm:top-0`}>
+  return <section className={`${getSectionClass} sm:top-0`}>
     <div className={`${getMaxWidthClasses} flex flex-col gap-10`}>
       <Subtitle title="Serviços">
         <div className=' gap-2 flex items-center'>
-          <Button  onClick={()=>setSelectedServiceType("utentes")} variant={selectedServiceType === "utentes"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "utentes"?"bg-orange-400": ""} `}>Utentes</Button>
+          {/* <Button  onClick={()=>setSelectedServiceType("utentes")} variant={selectedServiceType === "utentes"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "utentes"?"bg-orange-400": ""} `}>Utentes</Button>
           <Button  onClick={()=>setSelectedServiceType("familias")} variant={selectedServiceType === "familias"? "default": "outline"} className={`hidden sm:block ${selectedServiceType === "familias"?"bg-orange-400": ""} `}>Familiares</Button>
+           */}
+          {/* <Badge className='block md:hidden' >{selectedServiceType === "utentes" ? "Utentes": "Famílias"}</Badge> */}
           
-          <Badge className='block md:hidden' >{selectedServiceType === "utentes" ? "Utentes": "Famílias"}</Badge>
           
+          <Select onValueChange={(val:"utentes" | "familias") =>setSelectedServiceType(val)}>
+            <SelectTrigger value={selectedServiceType}>
+              <SelectValue  placeholder={`${selectedServiceType[0].toUpperCase()}${selectedServiceType.substring(1,selectedServiceType.length)}`}  />
+            </SelectTrigger>
+            <SelectContent>
+                <SelectItem value="utentes">Utentes</SelectItem>
+                <SelectItem value="familias">Família</SelectItem>
+            </SelectContent>
+          </Select>
           <TimesheetDonwload selectedServiceType={selectedServiceType}/>
           
-          
+{/*           
           <DropdownMenu >
             <DropdownMenuTrigger asChild>
               <Button className='block md:hidden' variant="ghost" size="icon">
@@ -151,7 +161,7 @@ const ServicesColection = ()=>{
               </DropdownMenuGroup>
   
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </div>
       </Subtitle>
       <ServiceDetails/>

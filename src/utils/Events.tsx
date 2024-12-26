@@ -14,6 +14,24 @@ export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
         {
             id: Math.random().toString(16).slice(2),
+            title: "Mensagem de Natal",
+            date: "22/12/2024", 
+            img: ["https://images.pexels.com/photos/29904638/pexels-photo-29904638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], 
+            href: "https://www.facebook.com/reel/27832337996409683", 
+            abstract: "Para todos vocês @seguidores, um Feliz Natal!",
+            desc: "Para todos vocês @seguidores, um Feliz Natal!"
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Jantar de Natal",
+            date: "14/12/2024", 
+            img: ["/eventos/14_12_2024/main.jpg", "/eventos/14_12_2024/1.jpg", "/eventos/14_12_2024/2.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid095zZ9yAQiJV7bFWJaHg9aTqmGHcQUpZSAeMSRWRf2QCeiftuFLiP5iTdVE5E3KEJl", 
+            abstract: "O nosso jantar de Natal reuniu utentes, famílias, voluntários. Foi uma noite para agradecer e recordar o ano de 2024, com muitas conversas, sorrisos e aquele espírito natalício que aquece os corações.",
+            desc: "Ontem foi noite de celebração na AGIRAR! O nosso jantar de Natal reuniu utentes, famílias, voluntários. Foi uma noite para agradecer e recordar o ano de 2024, com muitas conversas, sorrisos e aquele espírito natalício que aquece os corações. Estes momentos são a prova de que juntos somos mais fortes, e estamos prontos para abraçar 2025 com a mesma energia e propósito. Obrigado a todos que fizeram parte desta noite tão especial. "
+        },
+        {
+            id: Math.random().toString(16).slice(2),
             title: "Dia histórico para a AGIRAR",
             date: "29/11/2024", 
             img: ["/eventos/29_11_2024/main.jpg", "/eventos/29_11_2024/1.jpg", "/eventos/29_11_2024/2.jpg"], 

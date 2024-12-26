@@ -1,4 +1,4 @@
-import { PageTitle, SquareGraphics } from '@/components/UtilsGraphics'
+import { PageTitle, PageTitleAlternative, SquareGraphics } from '@/components/UtilsGraphics'
 import { relatorios, TRelatorio } from '@/utils/Relatorios'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import Link from 'next/link'
@@ -7,7 +7,7 @@ import React from 'react'
 const Relatorios = () => {
 
   return <>
-    <PageTitle title={<p className='text-3xl md:text-6xl text-center font-bold uppercase'>Relatórios</p>} />
+    <PageTitleAlternative title={<p className='text-3xl md:text-6xl text-center font-bold uppercase'>Relatórios</p>} />
 
     <section className={`${getSectionClass} justify-center py-10`}>
         <div className={`${getMaxWidthClasses} flex flex-col`}>
