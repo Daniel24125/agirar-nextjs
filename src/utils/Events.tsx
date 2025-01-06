@@ -14,6 +14,24 @@ export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
         {
             id: Math.random().toString(16).slice(2),
+            title: "Bem-vindo, 2025",
+            date: "01/01/2025", 
+            img: ["/eventos/01_01_2025/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0gmniFvzkGYqEb9wz2HeEh42sCkTa7ucpPJUKSQXcZsMqg86Z8ucxdcwXrRMtg1L3l", 
+            abstract: "Na AGIRAR, seguimos juntos, fortalecendo a nossa missão de apoio, inclusão e combate ao estigma.",
+            desc: "Bem-vindo, 2025! Na AGIRAR, seguimos juntos, fortalecendo a nossa missão de apoio, inclusão e combate ao estigma. Que 2025 seja um ano repleto de progresso, de passos seguros e conquistas para cada um de nós e de muita saúde mental! Estamos prontos para mais um ano ao vosso lado "
+        },
+        {
+            id: Math.random().toString(16).slice(2),
+            title: "Assembleia Geral extraordinária",
+            date: "30/12/2024", 
+            img: ["/eventos/30_12_2024/main.jpg"], 
+            href: "https://www.facebook.com/agirarassociacao/posts/pfbid0wzCwKVFjVbddf3UNstmvtea3HaU7iVt9niJDW1wwxaWggTCgfe8wH37ph65dZE6kl", 
+            abstract: "Convidamos todos os associados a participar na Assembleia Geral",
+            desc: "Convidamos todos os associados a participar na Assembleia Geral, que tem como objetivo a eleição dos corpos sociais para o quadriénio 2025/2028. A reunião será realizada no dia 18 de janeiro de 2025, às 16h, na nossa sede."
+        },
+        {
+            id: Math.random().toString(16).slice(2),
             title: "Mensagem de Natal",
             date: "22/12/2024", 
             img: ["https://images.pexels.com/photos/29904638/pexels-photo-29904638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], 
