@@ -14,6 +14,15 @@ export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
         {
             id: Math.random().toString(16).slice(2),
+            title: "Órgãos Sociais para o quadriénio 2025-2028",
+            date: "25/01/2025", 
+            img: ["/eventos/25_01_2025/main.jpg", "/eventos/25_01_2025/1.jpg", "/eventos/25_01_2025/2.jpg", "/eventos/25_01_2025/3.jpg"], 
+            href: "https://www.facebook.com/100069330174307/posts/944503581203972/?mibextid=wwXIfr&rdid=exZ9P2MlPdByT9tD#", 
+            abstract: "Na sede da AGIRAR, os Órgãos Sociais para o quadriénio 2025-2028 tomaram oficialmente posse.",
+            desc: "Hoje, na sede da AGIRAR, os Órgãos Sociais para o quadriénio 2025-2028 tomaram oficialmente posse. A Direção, a Assembleia Geral e o Conselho Fiscal comprometeram-se a dar continuidade ao trabalho desenvolvido até aqui e a ampliarem as respostas a nível da saúde mental que a Associação disponibiliza a utentes e familiares. Desejamos muito sucesso nesta nova etapa!"
+        },
+        {
+            id: Math.random().toString(16).slice(2),
             title: "Bem-vindo, 2025",
             date: "01/01/2025", 
             img: ["/eventos/01_01_2025/main.jpg"], 
