@@ -27,16 +27,24 @@ export const relatorios:TYearData = {
             title: "Plano de ação 2024",
             file: "/relatorios/plano2024.pdf"
         },
-        // {
-        //     title: "Relatório de atividades 2024",
-        //     file: "/relatorios/atividades2024.pdf"
-        // },
+        {
+            title: "Relatório de atividades 2024",
+            file: "/relatorios/atividades2024.pdf"
+        },
+        {
+            title: "Demonstração Financeira 2024",
+            file: "/relatorios/demonstracaoFinanceira2024.pdf"
+        },
     ],
     "2025":[
-        // {
-        //     title: "Relatório de atividades 2025",
-        //     file: "/relatorios/atividades2025.pdf"
-        // },
+        {
+            title: "Tomada de Posse",
+            file: "/relatorios/tomadaPosse2025.pdf"
+        },
+        {
+            title: "Ata 22",
+            file: "/relatorios/ata22.pdf"
+        },
         {
             title: "Plano de ação 2025",
             file: "/relatorios/plano2025.pdf"
