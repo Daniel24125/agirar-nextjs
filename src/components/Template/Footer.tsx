@@ -52,6 +52,7 @@ const Footer = () => {
                     <div className="flex gap-x-4 text-xs text-blue-400">
                         <Link href='/estatutos.pdf' target='__blank'>Estatutos</Link>
                         <Link href='/orgaos'>Orgãos Sociais</Link>
+                        <Link href='/docs'>Documentos</Link>
                         <Link href='/relatorios'>Relatórios</Link>
                     </div>
                 </div>
@@ -80,7 +81,7 @@ const LawComponent = ()=>{
     return <section className={`${getSectionClass} bg-muted`}>
             <div className={`${getMaxWidthClasses} py-20 flex flex-col gap-1 `}>
             <h5 className='text-md font-bold  mb-7 '>Informação importante</h5>
-            <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938' target='__blank'>1 - Decreto Lei 113/2021 – Princípios gerias e regras de organização e funcionamento dos serviços de saúde mental</a>
+            <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/decreto-lei/113-2021-175865938' target='__blank'>1 - Decreto Lei 113/2021 – Princípios gerais e regras de organização e funcionamento dos serviços de saúde mental</a>
             <a className='text-xs text-justify text-blue-400' href='https://diariodarepublica.pt/dr/detalhe/lei/35-2023-215980339' target='__blank'>2 – Lei nº 35/2023 de 21 de julho – Lei de Saúde Mental</a>
         </div>
         </section>

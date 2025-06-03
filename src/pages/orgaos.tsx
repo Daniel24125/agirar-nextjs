@@ -13,7 +13,7 @@ const Orgaos = () => {
     <PageTitleAlternative
         title={<>
           <p><h1 className='text-5xl font-bold'>Orgãos Sociais</h1></p>
-          <p><h4 className='text-xl'>2021 - 2024</h4></p>
+          <p><h4 className='text-xl'>2025 - 2028</h4></p>
         </>
         }
     />

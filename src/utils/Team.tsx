@@ -40,17 +40,17 @@ export const orgaos: TOrgaos = {
         membros: [
             {
                 id: "m1",
-                name: "Maria José Figueiredo Pereira",
+                name: "Fernando Jorge da Silva Morai",
                 function: "Presidente"
             },
             {
                 id: "m2",
-                name: "Maria Gabriela Magalhães Barros Mesquita Ramalho",
+                name: "Maria José Figueiredo Pereira",
                 function: "1º Secretário"
             },
             {
                 id: "m3",
-                name: "Manuel Fernando da Cunha de Sousa Castro",
+                name: "Maria Elisabete Oliveira Alves Ribeiro",
                 function: "2º Secretário"
             }
         ]
@@ -60,7 +60,7 @@ export const orgaos: TOrgaos = {
         membros: [
             {
                 id: "m1",
-                name: "Fernando Jorge da Silva Morais",
+                name: "Manuel António Fernandes Mendes",
                 function: "Presidente"
             },
             {
@@ -75,7 +75,7 @@ export const orgaos: TOrgaos = {
             },
             {
                 id: "m4",
-                name: "Manuel António Fernandes Mendes",
+                name: "Ricardo Jorge Soares de Brito",
                 function: "Vogal"
             },
             {
@@ -90,17 +90,17 @@ export const orgaos: TOrgaos = {
         membros: [
             {
                 id: "m1",
-                name: "Álvaro Augusto da Rocha Marques",
+                name: "Andreia Sofia Fereeira de Castro",
                 function: "Presidente"
             },
             {
                 id: "m2",
-                name: "Maria Elisabete Oliveira Alves Ribeiro",
+                name: "Diana Raquel Monteiro Ferreira",
                 function: "1º Vogal"
             },
             {
                 id: "m3",
-                name: "Maria Teresa de Magalhães Vaz Queirós",
+                name: "Jorge Fernando Coelho Ferreira",
                 function: "2º Vogal"
             },
         ]
@@ -127,14 +127,7 @@ export const orgaos: TOrgaos = {
                     linkedin: "https://www.linkedin.com/in/isabel-s-8637b690/"
                 }
             },
-            {
-                id: "m3",
-                name: "Lucas Lopes",
-                function: "Médico Interno de Psiquiatria",
-                contact: {
-                    linkedin: "https://www.linkedin.com/in/lucas-lopes-254200b7/"
-                }
-            },
+           
         ]
     }
 }
