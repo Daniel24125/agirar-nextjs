@@ -40,7 +40,7 @@ export const orgaos: TOrgaos = {
         membros: [
             {
                 id: "m1",
-                name: "Fernando Jorge da Silva Morai",
+                name: "Fernando Jorge da Silva Morais",
                 function: "Presidente"
             },
             {
@@ -100,7 +100,7 @@ export const orgaos: TOrgaos = {
             },
             {
                 id: "m3",
-                name: "Jorge Fernando Coelho Ferreira",
+                name: "Jorge Fernando Coelho Fachada",
                 function: "2º Vogal"
             },
         ]

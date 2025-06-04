@@ -1,5 +1,6 @@
 import {  PageTitleAlternative, SquareGraphics } from '@/components/UtilsGraphics'
-import { relatorios, TRelatorio } from '@/utils/Relatorios'
+import { TRelatorio } from '@/utils/Relatorios'
+import {documentos} from '@/utils/Documentos'
 import { getMaxWidthClasses, getSectionClass } from '@/utils/UtilClasses'
 import Link from 'next/link'
 import React from 'react'
@@ -12,11 +13,11 @@ const Relatorios = () => {
     <section className={`${getSectionClass} justify-center py-10`}>
         <div className={`${getMaxWidthClasses} flex flex-col`}>
             {/* @ts-ignore */}
-            {Object.keys(relatorios).sort((a,b)=>b-a).map((year:string)=>{
+            {Object.keys(documentos).sort((a,b)=>b-a).map((year:string)=>{
                 return <YearReportsComponent
                     key={year}
                     year={year}
-                    yearData={relatorios[year]}
+                    yearData={documentos[year]}
                 />
             })}
         </div>
