@@ -14,7 +14,7 @@ export const getTheLastEvents = (num?:number|undefined) =>{
     const list: TEvent[] = [
           {
             id: Math.random().toString(16).slice(2),
-            title: "Assembleia Geral extraordinária",
+            title: "Assembleia ordinária extraordinária",
             date: "29/11/2025", 
             img: ["/eventos/29_11_2025/main.jpg"], 
             href: "", 
