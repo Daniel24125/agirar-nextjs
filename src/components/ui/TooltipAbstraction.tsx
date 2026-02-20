@@ -1,18 +1,20 @@
 import React from 'react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 const TooltipAbstraction = ({
-  title,
-  children
-}: {
-  title: string,
-  children: React.ReactNode
+    title,
+    children
+}:{
+    title: string,
+    children: React.ReactNode
 }) => {
   return (
-    <Tooltip>
-      <TooltipTrigger>{children}</TooltipTrigger>
-      <TooltipContent>{title}</TooltipContent>
-    </Tooltip>
+    <TooltipProvider>
+        <Tooltip>
+            <TooltipTrigger> {children}</TooltipTrigger>
+            <TooltipContent>{title}</TooltipContent>
+        </Tooltip>
+    </TooltipProvider>
   )
 }
 

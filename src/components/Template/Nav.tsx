@@ -1,22 +1,23 @@
 import React from 'react'
-import { buttonVariants } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
 import { useRouter } from 'next/router'
-import { Facebook, HomeIcon, Instagram, LucideIcon, Mail, MapPin, NewspaperIcon, PhoneCallIcon, UserIcon, WrenchIcon } from 'lucide-react'
+import { Facebook, HomeIcon, Instagram, LucideIcon, Mail, MapPin,  NewspaperIcon, PhoneCallIcon, UserIcon, WrenchIcon } from 'lucide-react'
 import { getMaxWidthClasses } from '@/utils/UtilClasses'
 import Logo from '../Logo'
 import TooltipAbstraction from '../ui/TooltipAbstraction'
 import { NavigationMenuList, NavigationMenu, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from '../ui/navigation-menu'
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
-import { Drawer, DrawerContent, DrawerFooter } from '../ui/drawer'
-
+import { Drawer, DrawerContent,  DrawerFooter } from '../ui/drawer'
+import { useEventListener } from '@/utils/useCases'
+import { getEventListeners } from 'events'
 
 const routes = [
     {
         title: "Início",
-        href: "/",
+        href: "/", 
         displayImage: false,
-        icon: <HomeIcon />,
+        icon: <HomeIcon/>,
         subMenus: [
             {
                 title: "Psicose",
@@ -42,16 +43,16 @@ const routes = [
     },
     {
         title: "Quem somos",
-        href: "/sobre",
+        href: "/sobre", 
         displayImage: false,
-        icon: <UserIcon />,
+        icon: <UserIcon/>,
         subMenus: []
     },
     {
         title: "O que fazemos",
-        href: "/servicos",
+        href: "/servicos", 
         displayImage: false,
-        icon: <WrenchIcon />,
+        icon: <WrenchIcon/>,
         subMenus: [
             {
                 title: "Serviços",
@@ -72,16 +73,16 @@ const routes = [
     },
     {
         title: "Notícias",
-        href: "/noticias",
-        icon: <NewspaperIcon />,
+        href: "/noticias", 
+        icon: <NewspaperIcon/>,
         displayImage: false,
         subMenus: []
     },
     {
         title: "Contactos",
-        href: "/contactos",
-        icon: <PhoneCallIcon />,
-        displayImage: <img className='rounded-xl' src="/map.png" />,
+        href: "/contactos", 
+        icon: <PhoneCallIcon/>,
+        displayImage: <img className='rounded-xl' src="/map.png"/>,
         subMenus: [
             {
                 title: "Morada",
@@ -105,88 +106,88 @@ const routes = [
 
 const Nav = () => {
     return (<>
-        <MobileNavigation />
-        <DesktopNavigation />
+        <MobileNavigation/>
+        <DesktopNavigation/>
     </>
-    )
+  )
 }
 
-const DesktopNavigation = () => {
+const DesktopNavigation = ()=>{
     const [showBG, setShowBG] = React.useState(true)
-    const { asPath } = useRouter()
-    const handleSetBackground = React.useCallback(() => setShowBG(window.scrollY > 100), [])
-    React.useEffect(() => {
-        if (asPath === "/") {
+    const {asPath} = useRouter()
+    const handleSetBackground = React.useCallback(()=>setShowBG(window.scrollY > 100), [])
+    React.useEffect(()=>{
+        if(asPath === "/"){
             handleSetBackground()
             window.addEventListener("scroll", handleSetBackground)
-        } else {
+        }else{
             setShowBG(true)
-            window.removeEventListener("scroll", handleSetBackground)
+            window.removeEventListener("scroll",handleSetBackground)
         }
-    }, [asPath])
+      },[asPath])
 
-    return <nav className={`z-50 w-screen hidden fixed top-0 md:flex justify-center items-center py-4 transition-all ${showBG ? "bg-white" : ""}`}>
-        <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center ${showBG ? "text-black" : ""}`}>
-            <NavBtns color={showBG ? "text-black" : "text-white"} />
-            <CallForActionNav />
+    return <nav className={`z-50 w-screen hidden fixed top-0 md:flex justify-center items-center py-4 transition-all ${showBG ? "bg-white": ""}`}>
+        <div className={`${getMaxWidthClasses} px-5 flex justify-between items-center ${showBG ? "text-black": ""}`}>
+            <NavBtns color={showBG ? "text-black": "text-white"}/>
+            <CallForActionNav/>
         </div>
     </nav>
 }
 
-const MobileNavigation = () => {
+const MobileNavigation = ()=>{
     return <>
-        <MobileNavigationHeader />
-        <MobileNavigationButtons />
-
+        <MobileNavigationHeader/>
+        <MobileNavigationButtons/>
+        
     </>
 }
 
-const MobileNavigationHeader = () => {
+const MobileNavigationHeader = ()=>{
     return <div className='w-screen p-4 flex justify-between items-center fixed top-0 z-50 md:hidden bg-white'>
-        <Logo className='mr-4' height={70} />
+        <Logo className='mr-4' height={70}/>
         <div className='flex flex-col items-end gap-2'>
             <div className='flex gap-2'>
-                <SocialBtns show='all' size='w-4' />
+                <SocialBtns show='all' size='w-4'/>
             </div>
-            <CallForActionNav />
+            <CallForActionNav/>
         </div>
     </div>
-}
+} 
 
-const MobileNavigationButtons = () => {
-    const { push, asPath, query } = useRouter()
+const MobileNavigationButtons = ()=>{
+    const {push, asPath, query} = useRouter()
     const [open, setOpen] = React.useState(false)
 
     return <section className='md:hidden'>
         <nav className='w-screen  flex flex-col items-center fixed bottom-0 z-50 bg-white rounded-tr-2xl rounded-tl-2xl pb-3 border'>
-            <div onClick={() => setOpen(true)} className='cursor-pointer w-full flex justify-center pt-5'>
+            <div onClick={()=>setOpen(true)} className='cursor-pointer w-full flex justify-center pt-5'>
                 <div className='w-[100px] h-2 rounded-xl bg-muted'></div>
             </div>
             <div className='flex justify-center w-full gap-2 mt-5'>
-                {routes.map(r => {
+                {routes.map(r=>{
                     const active = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
                     return <TooltipAbstraction key={r.title} title={r.title}>
-                        <div onClick={(e) => {
+                        <div onClick={(e)=>{
                             e.stopPropagation()
                             push(r.href)
-                        }} className={`flex items-center p-2 transition cursor-pointer hover:text-blue-400 ${active ? "rounded-2xl bg-blue-400 text-white hover:text-white" : ""}`}>
+                        }} className={`flex items-center p-2 transition cursor-pointer hover:text-blue-400 ${active ? "rounded-2xl bg-blue-400 text-white hover:text-white": ""}`}>
                             {r.icon}
-                            <span className={`text-xs text-center ml-3 ${active ? "" : "hidden"}`}>{r.title}</span>
+                            <span className={`text-xs text-center ml-3 ${active ? "": "hidden"}`}>{r.title}</span>
                         </div>
                     </TooltipAbstraction>
                 })}
             </div>
         </nav>
-        <Drawer open={open} onClose={() => setOpen(false)}>
-
+        <Drawer open={open} onClose={()=>setOpen(false)}>
+            
             <DrawerContent>
                 <div className='flex flex-col gap-5 items-center py-5'>
-                    {routes.map(r => {
+                    {routes.map(r=>{
                         const active = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
                         return <div className=' flex flex-col' key={r.href}>
-                            <Link className={`${active ? "text-blue-400" : ""} transition text-center hover:text-blue-400 font-bold text-lg `} href={r.href}>{r.title}</Link>
+                            <Link className={`${active? "text-blue-400": ""} transition text-center hover:text-blue-400 font-bold text-lg `} href={r.href}>{r.title}</Link>
                             <div className='flex flex-col gap-1 mt-2 items-center'>
-                                {r.subMenus!.map(sm => {
+                                {r.subMenus!.map(sm =>{
                                     return <Link className='text-sm' key={sm.title} href={sm.href}>{sm.title}</Link>
                                 })}
                             </div>
@@ -195,9 +196,9 @@ const MobileNavigationButtons = () => {
                 </div>
                 <DrawerFooter>
                     <div className='flex gap-2 w-full justify-center'>
-                        <SocialBtns show='all' size='w-5' />
+                        <SocialBtns show='all' size='w-5'/>
                     </div>
-
+           
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>
@@ -205,106 +206,106 @@ const MobileNavigationButtons = () => {
 }
 
 
-const CallForActionNav = () => {
+const CallForActionNav = ()=>{
     return <div className="flex gap-2">
         <TooltipAbstraction
             title="Tornar-me Associado">
-            <Link className={`${buttonVariants({ variant: "ghost" })} bg-orange-400`} href="/apoiar?tab=associado">Associado</Link>
+            <Link className={`${buttonVariants({variant: "ghost"})} bg-orange-400`} href="/apoiar?tab=associado">Associado</Link>
         </TooltipAbstraction>
         <TooltipAbstraction
             title="Fazer um donativo">
-            <Link className={`${buttonVariants({ variant: "ghost", className: "text-black bg-blue-400" })}`} href="/apoiar?tab=doar">Doar</Link>
+            <Link className={`${buttonVariants({variant: "ghost", className: "text-black bg-blue-400"})}`} href="/apoiar?tab=doar">Doar</Link>
         </TooltipAbstraction>
     </div>
 }
 
 const NavBtns = ({
     color
-}: {
+}:{
     color?: string
-}) => {
-    const { push, asPath, query } = useRouter()
-
-    React.useEffect(() => {
-        if (query && query.scrollTo) {
+})=>{
+    const {push, asPath, query} = useRouter()
+     
+    React.useEffect(()=>{
+        if(query && query.scrollTo){
             //@ts-ignore
             const element = document.getElementById(query.scrollTo)
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
+            if(element){
+                element.scrollIntoView({ behavior: "smooth"});
             }
 
         }
-    }, [query])
+    },[query])
 
 
     return <NavigationMenu>
         <NavigationMenuList>
-            {routes.map((r: any) => {
+            {routes.map((r: any)=>{
                 const isActive = asPath.replaceAll("/", "") === r.href.replaceAll("/", "")
                 return r.subMenus.length > 0 ? <NavigationMenuItem key={r.title}>
-                    <NavigationMenuTrigger className={`${color} bg-transparent`}>
-                        <Link className={`${isActive ? "border-b-2 border-b-orange-400" : ""} lg:text-lg bg-transparent`} href={r.href}>{r.title}</Link>
-                    </NavigationMenuTrigger>
-                    {r.subMenus.length > 0 && <NavigationMenuContent>
-                        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
-                            {r.displayImage && <li className="row-span-3">
-                                {r.displayImage}
-                            </li>}
-                            {r.subMenus.map((s: any) => {
-                                return <ListItem key={s.title} onClick={() => {
-                                    push(s.href)
-                                }} title={s.title}>
-                                    {s.desc}
-                                </ListItem>
-                            })}
-                        </ul>
-                    </NavigationMenuContent>}
-                </NavigationMenuItem> : <Link key={r.title} className={`${isActive ? "border-b-2 border-b-orange-400" : ""} lg:text-lg bg-transparent ${color} ${buttonVariants({ variant: "ghost" })}`} href={r.href}>
-                    {r.title}
-                </Link>
-
+                <NavigationMenuTrigger className={`${color} bg-transparent`}>
+                    <Link className={`${isActive ? "border-b-2 border-b-orange-400": ""} lg:text-lg bg-transparent`}href={r.href}>{r.title}</Link>
+                </NavigationMenuTrigger>
+                {r.subMenus.length > 0 && <NavigationMenuContent>
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] ">
+                        {r.displayImage && <li className="row-span-3">
+                            {r.displayImage} 
+                        </li>}
+                        {r.subMenus.map((s:any)=>{
+                            return <ListItem key={s.title} onClick={()=>{
+                                push(s.href)
+                            }} title={s.title}>
+                            {s.desc}
+                        </ListItem>
+                        })}  
+                    </ul>
+                </NavigationMenuContent>}
+            </NavigationMenuItem> : <Link className={`${isActive ? "border-b-2 border-b-orange-400": ""} lg:text-lg bg-transparent ${color} ${buttonVariants({variant:"ghost"})}`} href={r.href}>
+               {r.title}
+            </Link>
+            
             })}
-
+            
         </NavigationMenuList>
-
+        
     </NavigationMenu>
 }
 
 const ListItem = React.forwardRef<
-    React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
-    return (
-        <li>
-            <NavigationMenuLink asChild>
-                <a
-                    ref={ref}
-                    className={cn(
-                        "cursor-pointer block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                        className
-                    )}
-                    {...props}
-                >
-                    <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        {children}
-                    </p>
-                </a>
-            </NavigationMenuLink>
-        </li>
-    )
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "cursor-pointer block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
 })
 ListItem.displayName = "ListItem"
 
 
 
 export const SocialBtns = ({
-    size = "w-4 h-4 sm:w-6 sm-h-6",
-    show = "all"
-}: {
+    size= "w-4 h-4 sm:w-6 sm-h-6",
+    show="all"
+}:{
     size?: string,
     show?: string
-}) => {
+})=>{
     return <>
         <SocialBtn
             show={show === "all" || show.includes("facebook")}
@@ -342,27 +343,27 @@ export const SocialBtns = ({
 }
 
 const SocialBtn = ({
-    size,
-    title,
-    href,
+    size, 
+    title, 
+    href, 
     Icon,
     hoverColor,
     show
-}: {
-    size: string,
-    title: string,
-    href: string,
+}:{
+    size: string, 
+    title: string, 
+    href: string, 
     Icon: LucideIcon,
     hoverColor: string,
     show: boolean
-}) => {
+})=>{
     return show && <TooltipAbstraction
-        title={title}
-    >
-        <a href={href} target='__blank'>
-            <Icon className={`${size} cursor-pointer hover:${hoverColor}`} />
-        </a>
-    </TooltipAbstraction>
+    title={title}
+>
+    <a href={href} target='__blank'>
+        <Icon  className={`${size} cursor-pointer hover:${hoverColor}`} />
+    </a>
+</TooltipAbstraction>
 }
 
 export default Nav
