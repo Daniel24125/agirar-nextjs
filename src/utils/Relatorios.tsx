@@ -7,24 +7,24 @@ type TYearData = {
     [key: string]: TRelatorio[]
 }
 
-export const relatorios:TYearData = {
-    "2023":[
-          {
+export const relatorios: TYearData = {
+    "2023": [
+        {
             title: "Plano de ação 2023",
             file: "/relatorios/plano2023.pdf"
         },
-      
+
         {
             title: "Relatório de atividades 2023",
             file: "/relatorios/atividades2023.pdf"
         },
-          {
+        {
             title: "Relatório de contas 2023",
             file: "/relatorios/contas2023.pdf"
         },
-      
+
     ],
-    "2024":[
+    "2024": [
         {
             title: "Plano de ação 2024",
             file: "/relatorios/plano2024.pdf"
@@ -38,18 +38,24 @@ export const relatorios:TYearData = {
             file: "/relatorios/demonstracaoFinanceira2024.pdf"
         },
     ],
-    "2025":[
-        // {
-        //     title: "Tomada de Posse",
-        //     file: "/relatorios/tomadaPosse2025.pdf"
-        // },
-        // {
-        //     title: "Ata 22",
-        //     file: "/relatorios/ata22.pdf"
-        // },
+    "2025": [
         {
             title: "Plano de ação 2025",
             file: "/relatorios/plano2025.pdf"
+        },
+        {
+            title: "Relatório de atividades 2025",
+            file: "/relatorios/atividades2025.pdf"
+        },
+        {
+            title: "Relatório de contas 2025",
+            file: "/relatorios/demonstracaoFinanceira2025.pdf"
+        }
+    ],
+    "2026": [
+        {
+            title: "Plano de ação 2026",
+            file: "/relatorios/plano2026.pdf"
         },
     ]
 }
