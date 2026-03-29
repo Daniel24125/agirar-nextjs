@@ -34,7 +34,7 @@ export const relatorios: TYearData = {
             file: "/relatorios/atividades2024.pdf"
         },
         {
-            title: "Relatório de contas 2024",
+            title: "Demonstração Financeira 2024",
             file: "/relatorios/demonstracaoFinanceira2024.pdf"
         },
     ],
@@ -48,9 +48,13 @@ export const relatorios: TYearData = {
             file: "/relatorios/atividades2025.pdf"
         },
         {
-            title: "Relatório de contas 2025",
+            title: "Demonstração Financeira 2025",
             file: "/relatorios/demonstracaoFinanceira2025.pdf"
-        }
+        },
+        {
+            title: "Anexo da Demonstração Financeira 2025",
+            file: "/relatorios/anexoDemonstracaoFinanceira2025.pdf"
+        },
     ],
     "2026": [
         {
